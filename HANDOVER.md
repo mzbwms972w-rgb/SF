@@ -62,3 +62,9 @@
 - Проверка глазами: `https://htmlpreview.github.io/?https://github.com/mzbwms972w-rgb/SF/blob/main/<файл>` (либо GitHub Pages, если включим).
 - Состояние синхронизации: локальный `main` == `origin/main` (коммит клона `3462656` + эта памятка). 267 файлов: 27 выпусков в корне, `template_*.html`, `newsroom.html`, `assets/` (53 МБ, оригиналы+шрифты), `flyers/` (44 МБ, PNG-листовки + генераторы).
 - `ssss.txt` — пустая заглушка из старого репо, игнорировать.
+
+## 9.1 ОЧИСТКА АРХИВА 01.10.2026 (актуально для нового репо mzbwms972w-rgb/SF)
+- Удалены все выпуски, кроме свежего `fotoreport-avтомasterskaya-sf.html` и витринного `index.html`; удалены assets/, flyers/, template_*.html (не нужны — страницы самодостаточны через base64).
+- **РЕФЕРЕНС СОХРАНЁН**: каталог всех выпусков + формулы стилей — в `ARCHIVE-CATALOG.md` (читать вторым после этого файла). Полные HTML любых удалённых страниц — в git-истории: `git log --diff-filter=D --name-only` → `git show <коммит>:<файл>`.
+- photos принимаются в `uploads/` на GitHub → обрабатывать из cwd корня репо.
+- Публикация: remote origin = https://github.com/mzbwms972w-rgb/SF.git, ветка main; превью: https://mzbwms972w-rgb.github.io/SF/<файл>.html
