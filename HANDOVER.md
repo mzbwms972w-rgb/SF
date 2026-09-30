@@ -67,4 +67,5 @@
 - Удалены все выпуски, кроме свежего `fotoreport-avtomasterskaya-sf.html` и витринного `index.html`; удалены assets/, flyers/, template_*.html (не нужны — страницы самодостаточны через base64).
 - **РЕФЕРЕНС СОХРАНЁН**: каталог всех выпусков + формулы стилей — в `ARCHIVE-CATALOG.md` (читать вторым после этого файла). Полные HTML любых удалённых страниц — в git-истории: `git log --diff-filter=D --name-only` → `git show <коммит>:<файл>`.
 - photos принимаются в `uploads/` на GitHub → обрабатывать из cwd корня репо.
+- После использования фото ПЕРЕНОСИТЬ в `used/` с суффиксом выпуска (напр. `gallery681-avtomasterskaya.jpg`); `uploads/` всегда держать пустым (`.gitkeep`) для новых загрузок.
 - Публикация: remote origin = https://github.com/mzbwms972w-rgb/SF.git, ветка main; превью: https://mzbwms972w-rgb.github.io/SF/<файл>.html
