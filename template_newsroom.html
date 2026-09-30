@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Fierro News — Архив редакции: все выпуски ежедневной газеты</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+img{display:block;max-width:100%}
+:root{--bg:#e9f3e4;--bg2:#dcebd4;--paper:#fbfdf9;--ink:#1c2b1c;--ink80:rgba(28,43,28,.82);--ink60:rgba(28,43,28,.6);--green:#3f7d44;--green-d:#2c5a31;--green-l:#7fae83;--line:rgba(44,90,49,.28)}
+body{
+background:
+ radial-gradient(1000px 460px at 50% -80px, rgba(127,174,131,.28), transparent 70%),
+ repeating-linear-gradient(0deg, rgba(63,125,68,.05) 0 1px, transparent 1px 46px),
+ repeating-linear-gradient(90deg, rgba(63,125,68,.05) 0 1px, transparent 1px 46px),
+ var(--bg);
+color:var(--ink);font-family:"PT Serif",Georgia,"Times New Roman",serif;-webkit-font-size-adjust:100%;min-height:100vh}
+.oswald{font-family:"Oswald","Arial Narrow",sans-serif}
+.mono{font-family:"Space Mono",ui-monospace,"Courier New",monospace}
+.wrap{max-width:66rem;margin:0 auto;padding:0 1.5rem}
+.masthead{background:linear-gradient(180deg,var(--green-d),#234b28);color:#f2f8ee;border-bottom:4px solid var(--green-l)}
+.mastinner{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.3rem 1.5rem;max-width:66rem;margin:0 auto}
+.brand{font-family:"Oswald",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.25em;font-size:1rem}
+.brand em{font-style:normal;color:#bfe3b4}
+.tagline{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#bfe3b4;white-space:nowrap}
+.hero{margin-top:2.2rem;position:relative;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 40px rgba(44,90,49,.22);height:20rem;background:#101a12}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.9)}
+.heroglaze{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,18,12,.88),rgba(10,18,12,.30) 52%,rgba(10,18,12,.82))}
+.herobody{position:relative;height:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.2rem;padding:1.4rem 1.6rem}
+.logo{display:flex;align-items:center;gap:.95rem;color:#f2f8ee}
+.logo svg{width:66px;height:66px;flex:none;filter:drop-shadow(0 3px 10px rgba(0,0,0,.5))}
+.logoname{font-family:"Oswald",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:1.2rem;line-height:1.25;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.logoname span{display:block;font-family:"Space Mono",monospace;font-weight:400;font-size:.58rem;letter-spacing:.24em;color:#bfe3b4;margin-top:.35rem}
+.director{margin-left:auto;text-align:right}
+.dirname{font-family:"Oswald",sans-serif;font-weight:700;font-style:italic;text-transform:uppercase;font-size:clamp(1.5rem,4.5vw,2.5rem);color:#fff;letter-spacing:.02em;text-shadow:0 3px 16px rgba(0,0,0,.65)}
+.dirrole{font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:#d7e2d5;margin-top:.35rem}
+.dirrole b{color:#8fd694;font-weight:700}
+.kicker{margin-top:2rem;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green-d)}
+h1{margin:.9rem 0 0;font-family:"Oswald",sans-serif;font-weight:600;font-size:clamp(1.8rem,4.2vw,2.8rem);line-height:1.15;max-width:48rem}
+.lead{margin-top:1rem;font-size:1.02rem;line-height:1.75;color:var(--ink80);max-width:48rem}
+.stats{margin:1.4rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-d)}
+.stats span::before{content:"★ ";color:var(--green-l)}
+.sectionline{margin:2.6rem 0 1.3rem;display:flex;align-items:center;gap:.9rem;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:1.05rem;color:var(--green-d)}
+.sectionline::after{content:"";flex:1;height:1px;background:var(--line)}
+.cards{display:grid;grid-template-columns:1fr;gap:1.3rem}
+.card{background:var(--paper);border:1px solid var(--line);box-shadow:0 4px 16px rgba(44,90,49,.12);padding:1.2rem 1.2rem 1.1rem;position:relative;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s;display:block}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--stripe,var(--green))}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(44,90,49,.24)}
+.cardmeta{display:flex;justify-content:space-between;gap:1rem;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink60)}
+.cardmeta b{color:var(--green-d);font-weight:700}
+.cardtitle{margin-top:.6rem;font-family:"Oswald",sans-serif;font-weight:600;font-size:1.2rem;line-height:1.3}
+.carddesc{margin-top:.45rem;font-size:.9rem;line-height:1.6;color:var(--ink80);font-style:italic}
+.cardlink{margin-top:.8rem;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green-d);font-weight:700}
+.cardlink::after{content:" →"}
+footer{margin-top:3.4rem;background:linear-gradient(180deg,var(--green-d),#234b28);color:#dcebd4}
+.footinner{max-width:66rem;margin:0 auto;padding:2rem 1.5rem 3.4rem;text-align:center}
+footer p{font-size:.92rem;line-height:1.65}
+footer .copy{margin-top:1.3rem;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#bfe3b4}
+@media (min-width:48rem){
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .hero img{height:26rem}
+}
+
+.dateline{margin:1.6rem 0 .9rem;font-family:"Space Mono",monospace;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink60)}
+.badgerow{display:flex;justify-content:flex-end;margin:-.15rem 0 .55rem}
+.badge{font-family:"Space Mono",monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .5rem;border:1px solid;background:rgba(251,253,249,.92)}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="mastinner">
+    <div class="brand">San Fierro <em>News</em></div>
+    <div class="tagline mono">Архив редакции · штат San Andreas</div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <img class="bg" src="{{HERO}}" alt="Главное здание редакции San Fierro News">
+    <div class="heroglaze"></div>
+    <div class="herobody">
+      <div class="logo">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#8fd694" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="28" stroke-width="2.6"/><circle cx="32" cy="32" r="22.5" stroke-width="1.4"/><path d="M40 12.5 L51.5 24" stroke-width="1.4"/><text x="32" y="38.5" text-anchor="middle" font-family="Oswald, sans-serif" font-size="15" font-weight="700" letter-spacing="1" fill="#8fd694" stroke="none">SFN</text></g></svg>
+        <div class="logoname">San Fierro News<span>Независимая редакция</span></div>
+      </div>
+      <div class="director">
+        <div class="dirname">Danek Scammingshit</div>
+        <div class="dirrole">General Director · <b>San Fierro News</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="kicker mono">Редакционный архив · Ежедневный выпуск · ведётся с 23.09.2026</div>
+  <h1 class="oswald">Все выпуски газеты — в одном месте</h1>
+  <p class="lead">Здесь редакция <strong>San Fierro News</strong> хранит каждый номер, сошедший с пресса: от рекламных репортажей казино и больниц до хроники чрезвычайных событий и больших досье с закрытых территорий. Каждый выпуск бережно подшит в архив и не потеряется никогда: к любому номеру можно вернуться в любую минуту — и насладиться им за чашкой чая, совсем как в день его выхода.</p>
+  <div class="stats mono"><span>23 выпуска</span><span>174 кадра</span><span>3 города</span></div>
+
+    <div class="dateline">29 сентября 2026 · 8 выпусков · свежий номер</div>
+  <div class="cards">
+    <a class="card" style="--stripe:#d9a05b" href="fotoreport-abandoned-airport.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>29.09.2026</b><span>Las Venturas</span></div>
+      <div class="cardtitle">Кладбище самолётов пустыни</div>
+      <div class="carddesc">Заброшенный аэропорт Las Venturas: фюзеляжи среди скал, пустые ангары и аванпост со сторожевой вышкой.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#ff3d81" href="fotoreport-comedy-club.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>29.09.2026</b><span>Las Venturas</span></div>
+      <div class="cardtitle">Смех под лазерами</div>
+      <div class="carddesc">Один вечер в Comedy Club: лазеры, сцена за сеткой и бар, где смех — за счёт заведения.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#59c7de" href="fotoreport-tierra-robada.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>29.09.2026</b><span>Tierra Robada</span></div>
+      <div class="cardtitle">Округ, который не включает свет</div>
+      <div class="carddesc">Ночная Tierra Robada: склады у воды, трейлер-парк, гавань с маяком и пустые перекрёстки под луной.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#e07a3f" href="fotoreport-warlocks-mc.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>29.09.2026</b><span>Пустошь</span></div>
+      <div class="cardtitle">Где моторы громче слов</div>
+      <div class="carddesc">Внутри байк-клуба Warlocks MC: комната собраний, колонна на закате, концерт за сеткой и бар для своих.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#f2b23c" href="fotoreport-avtobazar-lv.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>29.09.2026</b><span>Las Venturas</span></div>
+      <div class="cardtitle">Главный автобазар штата</div>
+      <div class="carddesc">Las Venturas Car Market: сервисная зона, бирюзовые навесы, офис менеджера и aerial-разметка зон.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#4fb3a5" href="fotoreport-city-hall.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>29.09.2026</b><span>Los Santos</span></div>
+      <div class="cardtitle">Офис города изнутри</div>
+      <div class="carddesc">City Hall: приёмная под баннером, биржа труда, стена мониторинга и архив за сеткой.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#e0483e" href="fotoreport-four-dragons.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>29.09.2026</b><span>Las Venturas</span></div>
+      <div class="cardtitle">Драконы проснулись</div>
+      <div class="carddesc">The Four Dragons после техобслуживания: арка PLAY AGAIN SOON, ночная пагода, ресторан, slot-машины и бар.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#6fd6e8" href="fotoreport-evolve-hotel.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>29.09.2026</b><span>Las Venturas</span></div>
+      <div class="cardtitle">Пять звёзд над городом</div>
+      <div class="carddesc">Evolve Five Stars Hotel: башня The Visage, неоновый паркинг, люкс с алмазной панелью и мраморное лобби.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+  </div>
+  <div class="dateline">28 сентября 2026 · 1 выпуск</div>
+  <div class="cards">
+    <a class="card" style="--stripe:#ff3d81" href="daily-28-09-2026.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>28.09.2026</b><span>Los Santos — Las Venturas</span></div>
+      <div class="cardtitle">День, когда город не спал</div>
+      <div class="carddesc">Перестрелка в банке и оцепление с погибшим, убийство медика у борта 42, тело посреди улицы и кровавая сделка на АвтоБазаре.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+  </div>
+  <div class="dateline">27 сентября 2026 · 1 выпуск</div>
+  <div class="cards">
+    <a class="card" style="--stripe:#12a5c9" href="daily-27-09-2026.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>27.09.2026</b><span>Las Venturas</span></div>
+      <div class="cardtitle">Espo 24-7: $8.100.000 с молотка</div>
+      <div class="carddesc">Рекордный аукцион, техобслуживание The Four Dragons, полный зал Caligula's, потасовка у заправки и убийство-ограбление у казино.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+  </div>
+  <div class="dateline">26 сентября 2026 · 1 выпуск</div>
+  <div class="cards">
+    <a class="card" style="--stripe:#a32620" href="daily-26-09-2026.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>26.09.2026</b><span>Los Santos · Las Venturas</span></div>
+      <div class="cardtitle">Медосмотр, хаос и аукцион</div>
+      <div class="carddesc">Медосмотр SFPD в госпитале Los Santos, вертолёты на тротуаре у The Four Dragons, убийство офицера LVPD и торги за Sugar 24-7.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+  </div>
+  <div class="dateline">25 сентября 2026 · 2 выпуска</div>
+  <div class="cards">
+    <a class="card" style="--stripe:#d4483e" href="zone51-investigation.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>25.09.2026</b><span>Las Venturas</span></div>
+      <div class="cardtitle">Зона 51: что скрыто под пустыней</div>
+      <div class="carddesc">Ночное расследование Jonny Wilde: 20 кадров закрытой базы армии Las Venturas — от парадной дорожки до операционных под землёй.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+  </div>
+  <div class="dateline">24 сентября 2026 · 5 выпусков</div>
+  <div class="cards">
+    <a class="card" style="--stripe:#6d2836" href="wedding-ozzy-gulnara.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>24.09.2026</b><span>San Fierro</span></div>
+      <div class="cardtitle">Два крыла, одна клятва</div>
+      <div class="carddesc">Свадьба года: церемония в церкви San Fierro и празднование в клубе Malibu на пирсе пляжа Santa Maria (Los Santos) — все 12 кадров торжества.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#35b89a" href="opg-leader-interview.html">
+      <div class="badgerow"><span class="badge" style="color:#b23a34;border-color:#b23a34">Статья</span></div>
+      <div class="cardmeta mono"><b>24.09.2026</b><span>Los Santos</span></div>
+      <div class="cardtitle">«Зовите меня просто Аноним»</div>
+      <div class="carddesc">Один день с Падре ОПГ на условии анонимности: стены территорий, склад, такси за наличные и деловой разговор на грани.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#a32620" href="daily-24-09-2026.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>24.09.2026</b><span>San Fierro</span></div>
+      <div class="cardtitle">Траурный номер: убит Главный редактор</div>
+      <div class="carddesc">Резонансное убийство у офиса редакции, подрыв автомобиля в Los Santos и лихорадка авторынка: аналитика игромании с советом редакции.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#f2a33c" href="sfpd-patrol-falk.html">
+      <div class="badgerow"><span class="badge" style="color:#b23a34;border-color:#b23a34">Статья</span></div>
+      <div class="cardmeta mono"><b>24.09.2026</b><span>San Fierro</span></div>
+      <div class="cardtitle">Позывной «Falks»</div>
+      <div class="carddesc">Одна смена с семейным патрулём SFPD Yulia и Rauf Falk: штраф без номеров, задержание с оружием, кофе у Cluckin' Bell и пешеходный переход.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#16283c" href="sfpd-precinct.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>24.09.2026</b><span>San Fierro</span></div>
+      <div class="cardtitle">Под звездой департамента</div>
+      <div class="carddesc">Пресс-тур по участку SFPD с майором Felix Akana: Детективное Бюро, камеры, тир и автопарк — 19 кадров дела SFN-2609-24.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+  </div>
+  <div class="dateline">23 сентября 2026 · 6 выпусков</div>
+  <div class="cards">
+    <a class="card" style="--stripe:#b23a34" href="index.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>23.09.2026</b><span>Los Santos</span></div>
+      <div class="cardtitle">Ваша удача уже заняла стол</div>
+      <div class="carddesc">Рекламный репортаж из казино Chinatown: портал с драконом, бар, залы и slot-машины, сияющие до рассвета.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#2a6f97" href="driving-school.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>23.09.2026</b><span>Los Santos</span></div>
+      <div class="cardtitle">Больше скорости — меньше суеты</div>
+      <div class="carddesc">Как Driving School воспитывает водителей города: ресепшен, класс теории с формулой MSLH и экзаменационный класс.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#c9a227" href="caligulas-casino.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>23.09.2026</b><span>Las Venturas</span></div>
+      <div class="cardtitle">Империя удачи</div>
+      <div class="carddesc">Один вечер в казино Caligula's: мрамор, золото, рулетки и золочёные алтари slot-машин — в «дизайне азарта».</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#0e8a8a" href="all-saints-hospital.html">
+      <div class="badgerow"><span class="badge" style="color:#3f7d44;border-color:#3f7d44">Фоторепортаж</span></div>
+      <div class="cardmeta mono"><b>23.09.2026</b><span>Los Santos</span></div>
+      <div class="cardtitle">Белый форпост города</div>
+      <div class="carddesc">Один день в All Saints General Hospital: ресепшен, палаты, кабинет главврача — на светлом медицинском оформлении.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#e63946" href="sf-police-raid.html">
+      <div class="badgerow"><span class="badge" style="color:#b23a34;border-color:#b23a34">Статья</span></div>
+      <div class="cardmeta mono"><b>23.09.2026</b><span>San Fierro</span></div>
+      <div class="cardtitle">День, когда учения стали боем</div>
+      <div class="carddesc">Хроника штурма департамента полиции: снайперы на крышах, вертолёт SAPD и силуэты на тросах моста.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+    <a class="card" style="--stripe:#4d5640" href="sf-army-base.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>23.09.2026</b><span>San Fierro</span></div>
+      <div class="cardtitle">За стеной «San Fierro Army»</div>
+      <div class="carddesc">Большой репортаж в пяти разделах: КПП, казармы, боевая подготовка, арсенал и авиация с флотом — 15 кадров-улик.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
+  </div>
+</main>
+<footer>
+  <div class="footinner">
+    <p>Архив ведёт редакция <strong>San Fierro News</strong>: каждый новый номер поступает в подшивку в день публикации и остаётся в ней навсегда.</p>
+    <p class="copy mono">© 2026 SF News Corp. · Ежедневный выпуск · San Fierro — Los Santos — Las Venturas</p>
+  </div>
+
+</footer>
+
+</body>
+</html>

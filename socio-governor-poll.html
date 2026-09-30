@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Fierro News — Социологическое исследование: «Вы довольны новым губернатором?»</title>
+<meta name="description" content="Социологическое исследование редакции San Fierro: 24 интервью, 22 уникальных ответа. Введение, методология, таблицы, диаграммы, дословный реестр цитат, анализ, заключение и рекомендации.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#edf0f3;--card:#fbfcfd;--ink:#141c26;--mut:#5b6673;--line:#d3dae1;--blue:#1f4e79;--pos:#2e7d4f;--neg:#c0392b;--neu:#7a8494}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:repeating-linear-gradient(0deg,rgba(31,78,121,.06) 0 1px,transparent 1px 30px),repeating-linear-gradient(90deg,rgba(31,78,121,.06) 0 1px,transparent 1px 30px),var(--paper);color:var(--ink);font-family:"PT Serif",Georgia,serif}
+.mono{font-family:"PT Mono",ui-monospace,monospace}
+.osw{font-family:"Oswald","Arial Narrow",sans-serif}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+.topbar{background:var(--ink);color:#e8edf2;padding:.6rem 0}
+.topbar .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase}
+.topbar b{color:#8fd0a4}
+.mast{display:flex;justify-content:space-between;align-items:center;gap:1.2rem;padding:1.5rem 0;border-bottom:3px double var(--ink)}
+.mastleft{display:flex;align-items:center;gap:1rem}
+.monogram{width:58px;height:58px;background:var(--blue);color:#fff;display:grid;place-items:center;font-family:"Oswald",sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.06em;box-shadow:4px 4px 0 var(--ink);flex:none}
+.mastname{font-family:"Oswald",sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:.16em;text-transform:uppercase}
+.mastsub{font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-top:.3rem}
+.chip{font-family:"PT Mono",monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(31,78,121,.4);background:rgba(31,78,121,.06);border-radius:999px;padding:.45rem .9rem;white-space:nowrap}
+.kchip{display:inline-flex;margin-top:3rem;font-family:"PT Mono",monospace;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:var(--blue);padding:.5rem 1rem;border-radius:4px}
+h1{font-family:"Oswald",sans-serif;font-weight:700;font-size:clamp(1.9rem,4.6vw,3.2rem);line-height:1.12;margin:1.2rem 0 0;max-width:52rem;text-transform:uppercase;letter-spacing:.01em}
+h1 span{color:var(--blue)}
+.lead{margin-top:1.4rem;font-size:1.05rem;line-height:1.85;color:var(--mut);max-width:56rem}
+.lead b{color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:2.6rem}
+.kpi{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--blue);padding:1.2rem 1.3rem;box-shadow:0 10px 26px -18px rgba(20,28,38,.5)}
+.kpi .n{font-family:"Oswald",sans-serif;font-weight:700;font-size:2.5rem;line-height:1;color:var(--ink)}
+.kpi .l{margin-top:.5rem;font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);line-height:1.7}
+.kpi.p{border-top-color:var(--pos)}.kpi.r{border-top-color:var(--neg)}.kpi.s{border-top-color:var(--neu)}
+.sec{display:flex;align-items:center;gap:1rem;margin:4.2rem 0 1.6rem}
+.sec .no{font-family:"PT Mono",monospace;font-size:.66rem;letter-spacing:.2em;color:#fff;background:var(--ink);padding:.4rem .6rem;border-radius:4px}
+.sec h2{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.35rem;text-transform:uppercase;letter-spacing:.06em}
+.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid2{display:grid;grid-template-columns:1fr;gap:2.4rem}
+.panel{background:var(--card);border:1px solid var(--line);padding:1.6rem 1.6rem 1.4rem;box-shadow:0 14px 34px -22px rgba(20,28,38,.5)}
+.panel h3{font-family:"Oswald",sans-serif;font-weight:600;font-size:.95rem;text-transform:uppercase;letter-spacing:.1em;color:var(--blue)}
+.figcap{margin-top:1.1rem;font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.tblwrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th{font-family:"PT Mono",monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);text-align:left;padding:.6rem .8rem;border-bottom:2px solid var(--ink)}
+td{padding:.7rem .8rem;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(31,78,121,.05)}
+td.num,th.num{text-align:right;font-family:"PT Mono",monospace}
+.g{display:inline-block;font-family:"PT Mono",monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;border-radius:4px;padding:.24rem .5rem;white-space:nowrap}
+.g.pos{background:var(--pos)}.g.neg{background:var(--neg)}.g.neu{background:var(--neu)}
+.q{font-style:italic;color:var(--ink)}
+.fn{color:var(--mut);font-size:.8rem;font-style:italic}
+.donutwrap{position:relative;width:250px;max-width:70%;margin:1.4rem auto 0}
+.donut{width:100%;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--pos) 0 50%,var(--neg) 50% 72.7%,var(--neu) 72.7% 100%);-webkit-mask:radial-gradient(circle,transparent 57%,#000 58%);mask:radial-gradient(circle,transparent 57%,#000 58%)}
+.donutc{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.donutc .n{font-family:"Oswald",sans-serif;font-weight:700;font-size:2.6rem;line-height:1}
+.donutc .l{font-family:"PT Mono",monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-top:.3rem}
+.legend{margin:1.4rem auto 0;max-width:22rem;display:grid;gap:.55rem}
+.legend .row{display:flex;align-items:center;gap:.7rem;font-size:.88rem}
+.legend .sw{width:.85rem;height:.85rem;border-radius:3px;flex:none}
+.legend .row b{margin-left:auto;font-family:"PT Mono",monospace;font-size:.8rem}
+.bars{margin-top:1.4rem;display:grid;gap:1rem}
+.bar .top{display:flex;justify-content:space-between;font-family:"PT Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:.4rem}
+.bar .track{height:26px;background:rgba(20,28,38,.07);border:1px solid var(--line);position:relative}
+.bar .fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:.5rem;color:#fff;font-family:"PT Mono",monospace;font-size:.66rem}
+.stack{display:flex;height:40px;margin-top:1.4rem;border:1px solid var(--line)}
+.stack div{display:grid;place-items:center;color:#fff;font-family:"PT Mono",monospace;font-size:.66rem}
+.cards3{display:grid;grid-template-columns:1fr;gap:1.6rem;margin-top:1.8rem}
+.pcard{background:var(--card);border:1px solid var(--line);border-top:6px solid var(--c);padding:1.5rem 1.5rem 1.4rem;box-shadow:0 14px 34px -22px rgba(20,28,38,.5)}
+.pcard .big{font-family:"Oswald",sans-serif;font-weight:700;font-size:2.2rem;color:var(--c);line-height:1}
+.pcard .sub{font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-top:.4rem}
+.pcard blockquote{margin-top:1.1rem;font-style:italic;font-size:.95rem;line-height:1.75;color:var(--ink)}
+.pcard .who{margin-top:.7rem;font-family:"PT Mono",monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.note{margin-top:2rem;border-left:5px solid var(--blue);background:var(--card);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.5rem 1.7rem}
+.note p{font-size:.98rem;line-height:1.85;color:var(--mut)}
+.note p b{color:var(--ink)}
+.method{margin-top:1.6rem;font-family:"PT Mono",monospace;font-size:.7rem;line-height:2;color:var(--mut);letter-spacing:.04em}
+.method b{color:var(--ink)}
+.hubline{margin:3.6rem 0 3.8rem;text-align:center}
+.hubbtn{display:inline-block;padding:.8rem 1.5rem;border:1px solid var(--blue);color:var(--blue);border-radius:999px;text-decoration:none;font-family:"PT Mono",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;position:relative;box-shadow:0 0 22px -6px var(--blue);transition:.25s;background:var(--card)}
+.hubbtn::after{content:"";position:absolute;left:12%;right:12%;bottom:-10px;height:6px;border-radius:50%;background:var(--blue);filter:blur(8px);opacity:.45}
+.hubbtn:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+footer{background:var(--ink);color:#c6d0da;padding:2.2rem 0 3rem;text-align:center}
+footer p{font-size:.9rem;line-height:1.7}
+footer .copy{margin-top:1.2rem;font-family:"PT Mono",monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#8794a2}
+@media(min-width:52rem){
+ .kpis{grid-template-columns:repeat(4,1fr)}
+ .grid2{grid-template-columns:1fr 1fr}
+ .cards3{grid-template-columns:repeat(3,1fr)}
+}
+
+.passport{margin-top:2.2rem;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--ink);padding:1.1rem 1.4rem;box-shadow:0 14px 34px -24px rgba(20,28,38,.5)}
+.passport .prow{display:grid;grid-template-columns:1fr;gap:.15rem;padding:.55rem 0;border-bottom:1px dashed var(--line)}
+.passport .prow:last-child{border-bottom:none}
+.passport .k{font-family:"PT Mono",monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.passport .v{font-size:.96rem;line-height:1.6}
+.prose{max-width:60rem}
+.prose p{font-size:1rem;line-height:1.9;margin-top:1rem}
+.prose p:first-child{margin-top:0}
+.prose b{color:var(--ink)}
+.deflist{margin-top:.4rem}
+.deflist .drow{display:grid;grid-template-columns:1fr;gap:.25rem;padding:.9rem 0;border-bottom:1px dashed var(--line)}
+.deflist .drow:last-child{border-bottom:none}
+.deflist .k{font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.deflist .v{font-size:.97rem;line-height:1.8}
+.tasks{margin:.3rem 0 0 1.3rem;font-size:.95rem;line-height:1.9}
+.tasks li{margin-top:.15rem}
+.rawlist{margin-top:1.4rem;display:grid;gap:.75rem}
+.rawlist .item{display:flex;gap:1rem;align-items:baseline;background:var(--card);border:1px solid var(--line);padding:.95rem 1.15rem}
+.rawlist .n{font-family:"Oswald",sans-serif;font-weight:700;font-size:1.7rem;color:var(--c);flex:none;min-width:2.4rem;line-height:1}
+.rawlist .t{font-size:.95rem;line-height:1.65}
+.point{margin-top:1.8rem}
+.point:first-of-type{margin-top:.4rem}
+.point .ph{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+.point .pn{font-family:"PT Mono",monospace;font-size:.64rem;color:#fff;background:var(--c,var(--blue));padding:.32rem .6rem;border-radius:4px;letter-spacing:.1em;flex:none}
+.point .pt{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.06rem;text-transform:uppercase;letter-spacing:.04em}
+.point p{margin-top:.75rem;font-size:.99rem;line-height:1.9}
+.reclist{margin-top:1.4rem;display:grid;gap:1rem}
+.reclist .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);padding:1.05rem 1.25rem}
+.reclist .rec .who{font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.reclist .rec .txt{margin-top:.5rem;font-size:.97rem;line-height:1.85}
+.sign{margin-top:2.6rem;text-align:right;font-family:"Oswald",sans-serif;font-weight:600;font-size:1.02rem;letter-spacing:.05em;text-transform:uppercase}
+.sign .role{display:block;font-family:"PT Mono",monospace;font-weight:400;font-size:.6rem;letter-spacing:.18em;color:var(--mut);text-transform:uppercase;margin-bottom:.35rem}
+@media(min-width:52rem){
+ .passport .prow{grid-template-columns:15rem 1fr;gap:1rem;align-items:baseline}
+ .deflist .drow{grid-template-columns:16rem 1fr;gap:1.2rem}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span>Социологическое исследование · полевой опрос</span><span>Штат <b>San Andreas</b> · возврат 100%</span></div></div>
+<div class="wrap">
+<header class="mast">
+  <div class="mastleft">
+    <div class="monogram osw">SFN</div>
+    <div><div class="mastname">San Fierro News</div><div class="mastsub">Отдел социологии редакции</div></div>
+  </div>
+  <div class="chip">Спецвыпуск · 30.09.2026</div>
+</header>
+
+<div class="kchip mono">Опрос проводит: Редакция San Fierro</div>
+<h1>«Вы довольны <span>новым губернатором</span>?»</h1>
+<p class="lead">Редакция San Fierro News вышла на улицы штата <b>San Andreas</b> с одним стандартизированным вопросом и вернулась с полным полевым протоколом: <b>24 интервью, 22 уникальных ответа</b> после исключения повторных записей. Ниже — исследование целиком, по академической структуре редакции: введение, методология, полученные результаты, дословный реестр цитат, анализ, заключение и рекомендации — от восторженного «конечно, я сам за него голосовал» до честного «не знаю, кто он».</p>
+
+<div class="passport">
+  <div class="prow"><span class="k">Тема</span><span class="v">Анализ уровня удовлетворённости граждан штата деятельностью нового губернатора.</span></div>
+  <div class="prow"><span class="k">Организация</span><span class="v">Редакция San Fierro News.</span></div>
+  <div class="prow"><span class="k">Автор исследования</span><span class="v">Jonny Wilde, корреспондент San Fierro News.</span></div>
+  <div class="prow"><span class="k">Дата публикации</span><span class="v">30 сентября 2026 года.</span></div>
+</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="n">22</div><div class="l">уникальных ответа учтено · 24 интервью · возврат 100%</div></div>
+  <div class="kpi p"><div class="n">50%</div><div class="l">довольны губернатором · 11 отметок</div></div>
+  <div class="kpi r"><div class="n">23%</div><div class="l">не довольны · 5 отметок</div></div>
+  <div class="kpi s"><div class="n">27%</div><div class="l">воздержались от оценки · 6 отметок</div></div>
+</div>
+
+<div class="sec"><span class="no">01</span><h2>Введение</h2></div>
+<div class="prose">
+  <p>Смена власти — всегда момент повышенной общественной чувствительности. Новый губернатор штата San Andreas только вступил в должность: у граждан ещё не сложилось полного представления о его программе, стиле руководства и первых решениях, а первые заявления и назначения уже вызывают на улицах живую реакцию — от воодушевления до откровенного скепсиса. В таких условиях особенно важно понять, какие настроения преобладают среди жителей штата на старте срока.</p>
+  <p>Редакция San Fierro News инициировала данное социологическое исследование с целью выяснить, как сами граждане оценивают нового главу штата. Понимание общественного мнения по этому вопросу необходимо для формирования объективной картины политических настроений, выявления групп поддержки и критики, а также для обеспечения обратной связи между властью и жителями штата.</p>
+</div>
+
+<div class="sec"><span class="no">02</span><h2>Методология и организация исследования</h2></div>
+<div class="panel">
+  <div class="deflist">
+    <div class="drow"><span class="k">Цель исследования</span><span class="v">Определить уровень удовлетворённости граждан штата деятельностью нового губернатора, а также выявить соотношение положительных, отрицательных и уклончивых оценок.</span></div>
+    <div class="drow"><span class="k">Задачи исследования</span><span class="v"><ol class="tasks">
+      <li>провести количественную обработку полученных ответов;</li>
+      <li>определить долю каждой группы ответов;</li>
+      <li>представить результаты в виде таблиц и диаграмм;</li>
+      <li>сформулировать итоговый вывод и рекомендации по результатам исследования.</li>
+    </ol></span></div>
+    <div class="drow"><span class="k">Объект исследования</span><span class="v">Общественное мнение граждан штата San Andreas.</span></div>
+    <div class="drow"><span class="k">Предмет исследования</span><span class="v">Оценка гражданами нового губернатора штата на старте его работы.</span></div>
+    <div class="drow"><span class="k">Гипотеза</span><span class="v">Предполагается, что большинство граждан довольно новым губернатором, однако существует заметная группа критически настроенных жителей и значительная доля тех, кто ещё не сформировал мнение о новом главе штата.</span></div>
+    <div class="drow"><span class="k">Метод сбора информации</span><span class="v">Личный опрос (интервьюирование) в формате случайной выборки.</span></div>
+    <div class="drow"><span class="k">Инструментарий</span><span class="v">Гражданам задавался стандартизированный вопрос: <b>«Вы довольны новым губернатором?»</b> Ответ записывался корреспондентом дословно.</span></div>
+    <div class="drow"><span class="k">Выборка</span><span class="v">В исследовании приняли участие <b>24 гражданина</b> штата, представляющих различные социальные и профессиональные группы — от наёмных работников и предпринимателей до недавно прибывших в штат жителей. Возврат опроса составил 100%: ни одно интервью не осталось без ответа. В статистику включены <b>22 уникальных ответа</b> (см. «Особенности обработки данных»).</span></div>
+    <div class="drow"><span class="k">Особенности обработки данных</span><span class="v">В ходе опроса большинство граждан давали краткие ответы; все они зафиксированы и учтены при обработке. В протоколе выявлены <b>две повторные записи</b>: гражданин Mister Cooper ответил на вопрос дважды, и респондент, пожелавший остаться неизвестным, продублировал свой ответ. Повторные записи <b>исключены из статистики</b> — за гражданином Mister Cooper сохранён наиболее полный ответ, дублирующая запись неизвестного респондента снята с учёта. Итого обработано <b>22 уникальных ответа</b>; все доли рассчитаны от этой базы. Орфография и пунктуация цитат сохранены по протоколу без изменений.</span></div>
+  </div>
+</div>
+
+<div class="sec"><span class="no">03</span><h2>Полученные результаты</h2></div>
+<div class="prose"><p>Первичные данные опроса распределились следующим образом:</p></div>
+<div class="rawlist">
+  <div class="item" style="--c:var(--pos)"><span class="n">11</span><span class="t"><b>Положительный ответ</b> («Да», «Конечно», «Допустим», «Да, очень довольна») — 11 отметок.</span></div>
+  <div class="item" style="--c:var(--neg)"><span class="n">5</span><span class="t"><b>Отрицательный ответ</b> («Нет», «Нет, не доволен», «Не особо») — 5 отметок.</span></div>
+  <div class="item" style="--c:var(--neu)"><span class="n">6</span><span class="t"><b>Уклончивый / нейтральный ответ</b> («Не знаю кто он», «Могу», «Недавно приехал») — 6 отметок.</span></div>
+</div>
+
+<div class="grid2" style="margin-top:2.2rem">
+  <div class="panel">
+    <h3>Таблица 1 · Распределение ответов граждан</h3>
+    <div class="tblwrap" style="margin-top:1rem">
+    <table>
+      <thead><tr><th>Вариант ответа</th><th class="num">Отметок</th><th class="num">Доля</th><th class="num">Округл.</th></tr></thead>
+      <tbody>
+        <tr><td><span class="g pos">Положительно</span><br><span class="fn">Да / доволен</span></td><td class="num">11</td><td class="num">50,0%</td><td class="num">50%</td></tr>
+        <tr><td><span class="g neg">Отрицательно</span><br><span class="fn">Нет / не доволен</span></td><td class="num">5</td><td class="num">22,7%</td><td class="num">≈23%</td></tr>
+        <tr><td><span class="g neu">Уклончиво</span><br><span class="fn">нейтральные / «не знаю»</span></td><td class="num">6</td><td class="num">27,3%</td><td class="num">≈27%</td></tr>
+        <tr><td><b>Итого</b></td><td class="num"><b>22</b></td><td class="num"><b>100,0%</b></td><td class="num"><b>100%</b></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="figcap">Таблица 1 · доли считаются от 22 уникальных ответов; 2 повторные записи исключены</div>
+  </div>
+  <div class="panel">
+    <h3>Рис. 1 · Структура ответов</h3>
+    <div class="donutwrap"><div class="donut"></div><div class="donutc"><div class="n">22</div><div class="l">ответа учтено</div></div></div>
+    <div class="legend">
+      <div class="row"><span class="sw" style="background:var(--pos)"></span>Довольны<span><b>11 · 50,0%</b></span></div>
+      <div class="row"><span class="sw" style="background:var(--neg)"></span>Не довольны<span><b>5 · 22,7%</b></span></div>
+      <div class="row"><span class="sw" style="background:var(--neu)"></span>Уклончивые<span><b>6 · 27,3%</b></span></div>
+    </div>
+    <div class="figcap">Рис. 1 · кольцевая диаграмма, % от числа учтённых ответов</div>
+  </div>
+</div>
+
+<div class="grid2" style="margin-top:2.4rem">
+  <div class="panel">
+    <h3>Рис. 2 · Группы в штуках</h3>
+    <div class="bars">
+      <div class="bar"><div class="top"><span>Положительные · 11</span><span>50,0%</span></div><div class="track"><div class="fill" style="width:50%;background:var(--pos)">11</div></div></div>
+      <div class="bar"><div class="top"><span>Отрицательные · 5</span><span>22,7%</span></div><div class="track"><div class="fill" style="width:22.7%;background:var(--neg)">5</div></div></div>
+      <div class="bar"><div class="top"><span>Уклончивые · 6</span><span>27,3%</span></div><div class="track"><div class="fill" style="width:27.3%;background:var(--neu)">6</div></div></div>
+    </div>
+    <div class="figcap">Рис. 2 · длина полосы = доля группы</div>
+  </div>
+  <div class="panel">
+    <h3>Рис. 3 · Единая лента ответов (100%)</h3>
+    <div class="stack">
+      <div style="width:50%;background:var(--pos)">50%</div>
+      <div style="width:22.7%;background:var(--neg)">23%</div>
+      <div style="width:27.3%;background:var(--neu)">27%</div>
+    </div>
+    <h3 style="margin-top:2rem">Таблица 2 · Почему молчат уклончивые</h3>
+    <div class="tblwrap" style="margin-top:.9rem">
+    <table>
+      <thead><tr><th>Причина (кодировка редакции)</th><th class="num">Ответов</th></tr></thead>
+      <tbody>
+        <tr><td>Недавно в штате, не успел ознакомиться</td><td class="num">2</td></tr>
+        <tr><td>Не знает, кто такой губернатор</td><td class="num">2</td></tr>
+        <tr><td>Идейная позиция («за власть коммунистам»)</td><td class="num">1</td></tr>
+        <tr><td>Ответ без однозначной оценки («могу»)</td><td class="num">1</td></tr>
+        <tr><td><b>Итого уклончивых</b></td><td class="num"><b>6</b></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="figcap">Рис. 3 и таблица 2 · лента 100% сверху; кодировка цитат — оценка редакции</div>
+  </div>
+</div>
+
+<div class="prose" style="margin-top:2.2rem">
+  <p>Диаграммы наглядно демонстрируют, что наибольшее количество отметок приходится на положительный ответ — <b>11 из 22</b>. Таким образом, ровно половина опрошенных жителей штата довольна новым губернатором; каждая четвёртая отметка — критическая, и ещё свыше четверти выборки пока не готова дать оценку.</p>
+</div>
+
+<div class="sec"><span class="no">04</span><h2>Анализ результатов</h2></div>
+<div class="prose"><p>Анализ полученных данных позволяет сделать следующие выводы:</p></div>
+<div class="prose">
+  <div class="point" style="--c:var(--pos)">
+    <div class="ph"><span class="pn">50%</span><span class="pt">Ровно половина выборки — «за»</span></div>
+    <p>11 граждан ответили положительно, и разброс формулировок показателен сам по себе: от лаконичного «Да» (Serg Richardson, Win Holland, Mika Garcia, Rayan Krause, Alex Severniy) и сдержанного «Допустим» (Viktor Ewergarden) до эмоционального «Да, очень довольна» (Tania Vilock). Наиболее развёрнутую поддержку выразил Otto Wachter: <span class="q">«Конечно! Я сам за него голосовал. Это пацан, на которого можно положиться»</span>. Это свидетельствует о наличии у губернатора устойчивого электорального ядра — граждан, которые голосовали за него и готовы дать кредит доверия на старте работы. Martin Corse и Artem Stoun также подтвердили поддержку без колебаний («Конечно, да», «Конечно»).</p>
+  </div>
+  <div class="point" style="--c:var(--neg)">
+    <div class="ph"><span class="pn">23%</span><span class="pt">Заметная критическая группа</span></div>
+    <p>5 граждан дали отрицательный ответ. Претензии носят и личный, и системный характер: Mister Cooper заявил, что не доволен ни самим руководителем, ни «его руководством»; Milis Aliev сопроводил отказ развёрнутым комментарием, нецензурная часть которого в публикацию не включена; Neon ограничился сдержанным <span class="q">«Не особо»</span>; Feitan Broodfather и Gigi Pump ответили коротким «нет». Доля критики в ≈23% на старте срока — достаточно высокий показатель: почти каждый четвёртый опрошенный уже сейчас настроен к новому губернатору негативно, и администрации не стоит это игнорировать.</p>
+  </div>
+  <div class="point" style="--c:var(--neu)">
+    <div class="ph"><span class="pn">27%</span><span class="pt">«Зона молчания»: уклончивые ответы</span></div>
+    <p>6 граждан воздержались от оценки, и главная причина — низкая информированность. Mustafa Mokrani и Dan Mellow признались, что недавно приехали в штат и ещё не знакомы с губернатором; Неизвестный респондент и Mailo Solovyev прямо заявили, что не знают, кто он такой. Отдельно стоят идейная позиция Michael German (<span class="q">«Не, я за власть коммунистам!»</span>) и уклончивое «Могу» (Mory). Фактически свыше четверти выборки — это резерв неопределившихся, который может качнуться в любую сторону по мере того, как губернатор будет заявлять о себе реальными делами.</p>
+  </div>
+  <div class="point" style="--c:var(--blue)">
+    <div class="ph"><span class="pn">50/23/27</span><span class="pt">Синтез</span></div>
+    <p>Расклад «50 / 23 / 27» показывает: у нового губернатора есть прочная база поддержки, заметная критическая группа и крупный сегмент неопределившихся — прежде всего новых жителей штата, которые ещё не успели составить мнение о власти. Борьба за этот сегмент и станет главным политическим сюжетом первых месяцев его работы.</p>
+  </div>
+</div>
+
+<h3 class="osw" style="margin:2.6rem 0 0;font-size:.95rem;text-transform:uppercase;letter-spacing:.1em;color:var(--blue)">Портреты групп</h3>
+<div class="cards3">
+  <div class="pcard" style="--c:var(--pos)"><div class="big">50%</div><div class="sub">11 ответов · «да»</div><blockquote>«Конечно! Я сам за него голосовал. Это пацан, на которого можно положиться.»</blockquote><div class="who">— Otto Wachter, респондент №10</div></div>
+  <div class="pcard" style="--c:var(--neg)"><div class="big">23%</div><div class="sub">5 ответов · «нет»</div><blockquote>«Нет не доволен отрицательный человек и его руководство.»</blockquote><div class="who">— Mister Cooper, респондент №14</div></div>
+  <div class="pcard" style="--c:var(--neu)"><div class="big">27%</div><div class="sub">6 ответов · уклончивые</div><blockquote>«Незнаю, я не давно приехал в штат.»</blockquote><div class="who">— Dan Mellow, респондент №22</div></div>
+</div>
+
+<div class="sec"><span class="no">05</span><h2>Реестр ответов · дословно</h2></div>
+<div class="panel">
+  <h3>Таблица 3 · Протокол опроса, 22 учтённые записи</h3>
+  <div class="tblwrap" style="margin-top:1rem">
+  <table>
+    <thead><tr><th class="num">№</th><th>Респондент</th><th>Цитата</th><th>Группа</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Serg Richardson</td><td class="q">«Да»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">2</td><td>Win Holland</td><td class="q">«Да»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">3</td><td>Mika Garcia</td><td class="q">«Да»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">4</td><td>Rayan Krause</td><td class="q">«Да»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">5</td><td>Viktor Ewergarden</td><td class="q">«Допустим»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">6</td><td>Alex Severniy</td><td class="q">«Да»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">7</td><td>Lesha Lauren</td><td class="q">«Da»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">8</td><td>Tania Vilock</td><td class="q">«Да, очень довольна»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">9</td><td>Artem Stoun</td><td class="q">«Конечно»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">10</td><td>Otto Wachter</td><td class="q">«Конечно! Я сам за него голосовал. Это пацан, на которого можно положиться»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">11</td><td>Martin Corse</td><td class="q">«Конечно, да»</td><td><span class="g pos">да</span></td></tr>
+      <tr><td class="num">12</td><td>Feitan Broodfather</td><td class="q">«Нет»</td><td><span class="g neg">нет</span></td></tr>
+      <tr><td class="num">13</td><td>Gigi Pump</td><td class="q">«Нет, не доволен»</td><td><span class="g neg">нет</span></td></tr>
+      <tr><td class="num">14</td><td>Mister Cooper</td><td class="q">«Нет не доволен отрицательный человек и его руководство» <span class="fn">(итоговый ответ респондента; ранняя повторная запись исключена из статистики)</span></td><td><span class="g neg">нет</span></td></tr>
+      <tr><td class="num">15</td><td>Milis Aliev</td><td class="q">«Нет» <span class="fn">(с нецензурным комментарием; брань опущена редакцией)</span></td><td><span class="g neg">нет</span></td></tr>
+      <tr><td class="num">16</td><td>Neon</td><td class="q">«Не особо»</td><td><span class="g neg">нет</span></td></tr>
+      <tr><td class="num">17</td><td>Неизвестный</td><td class="q">«Не знаю кто он» <span class="fn">(дублирующая запись ответа исключена из статистики)</span></td><td><span class="g neu">уклонч.</span></td></tr>
+      <tr><td class="num">18</td><td>Mory</td><td class="q">«Могу»</td><td><span class="g neu">уклонч.</span></td></tr>
+      <tr><td class="num">19</td><td>Michael German</td><td class="q">«Не, я за власть коммунистам!»</td><td><span class="g neu">уклонч.</span></td></tr>
+      <tr><td class="num">20</td><td>Mailo Solovyev</td><td class="q">«Не знаю его»</td><td><span class="g neu">уклонч.</span></td></tr>
+      <tr><td class="num">21</td><td>Mustafa Mokrani</td><td class="q">«Да, я недавно приехал, не знаю»</td><td><span class="g neu">уклонч.</span></td></tr>
+      <tr><td class="num">22</td><td>Dan Mellow</td><td class="q">«Незнаю, я не давно приехал в штат»</td><td><span class="g neu">уклонч.</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="figcap">Таблица 3 · орфография цитат сохранена по протоколу опроса · нумерация — по учтённым записям</div>
+</div>
+
+<div class="sec"><span class="no">06</span><h2>Заключение</h2></div>
+<div class="prose">
+  <p>По итогам проведённого социологического опроса можно сделать вывод, что поставленная цель исследования достигнута.</p>
+  <p><b>Гипотеза подтвердилась частично.</b> Половина жителей штата (50%) действительно довольна новым губернатором, что позволяет говорить о преобладании позитивных настроений, — однако это преобладание минимальное. Каждый четвёртый опрошенный (≈23%) уже настроен критически, а свыше четверти выборки (≈27%) мнение пока не сформировали. Индекс критических настроений в ≈23% является достаточно высоким показателем для старта губернаторского срока, игнорировать который нельзя.</p>
+  <p>Полученные данные позволяют говорить о том, что в целом отношение граждан к новому губернатору оценивается как сдержанно-положительное, с крупным сегментом неопределившихся — прежде всего среди недавно прибывших в штат жителей, — требующим внимания со стороны администрации.</p>
+</div>
+<div class="note">
+  <p><b>Примечание редакции.</b> Ровно половина опрошенных (<b>50%</b>) довольна новым губернатором. Почти четверть (<b>≈23%</b>) — недовольны. Свыше четверти (<b>≈27%</b>) воздержались от оценки: в основном это жители, недавно приехавшие в штат и не успевшие ознакомиться с политической ситуацией. Редакция продолжит замер: следующая волна опроса — после первого отчёта губернатора о ста днях работы.</p>
+  <div class="method">Методика: уличный полевой опрос на территории штата <b>San Andreas</b> · инструмент: личное интервью с дословной записью ответа · проведено <b>24</b> интервью, возврат <b>100%</b> · учтено <b>22</b> уникальных ответа, две повторные записи (гражданин Mister Cooper, неизвестный респондент) исключены из статистики · нецензурная лексика в публикацию не включена · кодировка таблицы 2 — экспертная оценка редакции.</div>
+</div>
+
+<div class="sec"><span class="no">07</span><h2>Рекомендации</h2></div>
+<div class="prose"><p>На основании проведённого анализа редакция San Fierro News рекомендует:</p></div>
+<div class="reclist">
+  <div class="rec"><span class="who">Администрации штата и офису губернатора</span><div class="txt">Усилить информационную работу с жителями: свыше четверти опрошенных не знают губернатора или не следят за его первыми шагами. Публичные отчёты о начатых проектах, открытые встречи с гражданами и понятная презентация программы помогут сократить «зону молчания» и перевести неопределившихся в осознанных сторонников — или, как минимум, в информированных критиков.</div></div>
+  <div class="rec"><span class="who">Офису губернатора</span><div class="txt">Обратить внимание на критику в адрес стиля руководства («отрицательный человек и его руководство») и дать публичные разъяснения по первым решениям, вызвавшим недовольство. Прямой ответ критикам на старте срока работает на доверие лучше молчания.</div></div>
+  <div class="rec"><span class="who">Гражданам штата</span><div class="txt">Проявлять большую вовлечённость в политическую жизнь штата: участвовать в опросах, задавать вопросы представителям власти и не откладывать знакомство с программой губернатора «на потом» — именно такие замеры дают администрации обратную связь.</div></div>
+  <div class="rec"><span class="who">Редакции San Fierro News</span><div class="txt">Продолжить наблюдение за динамикой настроений и провести повторную волну опроса после первых ста дней работы губернатора, чтобы сравнить показатели и зафиксировать тренд.</div></div>
+</div>
+
+<div class="sec"><span class="no">08</span><h2>Доказательства проведения опроса</h2></div>
+<div class="prose">
+  <p>Все первичные материалы, подтверждающие проведение данного исследования, — записи бесед корреспондента, полевой протокол опроса со всеми 24 записями (включая исключённые повторные), рабочие заметки — хранятся в архиве редакции San Fierro News и доступны для ознакомления по официальному запросу.</p>
+  <div class="sign"><span class="role">Подпись</span>Корреспондент San Fierro News, Jonny Wilde</div>
+</div>
+
+<div class="hubline"><a class="hubbtn" href="newsroom.html">← Посмотреть все выпуски редакции</a></div>
+</div>
+<footer>
+  <p>Исследование подготовлено отделом социологии редакции <strong>San Fierro News</strong>. Опрос проводит: Редакция San Fierro. Автор исследования: Jonny Wilde.</p>
+  <p class="copy">© 2026 SF News Corp. · Спецвыпуск · 30.09.2026 · цитаты приведены дословно, повторные записи исключены из статистики</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Fierro News — День, когда учения стали боем: хроника штурма департамента полиции San Fierro</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+img{display:block;max-width:100%}
+:root{--bg:#0c0c0e;--ink:#f0ead6;--ink85:rgba(240,234,214,.85);--ink70:rgba(240,234,214,.7);--ink55:rgba(240,234,214,.55);--line:rgba(240,234,214,.18);--accent:#e63946;--accent-dim:rgba(230,57,70,.7)}
+body{background:var(--bg);color:var(--ink);font-family:"PT Serif",Georgia,"Times New Roman",serif;-webkit-font-size-adjust:100%}
+.mono{font-family:"Space Mono",ui-monospace,"Courier New",monospace}
+.oswald{font-family:"Oswald","Arial Narrow","Helvetica Neue",sans-serif}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1.5rem}
+.masthead{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line)}
+.brand{font-family:"Oswald","Arial Narrow",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.25em;font-size:.95rem}
+.tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink55);white-space:nowrap}
+.kicker{margin-top:2.5rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.25em;color:var(--accent);display:flex;align-items:center;gap:.55rem}
+.kicker::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);animation:blink 1.2s steps(2,start) infinite}
+@keyframes blink{50%{opacity:.15}}
+h1{margin:1.1rem 0 0;font-weight:600;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.15;letter-spacing:.01em;max-width:52rem}
+.taperule{height:5px;margin:1.4rem 0 1.2rem;max-width:52rem;background:repeating-linear-gradient(45deg,var(--accent-dim) 0 14px,transparent 14px 28px);opacity:.75}
+.lead{font-size:1.05rem;line-height:1.7;color:var(--ink85);max-width:46rem}
+.gallery{display:grid;grid-template-columns:1fr;gap:1.6rem;margin-top:3rem}
+figure{margin:0}
+.imgwrap{overflow:hidden;height:18rem;background:#111;box-shadow:0 0 0 1px rgba(230,57,70,.25)}
+.imgwrap img{width:100%;height:100%;object-fit:cover;object-position:top right;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+figure:hover .imgwrap img{transform:scale(1.05)}
+.num{margin-top:.85rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.25em;color:var(--accent-dim)}
+.cap{margin-top:.4rem;font-style:italic;font-size:.9rem;line-height:1.6;color:var(--ink85);max-width:40rem}
+.quote{grid-column:span 1;margin:2.5rem auto;text-align:center;max-width:42rem}
+.qtext{font-style:italic;font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.5}
+.qattr{margin-top:1.1rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.25em;color:var(--ink55)}
+.hazard{margin:3rem auto 0;height:5px;max-width:20rem;background:repeating-linear-gradient(45deg,var(--accent-dim) 0 14px,transparent 14px 28px);opacity:.6}
+footer{margin-top:3rem;border-top:1px solid var(--line);padding:2.2rem 1.5rem 5rem;text-align:center}
+footer p{font-size:.95rem;line-height:1.6}
+footer .dim{margin-top:.5rem;font-size:.9rem;color:var(--ink70)}
+footer .copy{margin-top:1.8rem;font-size:.68rem;letter-spacing:.12em;color:var(--ink55)}
+@media (min-width:48rem){
+ .gallery{grid-template-columns:repeat(5,1fr);gap:1.25rem}
+ .span2{grid-column:span 2}.span3{grid-column:span 3}.span5{grid-column:span 5}
+ .imgwrap{height:24rem}
+ .banner .imgwrap{height:20rem}
+ .quote{grid-column:span 5}
+}
+
+.hubline{margin-top:1.7rem}
+.hubbtn{display:inline-block;padding:.65rem 1.1rem;border:1px solid currentColor;opacity:.8;text-decoration:none;font-family:"Space Mono",ui-monospace,"Courier New",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;transition:opacity .2s,transform .2s}
+.hubbtn:hover{opacity:1;transform:translateY(-2px)}
+
+.hubbtn{position:relative;color:#e63946;border-color:#e63946;box-shadow:0 0 16px -4px #e63946,0 0 34px -10px #e63946}
+.hubbtn::after{content:"";position:absolute;left:10%;right:10%;bottom:-12px;height:7px;border-radius:50%;background:#e63946;filter:blur(7px);opacity:.55;pointer-events:none}
+.hubbtn:hover{box-shadow:0 0 24px -4px #e63946,0 0 48px -10px #e63946;opacity:1}
+.hubbtn:hover::after{opacity:.9}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<header class="wrap masthead">
+  <div class="brand">San Fierro News</div>
+  <div class="tag mono">Экстренный выпуск · San Fierro</div>
+</header>
+<main class="wrap">
+  <div class="kicker mono">Хроника событий · Специальный корреспондент Jonny Wilde</div>
+  <h1 class="oswald">День, когда учения стали боем: хроника штурма департамента полиции San Fierro</h1>
+  <div class="taperule" aria-hidden="true"></div>
+  <p class="lead">По данным <strong>San Fierro News</strong>, совместные учения всех государственных структур штата, задуманные как отработка штурма полицейского участка, обернулись полноценным боем в центре города. Снайперы на крышах департамента полиции открывали огонь по всем, кого видели в прицел; среди пострадавших — гражданские. Наш корреспондент восстанавливает хронологию дня: от первых позиций на крышах до силуэтов на тросах моста.</p>
+  <section class="gallery">
+    <figure class="span3">
+      <div class="imgwrap"><img src="{{IMG1}}" alt="Снайперские позиции на крышах центра San Fierro"></div>
+      <figcaption><div class="num mono">Фото 1 · 14:07</div><div class="cap">«Крыши центра San Fierro превратились в позиции: снайперские пары заняли места между вентиляционными шахтами и антеннами. Внизу город ещё жил обычной жизнью, не подозревая, что учения уже начались.»</div></figcaption>
+    </figure>
+    <figure class="span2">
+      <div class="imgwrap"><img src="{{IMG2}}" alt="Агент в куртке FBI с пистолетом у парапета"></div>
+      <figcaption><div class="num mono">Фото 2 · 14:22</div><div class="cap">«Агент в куртке FBI и чёрной маске поднимает пистолет у парапета. По свидетельствам очевидцев, выстрелы звучали с каждой крыши, где поблёскивал прицел.»</div></figcaption>
+    </figure>
+    <figure class="span2">
+      <div class="imgwrap"><img src="{{IMG3}}" alt="Штурмовые группы за ограждениями под табличкой WARNING CLOSED TO TRAFFIC"></div>
+      <figcaption><div class="num mono">Фото 3 · 14:41</div><div class="cap">«Табличка „WARNING: CLOSED TO TRAFFIC“ стала единственным предупреждением для тех, кто оказался на площади. Штурмовые группы укрылись за оранжевыми баррикадами — учения превращались в противостояние.»</div></figcaption>
+    </figure>
+    <figure class="span3">
+      <div class="imgwrap"><img src="{{IMG4}}" alt="Вертолёт SAPD на крыше департамента полиции"></div>
+      <figcaption><div class="num mono">Фото 4 · 15:03</div><div class="cap">«Вертолёт SAPD садится на крышу департамента: подкрепление прибывает воздухом. Операторы бегут между световыми фонарями, а мост за спиной уже перекрыт.»</div></figcaption>
+    </figure>
+    <div class="quote span5">
+      <div class="qtext">«Штурм должны были отрепетировать.<br>Панику не репетировал никто.»</div>
+      <div class="qattr mono">— Редакция San Fierro News</div>
+    </div>
+    <figure class="span5 banner">
+      <div class="imgwrap"><img src="{{IMG5}}" alt="Силуэты с винтовками на тросах моста над водой"></div>
+      <figcaption><div class="num mono">Фото 5 · 15:26</div><div class="cap">«Бой вышел на пролёты моста: силуэты с винтовками шли по тросам в десятках метров над водой. Этот кадр станет символом дня, о котором штат будет помнить долго.»</div></figcaption>
+    </figure>
+  </section>
+  <div class="hazard" aria-hidden="true"></div>
+</main>
+<footer>
+  <p>Репортаж подготовлен редакцией <strong>San Fierro News</strong>. Расследование продолжается.</p>
+  <p class="dim">Следите за обновлениями: мы публикуем новые подробности, как только они будут подтверждены нашими источниками.</p>
+  <p class="copy mono">© 2026 SF News Corp.</p>
+<div class="hubline"><a class="hubbtn" href="newsroom.html">← Посмотреть все выпуски редакции</a></div>
+
+</footer>
+
+</body>
+</html>

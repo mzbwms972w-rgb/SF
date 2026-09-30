@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Fierro News — Зона 51: что армия Las Venturas прячет под пустыней</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+img{display:block;max-width:100%}
+:root{--bg:#0d1117;--ink:#e8e2d4;--ink80:rgba(232,226,212,.82);--ink60:rgba(232,226,212,.6);--sand:#c8b48a;--sand-d:rgba(200,180,138,.5);--stamp:#d4483e;--phos:#86e3a9}
+body{background:repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 2px,transparent 2px 5px),radial-gradient(1000px 420px at 50% -60px,rgba(200,180,138,.08),transparent 70%),var(--bg);color:var(--ink);font-family:"PT Serif",Georgia,serif;-webkit-font-size-adjust:100%;padding-bottom:4rem}
+.mono{font-family:"Space Mono",ui-monospace,monospace}
+.type{font-family:"Special Elite","Courier New",monospace}
+.oswald{font-family:"Oswald","Arial Narrow",sans-serif}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem;position:relative}
+.masthead{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.4rem 0;border-bottom:3px double var(--sand-d)}
+.brand{font-family:"Oswald",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.25em;font-size:.95rem}
+.tag{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);white-space:nowrap}
+.tsstamp{position:absolute;top:74px;right:1.5rem;transform:rotate(6deg);border:3px double var(--stamp);color:var(--stamp);padding:.4rem .8rem;font-family:"Special Elite",monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.6;text-align:center;opacity:.9}
+.kicker{margin-top:2.6rem;font-family:"Special Elite",monospace;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stamp)}
+h1{margin:1rem 0 0;font-family:"Oswald",sans-serif;font-weight:600;font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.14;max-width:50rem}
+.dossier{margin:1.1rem 0 0;font-family:"Special Elite",monospace;font-size:.7rem;letter-spacing:.06em;color:var(--ink80);border-left:3px solid var(--stamp);padding-left:.9rem;line-height:2;text-transform:uppercase}
+.lead{margin-top:1.2rem;font-size:1.04rem;line-height:1.8;color:var(--ink80);max-width:48rem}
+.redact{background:#07090c;color:transparent;padding:0 .35em;box-shadow:0 0 0 1px rgba(255,255,255,.07);user-select:none;border-radius:2px}
+.sect{margin:3rem 0 1.2rem;display:flex;align-items:center;gap:.9rem}
+.sect .no{font-family:"Special Elite",monospace;font-size:1.1rem;color:var(--stamp)}
+.sect h2{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.25rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sand)}
+.sect::after{content:"";flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--sand-d) 0 8px,transparent 8px 14px)}
+.sectintro{font-size:.97rem;line-height:1.75;color:var(--ink80);max-width:48rem}
+.ggrid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:1.4rem}
+figure{margin:0}
+.fig{overflow:hidden;border:1px solid var(--sand-d);box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--sand-d),0 12px 30px rgba(0,0,0,.5)}
+.fig img{width:100%;height:17rem;object-fit:cover;object-position:top right;filter:saturate(.85) contrast(1.06) brightness(.94);transition:transform .7s}
+figure:hover .fig img{transform:scale(1.04)}
+figcaption{margin-top:.7rem;font-family:"Space Mono",monospace;font-size:.68rem;line-height:1.7;color:var(--ink60)}
+figcaption .num{color:var(--sand);text-transform:uppercase;letter-spacing:.18em}
+.wide{grid-column:1/-1}
+.wide .fig img{height:20rem}
+.prose{margin-top:1.4rem;font-size:1rem;line-height:1.85;color:var(--ink80)}
+.quote{margin:2.4rem auto 0;text-align:center;max-width:40rem;border-top:1px solid var(--sand-d);border-bottom:1px solid var(--sand-d);padding:1.4rem 0}
+.qtext{font-style:italic;font-size:clamp(1.1rem,2.6vw,1.45rem);line-height:1.6}
+.qattr{margin-top:.9rem;font-family:"Special Elite",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink60)}
+.note{margin-top:2.4rem;border:1px dashed var(--sand-d);padding:1rem 1.2rem;font-family:"Special Elite",monospace;font-size:.8rem;line-height:1.9;color:var(--ink80)}
+.sign{margin-top:1.6rem;font-size:.9rem;font-style:italic;color:var(--ink60)}
+.sign b{color:var(--ink);font-style:normal}
+footer{margin-top:3rem;border-top:3px double var(--sand-d);padding:2rem 1.5rem 0;text-align:center}
+footer p{font-size:.92rem;line-height:1.65;color:var(--ink80)}
+.hubline{margin-top:1.6rem}
+.hubbtn{display:inline-block;padding:.65rem 1.1rem;border:1px solid currentColor;color:var(--sand);opacity:.9;text-decoration:none;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;position:relative;box-shadow:0 0 16px -4px var(--stamp)}
+.hubbtn::after{content:"";position:absolute;left:10%;right:10%;bottom:-11px;height:6px;border-radius:50%;background:var(--stamp);filter:blur(7px);opacity:.5}
+.hubbtn:hover{opacity:1;transform:translateY(-2px)}
+.copy{margin-top:1.6rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink60);padding-bottom:3rem}
+@media (min-width:48rem){.ggrid{grid-template-columns:repeat(2,1fr)}.fig img{height:19rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="tsstamp">Top Secret<br>дело 51-Z · рассекречено редакцией</div>
+  <header class="masthead">
+    <div class="brand">San Fierro News</div>
+    <div class="tag mono">Ежедневный выпуск · Las Venturas · 26.09.2026</div>
+  </header>
+  <div class="kicker">Расследование · съёмка из укрытия · Jonny Wilde</div>
+  <h1 class="oswald">Зона 51: что армия Las Venturas прячет под пустыней</h1>
+  <p class="dossier">Дело № 51-Z · статус: рассекречено редакцией · 20 кадров из закрытой зоны · съёмка: скрытая камера, после отбоя · распространению не подлежит… но распространяется</p>
+  <p class="lead">База армии Las Venturas на картах — это полк, плац и полигон. На поверхности — красивые кабинеты, тренажёрный зал «как у всех» и столовая с красными стульями. Но в распоряжении San Fierro News оказались двадцать кадров, которые <strong>Jonny Wilde</strong> снял ночью, под покровом темноты: под пустыней — погрузочная зона, лаборатории с операционными столами и дата-центр с розовыми индикаторами. Что происходит за стеклом? Редакция открывает дело 51-Z.</p>
+
+  <div class="sect"><span class="no">I.</span><h2>На поверхности</h2></div>
+  <p class="sectintro">Сначала — то, что база показывает миру. И то, что при внимательном взгляде перестаёт быть обычным.</p>
+  <div class="ggrid">
+    <figure><div class="fig"><img src="{{Z1}}" alt="Ворота закрытой зоны с табличками RESTRICTED AREA и NO TRESPASSING"></div><figcaption><span class="num">Кадр 01 · из укрытия</span> — Ворота закрытой зоны: «Фотографирование запрещено». Именно поэтому мы снимали из укрытия.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z2}}" alt="Парадный холл базы: красная дорожка, флаги, орхидеи"></div><figcaption><span class="num">Кадр 02 · из укрытия</span> — Лицо базы: красная дорожка, флаги и орхидеи на столике. Ничто не намекает, что под этим полом.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z3}}" alt="Meeting Room за стеклом, кодовая панель у входа"></div><figcaption><span class="num">Кадр 03 · из укрытия</span> — Meeting Room за стеклом: у двери — кодовая панель. Кто и с кем совещается здесь после отбоя?</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z4}}" alt="Conference Room: стол и пустые кресла за стеклом"></div><figcaption><span class="num">Кадр 04 · из укрытия</span> — Conference Room: стол и пустые кресла. Бумаги на столах не оставляют — ни листа.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z5}}" alt="Конференц-зал с рядами кресел и экраном"></div><figcaption><span class="num">Кадр 05 · из укрытия</span> — Зал брифингов: ряды кресел и схема на экране. Брифинги здесь закрыты даже для прессы с допуском.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z6}}" alt="Столовая базы: красные стулья и табличка EMPLOYEES MUST WASH HANDS"></div><figcaption><span class="num">Кадр 06 · из укрытия</span> — Столовая: «Сотрудники обязаны мыть руки». Сами сотрудники, судя по всему, обязаны ещё и не смотреть под пол.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z7}}" alt="Тренажёрный зал за стеклом: груша, штанги"></div><figcaption><span class="num">Кадр 07 · из укрытия</span> — Gym Room за стеклом: всё «как у всех». Ровно то, что нам и положено видеть.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z8}}" alt="Казарма: двухъярусные койки и шкафчики"></div><figcaption><span class="num">Кадр 08 · из укрытия</span> — Казармы: двухъярусные койки в идеальном порядке. Над подземельем спят те, кто его охраняет.</figcaption></figure>
+    <figure class="wide"><div class="fig"><img src="{{Z9}}" alt="Здание SPECIAL FORCES с пикапами ARMY и мотоциклами"></div><figcaption><span class="num">Кадр 09 · из укрытия</span> — Здание SPECIAL FORCES: пикапы ARMY и мотоциклы в ряд. Ночная смена уходит вниз без нас — но не в этот раз.</figcaption></figure>
+  </div>
+
+  <p class="prose">На поверхности база образцовая: ни пылинки, ни лишней бумаги, ни одного случайного взгляда. Но детали выдают: кодовые панели у каждой двери, стёкла, за которыми всегда выключен свет, и perfectly заправленные койки над подземельем, которого официально не существует. По данным источника в <span class="redact">штабе базы</span>, ночные поставки уходят вниз по рампе под маркировкой LOADING ZONE — и никогда не возвращаются обратно.</p>
+
+  <div class="sect"><span class="no">II.</span><h2>Небо и пустыня</h2></div>
+  <p class="sectintro">Наружный периметр зоны 51 живёт своей жизнью: вертолёты, зенитки и грузовики, которых нет ни в одной сводке.</p>
+  <div class="ggrid">
+    <figure><div class="fig"><img src="{{Z10}}" alt="Вертолётная площадка: пять песчаных бортов на чёрных плитах"></div><figcaption><span class="num">Кадр 10 · из укрытия</span> — Вертолётная площадка: пять песчаных бортов на чёрных плитах. Ночью они летают не над пустыней, а вокруг неё.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z11}}" alt="Зенитная позиция на восьмиугольной площадке за сеткой"></div><figcaption><span class="num">Кадр 11 · из укрытия</span> — Зенитная позиция на восьмиугольной площадке: небо над зоной 51 тоже под запретом.</figcaption></figure>
+    <figure class="wide"><div class="fig"><img src="{{Z12}}" alt="Пустынный ангар с грузовиками POLICE, прожекторами и тарелками связи"></div><figcaption><span class="num">Кадр 12 · из укрытия</span> — Пустынный ангар: грузовики POLICE, прожекторы и тарелки связи над скалами. Базу охраняет не только армия.</figcaption></figure>
+  </div>
+
+  <div class="sect"><span class="no">III.</span><h2>Под землёй</h2></div>
+  <p class="sectintro">Главное Jonny Wilde снял там, куда не пускают даже своих: восемь помещений под пустыней, о которых база молчит.</p>
+  <div class="ggrid">
+    <figure><div class="fig"><img src="{{Z13}}" alt="Подземная погрузочная зона LOADING ZONE с ящиками и контейнерами"></div><figcaption><span class="num">Кадр 13 · скрытая камера</span> — Подземная погрузочная зона: ящики приходят ночью и уходят… никуда. Обратных накладных нет.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z14}}" alt="Подземный гараж: песчаные машины без номеров"></div><figcaption><span class="num">Кадр 14 · скрытая камера</span> — Подземный гараж: песчаные машины без номеров и опознавательных знаков. Куда они ездят — не знает даже диспетчер.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z15}}" alt="Оружейная комната: стены-витрины со стволами и прилавок"></div><figcaption><span class="num">Кадр 15 · скрытая камера</span> — Оружейная комната: стены-витрины со стволами. Доска «Laws and Rules» пуста: правил здесь не вывешивают.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z16}}" alt="Склад боеприпасов: паллеты ящиков и неоновая памятка"></div><figcaption><span class="num">Кадр 16 · скрытая камера</span> — Склад боеприпасов: паллеты и неоновая памятка о безопасности. Неон — единственное яркое пятно под землёй.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z17}}" alt="Лаборатория за стеклом: операционные столы под лампами"></div><figcaption><span class="num">Кадр 17 · скрытая камера</span> — Лаборатория за стеклом: операционные столы под лампами. Пациентов нет — но столы застелены.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z18}}" alt="Окно в лабораторию: операционный стол, серверная стойка, зелёный монитор"></div><figcaption><span class="num">Кадр 18 · скрытая камера</span> — Ещё одно окно: операционный стол, серверная стойка и зелёное свечение мониторов. Стекло тёплое на ощупь — за ним работают круглосуточно.</figcaption></figure>
+    <figure><div class="fig"><img src="{{Z19}}" alt="Лаборатория изнутри: столы, осциллографы, стойки"></div><figcaption><span class="num">Кадр 19 · скрытая камера</span> — Внутри лаборатории: столы, осциллографы, приборные стойки. Этот кадр Jonny снимал, почти не дыша.</figcaption></figure>
+    <figure class="wide"><div class="fig"><img src="{{Z20}}" alt="Дата-центр: белые колонны с розовыми индикаторами"></div><figcaption><span class="num">Кадр 20 · скрытая камера</span> — Дата-центр: белые колонны с розовыми индикаторами гудят круглые сутки. Чьи это данные — и о ком?</figcaption></figure>
+  </div>
+
+  <div class="quote">
+    <div class="qtext">«Что происходит за стёклами операционных? Мы задали этот вопрос пресс-службе армии Las Venturas. Ответом была тишина.»</div>
+    <div class="qattr">— Редакция San Fierro News</div>
+  </div>
+
+  <div class="note">Дело № 51-Z остаётся открытым. Редакция направила официальные запросы командованию базы и правительству штата; до ответа все формулировки в выпуске основаны только на кадрах и показаниях очевидцев. Имена источников засекречены: <span class="redact">источник А</span>, <span class="redact">источник Б</span>.</div>
+  <p class="sign"><b>Jonny Wilde</b>, специальный корреспондент San Fierro News — из пустыни, с флешкой, прижатой к груди. Jonny жив-здоров и уже планирует новый спуск.</p>
+</div>
+<footer>
+  <p>Расследование подготовлено редакцией <strong>San Fierro News</strong>. Съёмка велась скрытой камерой в зоне, где фотографирование запрещено, — потому что иначе нельзя.</p>
+  <div class="hubline"><a class="hubbtn mono" href="newsroom.html">← Посмотреть все выпуски редакции</a></div>
+  <p class="copy mono">© 2026 SF News Corp. · Ежедневный выпуск · дело 51-Z</p>
+</footer>
+</body>
+</html>

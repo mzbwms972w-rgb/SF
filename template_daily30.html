@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Fierro News — Ежедневный выпуск от 30.09.2026: семь адресов San Fierro — от автосалона Wang Cars до армейского пирса</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+img{display:block;max-width:100%}
+:root{--bg:#070b12;--ink:#eaf4f8;--mut:#8fa0ad;--cy:#59e3ff;--mg:#ff3d81;--line:rgba(140,220,255,.14)}
+body{background:repeating-linear-gradient(0deg,rgba(140,220,255,.028) 0 1px,transparent 1px 4px),radial-gradient(1000px 480px at 85% -10%,rgba(89,227,255,.10),transparent 60%),radial-gradient(800px 420px at 8% 40%,rgba(255,61,129,.07),transparent 60%),var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;-webkit-font-size-adjust:100%}
+.mono{font-family:"Space Mono",ui-monospace,monospace}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.4rem}
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(89,227,255,.05);overflow:hidden}
+.tickwrap{display:inline-flex;white-space:nowrap;animation:tick 44s linear infinite;padding:.55rem 0}
+.tickwrap span{font-family:"Space Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cy);padding-right:3.5rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+.masthead{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.2rem 0;border-bottom:1px solid var(--line)}
+.brand{font-family:"Unbounded",sans-serif;font-weight:700;font-size:1.02rem}
+.brand b{color:var(--cy)}
+.mright{display:flex;align-items:center;gap:.8rem}
+.chip{font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:.42rem .8rem;white-space:nowrap}
+.live{display:flex;align-items:center;gap:.45rem;font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.16em;color:var(--mg);text-transform:uppercase}
+.live i{width:.5rem;height:.5rem;border-radius:50%;background:var(--mg);animation:pulse 1.4s steps(2,start) infinite}
+@keyframes pulse{50%{opacity:.15}}
+.hero{margin-top:3.2rem;display:grid;gap:2.2rem}
+.kchip{display:inline-flex;gap:.55rem;align-items:center;border:1px solid rgba(89,227,255,.45);background:rgba(89,227,255,.08);color:var(--cy);border-radius:999px;padding:.45rem .95rem;font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.6}
+h1{font-family:"Unbounded",sans-serif;font-weight:700;font-size:clamp(1.5rem,3.5vw,2.5rem);line-height:1.25;margin:1.2rem 0 0;letter-spacing:-.01em}
+.bignum{margin-top:1.4rem;font-family:"Unbounded",sans-serif;font-weight:700;font-size:clamp(2.2rem,7vw,4.6rem);color:var(--cy);text-shadow:0 0 18px rgba(89,227,255,.55),0 0 60px rgba(89,227,255,.25);letter-spacing:-.02em}
+.bignumlab{font-family:"Space Mono",monospace;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);margin-top:.4rem}
+.herotext p{color:var(--mut);line-height:1.8;margin-top:1.3rem;font-size:1rem;max-width:36rem}
+.byline{margin-top:1.4rem;font-family:"Space Mono",monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mg)}
+.frame{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 26px 70px rgba(0,0,0,.6);--fa:var(--cy)}
+.frame::before,.frame::after{content:"";position:absolute;width:26px;height:26px;z-index:2;pointer-events:none}
+.frame::before{top:10px;left:10px;border-top:2px solid var(--fa);border-left:2px solid var(--fa)}
+.frame::after{bottom:10px;right:10px;border-bottom:2px solid var(--fa);border-right:2px solid var(--fa)}
+.frame img{width:100%;height:24rem;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1);filter:saturate(1.05) contrast(1.04)}
+.frame:hover img{transform:scale(1.05)}
+.imgcap{margin-top:.8rem;color:var(--mut);font-size:.8rem;line-height:1.65;border-left:2px solid var(--fa,var(--cy));padding-left:.8rem;max-width:46rem}
+section{margin-top:5.2rem;--acc:var(--cy);--accsoft:rgba(89,227,255,.10)}
+.sechead{display:flex;align-items:center;gap:1.1rem}
+.secno{font-family:"Space Mono",monospace;font-size:.68rem;letter-spacing:.2em;color:var(--acc);border:1px solid var(--acc);border-radius:6px;padding:.35rem .55rem;background:var(--accsoft)}
+.sechead h2{font-family:"Unbounded",sans-serif;font-weight:600;font-size:clamp(1.1rem,2.5vw,1.55rem);line-height:1.35}
+.sechead .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.art p{color:var(--mut);line-height:1.85;margin-top:1.2rem;font-size:.98rem;max-width:46rem}
+.art p b{color:var(--ink);font-weight:600}
+section figure{margin-top:2rem}
+section .frame{--fa:var(--acc)}
+section .imgcap{border-left-color:var(--acc)}
+.pull{margin:3.4rem auto 0;max-width:42rem;text-align:center}
+.pull q{font-style:italic;font-weight:500;font-size:clamp(1.05rem,2.4vw,1.35rem);line-height:1.65}
+.pull .who{margin-top:1.1rem;font-family:"Space Mono",monospace;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+footer{margin-top:5.5rem;border-top:1px solid var(--line);padding:2.6rem 0 4rem;text-align:center}
+footer p{color:var(--mut);font-size:.92rem;line-height:1.7}
+.hubline{margin-top:1.7rem}
+.hubbtn{display:inline-block;padding:.7rem 1.3rem;border:1px solid var(--cy);color:var(--cy);border-radius:999px;text-decoration:none;font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;position:relative;box-shadow:0 0 20px -6px var(--cy);transition:.25s}
+.hubbtn::after{content:"";position:absolute;left:12%;right:12%;bottom:-10px;height:6px;border-radius:50%;background:var(--cy);filter:blur(7px);opacity:.4}
+.hubbtn:hover{background:var(--cy);color:#04141a;transform:translateY(-2px)}
+.copy{margin-top:1.8rem;font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(143,160,173,.7)}
+@media (min-width:56rem){
+ .hero{grid-template-columns:1fr 1fr;align-items:center}
+ .hero .frame img{height:27rem;object-position:top}
+}
+</style>
+</head>
+<body>
+<div class="ticker"><div class="tickwrap">
+<span>/// 30.09.2026 · спецвыпуск о San Fierro: семь адресов в одном кадре /// автосалон Wang Cars: стекло, баннеры и портовые краны /// башня San Fierro News в Downtown /// банк под зелёными куполами старого квартала /// автовокзал: семь автобусов у платформ /// Army на пирсе: самолёты на палубе авианосца /// участок SFPD в тени моста /// здание FBI: два вертолёта на крыше ///</span>
+<span>/// 30.09.2026 · спецвыпуск о San Fierro: семь адресов в одном кадре /// автосалон Wang Cars: стекло, баннеры и портовые краны /// башня San Fierro News в Downtown /// банк под зелёными куполами старого квартала /// автовокзал: семь автобусов у платформ /// Army на пирсе: самолёты на палубе авианосца /// участок SFPD в тени моста /// здание FBI: два вертолёта на крыше ///</span>
+</div></div>
+<div class="wrap">
+  <header class="masthead">
+    <div class="brand">SAN FIERRO <b>NEWS</b></div>
+    <div class="mright">
+      <div class="chip mono">30.09.2026 · San Fierro</div>
+      <div class="live mono"><i></i>live</div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="herotext">
+      <div class="kchip">Ежедневный выпуск · Кадры: Anna Malboro · Фоторедактор: Sonya Malboro · Текст: Jonny Wilde</div>
+      <h1>Семь адресов San Fierro: город, снятый с высоты птичьего полёта</h1>
+      <div class="bignum">7 адресов</div>
+      <div class="bignumlab mono">в одном выпуске · съёмка 30.09.2026</div>
+      <p>San Fierro — город холмов, мостов и портовых кранов — редко позирует целиком. В этот день фотокорреспондент редакции поднялась над кварталами и собрала семь точек, по которым город узнаётся с первого кадра: от стеклянного автосалона до пирса армейской базы. Редакция публикует маршрут, по которому San Fierro можно прочитать, как газетную полосу.</p>
+      <div class="byline mono">Съёмка: Anna Malboro · Текст: Jonny Wilde · San Fierro</div>
+    </div>
+    <figure>
+      <div class="frame"><img src="{{HERO}}" alt="Башня редакции San Fierro News в Downtown, вид сверху"></div>
+      <figcaption class="imgcap" style="--fa:var(--cy)">Башня San Fierro News в Downtown: отсюда редакция каждый день смотрит на город — и сегодня город ответил взаимностью.</figcaption>
+    </figure>
+  </div>
+
+  <section style="--acc:#ffa63e;--accsoft:rgba(255,166,62,.10)">
+    <div class="sechead"><span class="secno mono">01</span><h2>Автосалон города San Fierro</h2><span class="rule"></span></div>
+    <div class="art">
+      <p>Утро у <b>Wang Cars</b> начинается со стекла: шоурум на возвышенности открывает двери раньше, чем портовые краны за эстакадой приходят в движение. Вертикальную вывеску WANG видно с любой точки квартала, а жёлтые ряды машин соседней площадки выстраиваются вдоль забора, будто позируют фотокорреспонденту.</p>
+      <p>Продавцы говорят, что после тихого конца месяца спрос снова пошёл вверх: тест-драйвы расписаны до выходных, а площадка перед витринами пока пуста — все живые машины уже на маршрутах. Стекло, баннер WANG CARS над входом и портовый кран за крышей: первое место, где город улыбается покупателю.</p>
+    </div>
+    <figure>
+      <div class="frame"><img src="{{E1}}" alt="Автосалон Wang Cars в San Fierro: вывеска WANG, пустая площадка перед витринами, портовые краны на фоне"></div>
+      <figcaption class="imgcap">Шоурум Wang Cars с эстакады: вертикальная вывеска WANG, пустая площадка перед витринами и портовые краны на фоне. Автосалон города San Fierro в утреннем свете.</figcaption>
+    </figure>
+  </section>
+
+  <section style="--acc:#59e3ff;--accsoft:rgba(89,227,255,.10)">
+    <div class="sechead"><span class="secno mono">02</span><h2>Офис San Fierro News</h2><span class="rule"></span></div>
+    <div class="art">
+      <p>Нашу башню в <b>Downtown</b> легко найти на skyline: стеклянные корпуса, собранные в одну связку, и мачты антенн над крышей — по ним редакцию видно даже с воды. Сан-Фиерро Ньюс занимает верхние этажи: оттуда город виден целиком, и, наверное, поэтому полосы получаются такими, какими получаются.</p>
+      <p>К девяти утра парковка у подножия уже полна: машины редакции, курьерские фургоны и неизменный красный грузовик, который возит тиражи столько, сколько выходит газета. Город внизу ещё просыпается, а вчерашняя сводка уже свёрстана в завтрашний номер.</p>
+    </div>
+    <figure>
+      <div class="frame"><img src="{{E2}}" alt="Офисная башня San Fierro News в Downtown сверху: стеклянные корпуса, антенны на крыше, парковка у подножия"></div>
+      <figcaption class="imgcap">Редакционная башня San Fierro News в Downtown: стеклянные корпуса, мачты антенн на крыше и парковка, которая заполняется раньше девяти утра.</figcaption>
+    </figure>
+  </section>
+
+  <section style="--acc:#e8c15a;--accsoft:rgba(232,193,90,.10)">
+    <div class="sechead"><span class="secno mono">03</span><h2>Банк города San Fierro</h2><span class="rule"></span></div>
+    <div class="art">
+      <p>Банковский квартал San Fierro остался старым городом: скруглённые углы, арочные окна и два зелёных купола над крышами — ориентир для всех, кто хоть раз считал здесь проценты по кредиту. Осенью деревья перед фасадом рыжеют, и квартал становится похож на открытку, которую не хочется отправлять, хочется оставить себе.</p>
+      <p>Очереди внутри не уменьшаются ни в один сезон: город несёт сюда деньги на ипотеки, бизнес и депозиты. Кирпичный корпус с трубой по соседству помнит времена, когда этот квартал был окраиной, — теперь он стоит на страже самых тихих денег штата.</p>
+    </div>
+    <figure>
+      <div class="frame"><img src="{{E3}}" alt="Банк города San Fierro: два зелёных купола, старый квартал, кирпичный корпус с трубой"></div>
+      <figcaption class="imgcap">Банк города San Fierro: зелёные купола над старым кварталом, рыжая листва у фасадов и кирпичный корпус с трубой — финдистрикт, который помнит себя окраиной.</figcaption>
+    </figure>
+  </section>
+
+  <section style="--acc:#6fe0b0;--accsoft:rgba(111,224,176,.10)">
+    <div class="sechead"><span class="secno mono">04</span><h2>Автовокзал города San Fierro</h2><span class="rule"></span></div>
+    <div class="art">
+      <p>Семь междугородних автобусов, выстроенных у вокзала, — редкая по аккуратности картина для San Fierro: <b>Los Santos, Las Venturas</b> и десяток городков между ними начинаются отсюда. Арочная стеклянная крыша над платформами светится на солнце, а голос диспетчера тонет в гуле эстакад.</p>
+      <p>Рядом — вывеска TransFender и жёлтая площадка подержанных машин: туда уходят те, кому не досталось билета на рейс. Портовые краны за вокзалом напоминают: этот город живёт не только пассажирами, но и грузом, и расписание здесь соблюдают строже, чем молитву.</p>
+    </div>
+    <figure>
+      <div class="frame"><img src="{{E4}}" alt="Автовокзал San Fierro: семь автобусов у платформ, арочная крыша, вывеска TransFender рядом"></div>
+      <figcaption class="imgcap">Автовокзал San Fierro: семь автобусов у платформ, арочное стекло над перронами и вывеска TransFender по соседству — городской узел, с которого начинаются все маршруты штата.</figcaption>
+    </figure>
+  </section>
+
+  <section style="--acc:#a8c46a;--accsoft:rgba(168,196,106,.12)">
+    <div class="sechead"><span class="secno mono">05</span><h2>San Fierro Army</h2><span class="rule"></span></div>
+    <div class="art">
+      <p>Армейская база на пирсе — город в городе: самолёты на палубе авианосца, вертолёт над крышей склада и баннер <b>SAN ARMY</b> на стене, который читается даже с воды. Сторожевые вышки и линия ограждений: незваных гостей здесь не любят ровно так же, как опоздания на развод.</p>
+      <p>Служба на пирсе не затихает ни на час: катера у причала, флаги у ангара, техника на площадках. Говорят, стрельбище на авианосце — самое громкое место San Fierro; проверить это могут только те, кто прошёл за линию ограждений по пропуску, — и редакция таких пока не нашла.</p>
+    </div>
+    <figure>
+      <div class="frame"><img src="{{E5}}" alt="Армейская база San Fierro на пирсе: авианосец с самолётами, вертолёт над складом, баннер SAN ARMY на стене"></div>
+      <figcaption class="imgcap">База San Fierro Army на пирсе: самолёты на палубе авианосца, вертолёт над крышей склада, баннер SAN ARMY на стене и флаги у ангара.</figcaption>
+    </figure>
+  </section>
+
+  <section style="--acc:#6ea8ff;--accsoft:rgba(110,168,255,.10)">
+    <div class="sechead"><span class="secno mono">06</span><h2>SFPD</h2><span class="rule"></span></div>
+    <div class="art">
+      <p>Участок <b>SFPD</b> прячется в тени моста: трёхэтажный кирпич с пожарными лестницами и флагами на фасаде. За зданием — переулок, где паркуются патрульные машины: всегда носом к выезду, чтобы не терять на разворот ни секунды, когда город зовёт по рации.</p>
+      <p>Квартал живёт с департаментом бок о бок: розовая высотка через улицу, трамвайные провода над дорогой и привычка не закрывать ставни от сирен. Здесь сирена — не повод для тревоги, а знак того, что смена началась и город под присмотром.</p>
+    </div>
+    <figure>
+      <div class="frame"><img src="{{E6}}" alt="Участок SFPD: кирпичное здание с флагами и пожарными лестницами, патрульные машины в переулке за зданием"></div>
+      <figcaption class="imgcap">Участок SFPD в тени моста: флаги на кирпичном фасаде, пожарные лестницы и патрульные машины в переулке за зданием — носом к выезду.</figcaption>
+    </figure>
+  </section>
+
+  <section style="--acc:#ff5d8f;--accsoft:rgba(255,93,143,.10)">
+    <div class="sechead"><span class="secno mono">07</span><h2>Здание FBI в городе San Fierro</h2><span class="rule"></span></div>
+    <div class="art">
+      <p>Здание <b>FBI</b> выглядит так, как и положено зданию ведомства: светлый камень, высокие узкие окна, забор с колючей проволокой и шлагбаум с будкой охраны на въезде. Два тёмных вертолёта с ведомственными бортами стоят на крыше: отсюда поднимаются быстро и без лишних прощаний.</p>
+      <p>Наружная лестница на кровлю, навес над площадкой и радиомачты за корпусом: этот квартал не любит шума и незваных гостей. San Fierro хранит здесь свои самые тихие секреты — за тремя линиями ограждений и одной очень вежливой будкой охраны.</p>
+    </div>
+    <figure>
+      <div class="frame"><img src="{{E7}}" alt="Здание FBI в San Fierro: два вертолёта на крыше, забор с колючей проволокой, шлагбаум и будка охраны"></div>
+      <figcaption class="imgcap">Здание FBI в городе San Fierro: два вертолёта на крыше, колючая проволока по периметру, шлагбаум и будка охраны на въезде — адрес, который не любят называть вслух.</figcaption>
+    </figure>
+  </section>
+
+  <div class="pull">
+    <q>«Город измеряется не квадратными милями, а адресами, где тебя ждут: шоурум, пирс, участок — и башня, где свёрстывают эту газету.»</q>
+    <div class="who">— Редакция San Fierro News</div>
+  </div>
+
+  <footer>
+    <p>Номер подготовлен редакцией <strong>San Fierro News</strong>: кадры Anna Malboro, отбор кадров фоторедактора Sonya Malboro, текст Jonny Wilde. Все семь адресов сняты в San Fierro 30 сентября 2026 года.</p>
+    <div class="hubline"><a class="hubbtn" href="newsroom.html">← Посмотреть все выпуски редакции</a></div>
+    <p class="copy mono">© 2026 SF News Corp. · Ежедневный выпуск · 30.09.2026</p>
+  </footer>
+</div>
+</body>
+</html>

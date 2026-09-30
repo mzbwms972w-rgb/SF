@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Fierro News — Под звездой департамента: пресс-тур по участку SFPD с майором Felix Akana</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+img{display:block;max-width:100%}
+:root{--navy:#101d2c;--navy2:#16283c;--paper:#e9e6dc;--paper2:#dcd8ca;--ink:#182430;--ink80:rgba(24,36,48,.82);--ink60:rgba(24,36,48,.6);--gold:#c9a227;--gold-d:#a5851d;--tape:#e6c34c;--red:#b23a34;--khaki:#f2efe6}
+body{
+background:
+ radial-gradient(900px 420px at 50% -60px, rgba(201,162,39,.10), transparent 70%),
+ radial-gradient(700px 500px at 90% 100%, rgba(22,40,60,.9), transparent 70%),
+ repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 42px),
+ repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 42px),
+ var(--navy);
+color:var(--ink);font-family:"PT Serif",Georgia,"Times New Roman",serif;-webkit-font-size-adjust:100%;padding:2.5rem 1rem 5rem}
+.disp{font-family:"Staatliches","Arial Narrow",sans-serif;font-weight:400}
+.type{font-family:"Special Elite","Courier New",monospace}
+.mono{font-family:"Space Mono",ui-monospace,"Courier New",monospace}
+.sheet{max-width:66rem;margin:0 auto;background:linear-gradient(180deg,var(--paper),var(--paper2));border:1px solid #b9b4a4;box-shadow:0 26px 70px rgba(0,0,0,.55);padding:0 0 3rem;position:relative}
+.band{background:linear-gradient(180deg,var(--navy2),#0d1926);color:var(--paper);display:flex;align-items:center;gap:1.1rem;padding:1.4rem 1.6rem}
+.band svg{width:56px;height:56px;flex:none}
+.bandtitle{font-family:"Staatliches",sans-serif;font-size:clamp(1.1rem,3vw,1.7rem);letter-spacing:.14em;text-transform:uppercase;line-height:1.1}
+.bandsub{font-family:"Special Elite",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:.35rem}
+.tape{height:12px;background:repeating-linear-gradient(45deg,var(--tape) 0 22px,#171b21 22px 44px)}
+.inner{padding:0 1.6rem}
+.casestamp{float:right;margin:1.4rem 0 .6rem 1rem;transform:rotate(4deg);border:3px double var(--red);color:var(--red);padding:.4rem .7rem;font-family:"Special Elite",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.6;text-align:center;background:rgba(233,230,220,.5)}
+.kicker{margin-top:1.6rem;font-family:"Special Elite",monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+h1{margin:.8rem 0 0;font-family:"Staatliches",sans-serif;font-weight:400;font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.12;text-transform:uppercase;letter-spacing:.02em;max-width:50rem;color:var(--ink)}
+.dossier{margin:1.1rem 0 0;font-family:"Special Elite",monospace;font-size:.68rem;letter-spacing:.06em;color:var(--ink80);border-left:3px solid var(--gold);padding-left:.9rem;line-height:2;text-transform:uppercase}
+.lead{margin-top:1.2rem;font-size:1.02rem;line-height:1.75;color:var(--ink80);max-width:48rem}
+.toctitle{margin:2.2rem 0 .8rem;font-family:"Special Elite",monospace;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink60);border-bottom:1px solid var(--ink60);padding-bottom:.5rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.7rem;align-items:flex-end}
+.tab{font-family:"Staatliches",sans-serif;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;background:var(--navy2);color:var(--paper);border:1px solid #0b1520;border-bottom:none;border-radius:7px 7px 0 0;padding:.55rem .95rem .45rem;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.tab small{display:block;font-family:"Space Mono",monospace;font-size:.55rem;letter-spacing:.12em;opacity:.72;margin-top:.1rem}
+.tab:hover{background:#1e3550}
+.tab.active{background:var(--gold);color:#1c2534;transform:translateY(-2px);box-shadow:0 -3px 0 var(--red) inset}
+.pane{display:none}
+.pane.active{display:block;animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.panehead{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
+.panehead .no{font-family:"Staatliches",sans-serif;font-size:1.7rem;color:var(--gold-d)}
+.panehead h2{font-family:"Staatliches",sans-serif;font-weight:400;font-size:1.3rem;letter-spacing:.05em;text-transform:uppercase}
+.panehead::after{content:"";flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--ink60) 0 10px,transparent 10px 16px)}
+.paneintro{font-size:.95rem;line-height:1.7;color:var(--ink80);max-width:46rem;margin-bottom:1.5rem}
+.phgrid{display:grid;grid-template-columns:1fr;gap:1.7rem}
+figure{margin:0}
+.imgwrap{overflow:hidden;height:15rem;background:#111;border:9px solid var(--khaki);border-bottom-width:9px;box-shadow:0 3px 14px rgba(24,36,48,.35),0 0 0 1px rgba(24,36,48,.25)}
+.imgwrap img{width:100%;height:100%;object-fit:cover;object-position:top right;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+figure:hover .imgwrap img{transform:scale(1.05)}
+.num{margin-top:.75rem;font-family:"Special Elite",monospace;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.num b{color:var(--gold-d)}
+.cap{margin-top:.35rem;font-style:italic;font-size:.88rem;line-height:1.65;color:var(--ink80)}
+.wide{grid-column:1/-1}
+.wide .imgwrap{height:17rem}
+.quote{margin:2.1rem auto 0;text-align:center;max-width:38rem}
+.qtext{font-style:italic;font-size:clamp(1.05rem,2.4vw,1.4rem);line-height:1.55;color:var(--ink)}
+.qattr{margin-top:.9rem;font-family:"Special Elite",monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink60)}
+.starline{margin:2.4rem auto 0;text-align:center;color:var(--gold-d);letter-spacing:.7em;font-size:.9rem}
+footer{margin-top:2.6rem}
+.footinner{padding:1.8rem 1.6rem 0;text-align:center}
+.footstamp{display:inline-block;transform:rotate(-3deg);border:3px double var(--gold-d);color:var(--gold-d);padding:.4rem .8rem;font-family:"Special Elite",monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.6;margin-bottom:1.1rem;background:rgba(233,230,220,.5)}
+footer p{font-size:.92rem;line-height:1.65;color:var(--ink80)}
+footer .copy{margin-top:1.4rem;font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.14em;color:var(--ink60);text-transform:uppercase}
+@media (min-width:48rem){
+ .inner{padding:0 2.6rem}
+ .band{padding:1.6rem 2.6rem}
+ .phgrid{grid-template-columns:repeat(2,1fr)}
+ .imgwrap{height:19rem}
+ .wide .imgwrap{height:22rem}
+ .footinner{padding:1.8rem 2.6rem 0}
+}
+
+.hubline{margin-top:1.7rem}
+.hubbtn{display:inline-block;padding:.65rem 1.1rem;border:1px solid currentColor;opacity:.8;text-decoration:none;font-family:"Space Mono",ui-monospace,"Courier New",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;transition:opacity .2s,transform .2s}
+.hubbtn:hover{opacity:1;transform:translateY(-2px)}
+
+.hubbtn{position:relative;color:#a5851d;border-color:#a5851d;box-shadow:0 0 16px -4px #a5851d,0 0 34px -10px #a5851d}
+.hubbtn::after{content:"";position:absolute;left:10%;right:10%;bottom:-12px;height:7px;border-radius:50%;background:#a5851d;filter:blur(7px);opacity:.55;pointer-events:none}
+.hubbtn:hover{box-shadow:0 0 24px -4px #a5851d,0 0 48px -10px #a5851d;opacity:1}
+.hubbtn:hover::after{opacity:.9}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<article class="sheet">
+  <div class="band">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a227" stroke-width="3"/><polygon points="32,13 38.6,26.6 53.5,28.2 42.4,38.4 45.6,53 32,45.4 18.4,53 21.6,38.4 10.5,28.2 25.4,26.6" fill="#c9a227"/></svg>
+    <div>
+      <div class="bandtitle">San Fierro Police Department</div>
+      <div class="bandsub">Пресс-тур редакции San Fierro News · Ежедневный выпуск · 24.09.2026</div>
+    </div>
+  </div>
+  <div class="tape"></div>
+  <div class="inner">
+  <div class="casestamp">Дело № SFN-2609-24<br>пресс-копия · согласовано SFPD</div>
+  <div class="kicker">Репортаж с закрытой двери · Специальный корреспондент Jonny Wilde · Purosangue Sao (PRESS)</div>
+  <h1>Под звездой департамента: один день внутри участка SFPD</h1>
+  <p class="dossier">Объект: участок San Fierro Police Department · Гид: майор Felix Akana, директор Детективного Бюро · 19 кадров с разрешения пресс-службы · Формат: репортаж в пяти разделах</p>
+  <p class="lead">Редакция <strong>San Fierro News</strong> получила то, о чём мечтает каждая газета города: день внутри участка <strong>San Fierro Police Department</strong>. Майор <strong>Felix Akana</strong>, директор Детективного Бюро, лично провёл нас от крыльца до вертолётной площадки — через вестибюль со звездой, доски расследований с красными нитями, блок камер, тир и гараж со строем патрульных машин. <strong>Purosangue Sao</strong> снова в куртке PRESS — и снова по ту сторону служебной стойки: теперь ещё и на стрелковой дорожке. Перед вами большой репортаж в пяти разделах: открывайте раздел за разделом.</p>
+
+  <div class="toctitle">Оглавление · Ежедневный выпуск · 24.09.2026 · 5 разделов · 19 кадров</div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="t1" role="tab">Приём и будни<small>4 кадра</small></button>
+    <button class="tab" data-tab="t2" role="tab">Детективное бюро<small>3 кадра</small></button>
+    <button class="tab" data-tab="t3" role="tab">Камеры и допрос<small>3 кадра</small></button>
+    <button class="tab" data-tab="t4" role="tab">Учебный центр<small>5 кадров</small></button>
+    <button class="tab" data-tab="t5" role="tab">Автопарк и авиация<small>4 кадра</small></button>
+  </nav>
+
+  <section class="pane active" id="t1">
+    <div class="panehead"><span class="no">01</span><h2>Приём и будни департамента</h2></div>
+    <p class="paneintro">Экскурсия начинается с рукопожатия на крыльце и вестибюля, где под звездой департамента проходит каждый день каждого офицера San Fierro.</p>
+    <div class="phgrid">
+      <figure>
+        <div class="imgwrap"><img src="{{P1}}" alt="Крыльцо участка: рукопожатие майора Felix Akana и Purosangue Sao"></div>
+        <figcaption><div class="num mono">Кадр 01 · <b>улика A-01</b></div><div class="cap">«Крыльцо участка в вечерних сумерках: майор Felix Akana встречает редакцию рукопожатием. „Сегодня вы увидите всё, — говорит он, — кроме того, чего видеть нельзя“.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P2}}" alt="Вестибюль SFPD: звезда департамента и окно регистрации"></div>
+        <figcaption><div class="num mono">Кадр 02 · <b>улика A-02</b></div><div class="cap">«Вестибюль: звезда „SAN FIERRO POLICE DEPARTMENT“ над вторым светом и окно регистрации номерных знаков. Purosangue Sao отмечает: здесь начинается каждый день каждого офицера.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P3}}" alt="Офисы департамента: майор Akana беседует с корреспондентом PRESS"></div>
+        <figcaption><div class="num mono">Кадр 03 · <b>улика A-03</b></div><div class="cap">«Офисы департамента: майор Akana рассказывает о буднях бюро. Флаги SFPD и штата, папки и Pikachu на плече — „талисман участка“, шутит майор.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P4}}" alt="Раздевалка личного состава: шкафчики, лавки и душевые"></div>
+        <figcaption><div class="num mono">Кадр 04 · <b>улика A-04</b></div><div class="cap">«Раздевалка личного состава: шкафчики, лавки и душевые за перегородкой. „Форма и характер начинаются здесь“, — говорит майор без улыбки.»</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pane" id="t2">
+    <div class="panehead"><span class="no">02</span><h2>Детективное бюро</h2></div>
+    <p class="paneintro">Вотчина майора Akana: доски с красными нитями, рабочие посты у камер и кабинет с табличкой «DEPUTY CHIEF». Здесь новости становятся делами, а дела — приговорами.</p>
+    <div class="phgrid">
+      <figure>
+        <div class="imgwrap"><img src="{{P5}}" alt="Детективное бюро: доска расследования с красными нитями и карта"></div>
+        <figcaption><div class="num mono">Кадр 05 · <b>улика B-05</b></div><div class="cap">«Сердце Детективного Бюро: доска расследования с красными нитями и карта города на столе. „Каждая нить — чья-то история“, — говорит майор, и редакция не переспрашивает.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P6}}" alt="Рабочий пост у камер: детектив за монитором, задержанный за решёткой"></div>
+        <figcaption><div class="num mono">Кадр 06 · <b>улика B-06</b></div><div class="cap">«Рабочий пост у камер: детектив сводит отчёты, за решёткой ждёт своей участи задержанный, представившийся Альбертом Эйнштейном. Редакция проверила: не тот.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P7}}" alt="Кабинет с табличкой DEPUTY CHIEF: майор за столом, корреспондент в кресле"></div>
+        <figcaption><div class="num mono">Кадр 07 · <b>улика B-07</b></div><div class="cap">«Кабинет с табличкой „DEPUTY CHIEF“: майор Akana за рабочим столом, флаги и папки вокруг. На гостевом столе — блокнот Purosangue Sao и бутылка лимонада: допрос наоборот, шутит корреспондент.»</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pane" id="t3">
+    <div class="panehead"><span class="no">03</span><h2>Камеры и комната допроса</h2></div>
+    <p class="paneintro">Самая тихая часть участка: коридоры КПЗ, блок камер и комната, где зеркало всегда смотрит на тебя. Сюда попадают, чтобы выйти другими.</p>
+    <div class="phgrid">
+      <figure>
+        <div class="imgwrap"><img src="{{P8}}" alt="Коридор КПЗ: решётки и надпись SAN FIERRO Police Department"></div>
+        <figcaption><div class="num mono">Кадр 08 · <b>улика C-08</b></div><div class="cap">«Коридор КПЗ: решётки, лампы и надпись „SAN FIERRO Police Department“ на кирпиче. Тишина здесь громче сирен.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P9}}" alt="Блок камер изнутри: майор проходит мимо открытых дверей"></div>
+        <figcaption><div class="num mono">Кадр 09 · <b>улика C-09</b></div><div class="cap">«Блок камер изнутри: майор проходит мимо открытых дверей. „Сюда попадают, чтобы выйти другими“, — говорит он, и решётки не добавляют иронии.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P10}}" alt="Комната допроса: корреспондент в кресле, офицер ведёт объяснение"></div>
+        <figcaption><div class="num mono">Кадр 10 · <b>улика C-10</b></div><div class="cap">«Комната допроса: зеркальные стены, камера и стол с лампой. Purosangue Sao садится „на ту сторону“ исключительно в исследовательских целях — и выходит через четыре минуты.»</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pane" id="t4">
+    <div class="panehead"><span class="no">04</span><h2>Учебный центр: брифинг, тир, наблюдение</h2></div>
+    <p class="paneintro">Половина мастерства департамента живёт здесь: брифинг-зал с картой под лучом проектора, стрелковые дорожки и наблюдательная комната, из которой видно всё.</p>
+    <div class="phgrid">
+      <figure>
+        <div class="imgwrap"><img src="{{P11}}" alt="Брифинг-зал: майор у трибуны перед картой города"></div>
+        <figcaption><div class="num mono">Кадр 11 · <b>улика D-11</b></div><div class="cap">«Брифинг-зал: майор у трибуны, за спиной — карта города под лучом проектора. Для редакции проводят мини-брифинг: „Новости тоже работают по сводке“.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P12}}" alt="Тир SFPD: дорожки 1-4, майор стреляет, корреспондент PRESS у соседней стойки"></div>
+        <figcaption><div class="num mono">Кадр 12 · <b>улика D-12</b></div><div class="cap">«Тир: дорожки с номерами 1–4. Майор показывает класс, Purosangue Sao в куртке PRESS встаёт у соседней стойки: после армейской учебки его трудно удивить.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P13}}" alt="Оружейная стойка тира: винтовки, мишени и медведь с мишенью"></div>
+        <figcaption><div class="num mono">Кадр 13 · <b>улика D-13</b></div><div class="cap">«Оружейная стойка тира: винтовки на рейке, мишени-силуэты и… медведь с мишенью на груди. „Для особых гостей“, — подмигивает инструктор.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P14}}" alt="Склад боеприпасов тира: паллеты с ящиками и неоновая памятка"></div>
+        <figcaption><div class="num mono">Кадр 14 · <b>улика D-14</b></div><div class="cap">«Склад боеприпасов тира: паллеты с ящиками и неоновая памятка о безопасности на стене. Учёт здесь строже, чем в банке, — и тише.»</div></figcaption>
+      </figure>
+      <figure class="wide">
+        <div class="imgwrap"><img src="{{P15}}" alt="Наблюдательная комната: через окно видны стрелки на дорожках"></div>
+        <figcaption><div class="num mono">Кадр 15 · <b>улика D-15</b></div><div class="cap">«Наблюдательная комната: через узкое окно видны стрелки на дорожках. Отсюда инструктор видит всё — редакция убеждается в этом на собственном опыте.»</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pane" id="t5">
+    <div class="panehead"><span class="no">05</span><h2>Автопарк и авиация</h2></div>
+    <p class="paneintro">Финал тура — там, где департамент хранит свою скорость: подземный гараж со строем машин, тяжёлое звено спецтехники и крыша с вертолётом SAPD.</p>
+    <div class="phgrid">
+      <figure>
+        <div class="imgwrap"><img src="{{P16}}" alt="Подземный гараж: строй патрульных машин SFPD"></div>
+        <figcaption><div class="num mono">Кадр 16 · <b>улика E-16</b></div><div class="cap">«Подземный гараж: строй патрульных машин с бортовыми номерами. Майор проводит перекличку: каждая машина знает свой маршрут, каждый маршрут — чью-то смену.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P17}}" alt="Тяжёлое звено: эвакуатор, броневик и фургоны спецназначения"></div>
+        <figcaption><div class="num mono">Кадр 17 · <b>улика E-17</b></div><div class="cap">«Тяжёлое звено: эвакуатор, броневик и фургоны спецназначения в строю. „Это на случай, когда обычного вызова мало“, — поясняет майор.»</div></figcaption>
+      </figure>
+      <figure>
+        <div class="imgwrap"><img src="{{P18}}" alt="Крыша участка: вертолётная площадка и борт SAPD PH47F"></div>
+        <figcaption><div class="num mono">Кадр 18 · <b>улика E-18</b></div><div class="cap">«Крыша участка: вертолётная площадка и борт SAPD PH47F. Вид на фасад департамента — с высоты, о которой горожане читают только в газетах.»</div></figcaption>
+      </figure>
+      <figure class="wide">
+        <div class="imgwrap"><img src="{{P19}}" alt="Борт с эмблемой San Andreas Police Department, майор и корреспондент на лестнице крыши"></div>
+        <figcaption><div class="num mono">Кадр 19 · <b>улика E-19</b></div><div class="cap">«У борта с эмблемой San Andreas Police Department: майор и корреспондент поднимаются по лестнице крыши. Мост за спиной — граница, за которой участок и город никогда не спят.»</div></figcaption>
+      </figure>
+    </div>
+    <div class="quote">
+      <div class="qtext">«Закон силён не решётками, а людьми, которые стоят за ними.»</div>
+      <div class="qattr">— Майор Felix Akana, директор Детективного Бюро SFPD</div>
+    </div>
+  </section>
+
+  <div class="starline">★ ★ ★</div>
+  </div>
+  <footer>
+    <div class="tape"></div>
+    <div class="footinner">
+      <div class="footstamp">Пресс-служба SFPD · согласовано<br>майор F. Akana · 24.09.2026</div>
+      <p>Репортаж подготовлен редакцией <strong>San Fierro News</strong>: Jonny Wilde и Purosangue Sao — при содействии пресс-службы <strong>San Fierro Police Department</strong>.</p>
+      <p class="copy">© 2026 SF News Corp. · Ежедневный выпуск</p>
+    </div>
+  <div class="hubline"><a class="hubbtn" href="newsroom.html">← Посмотреть все выпуски редакции</a></div>
+
+</footer>
+</article>
+<noscript><style>.pane{display:block!important;margin-bottom:3rem}.tabs{display:none}</style></noscript>
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+      document.querySelectorAll('.pane').forEach(function(p){ p.classList.remove('active'); });
+      var pane = document.getElementById(btn.getAttribute('data-tab'));
+      if(pane){ pane.classList.add('active'); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

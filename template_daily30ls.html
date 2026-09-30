@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Fierro News — Ежедневный выпуск 30.09.2026: Los Santos в десяти открытках</title>
+<meta name="description" content="Вечерний ежедневный выпуск San Fierro News от 30.09.2026: десять открыток из Los Santos — Vinewood, City Hall, LSPD, All Saints, банк, Ammu-Nation, Victim, отель, офис Los Santos News и ферма на окраине.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Marck+Script&family=PT+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f3ecdd;
+  --card:#fffdf6;
+  --ink:#2b2620;
+  --ink2:#57503f;
+  --red:#c8402f;
+  --blue:#2e4a7a;
+  --green:#3f7d44;
+  --line:#e0d5bd;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"PT Serif",Georgia,serif;position:relative}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(70,55,30,.05) 1px,transparent 1.4px);background-size:6px 6px;opacity:.55}
+.mono{font-family:"PT Mono",ui-monospace,monospace}
+.airbar{height:16px;background:repeating-linear-gradient(-45deg,var(--red) 0 26px,var(--paper) 26px 52px,var(--blue) 52px 78px,var(--paper) 78px 104px);position:relative;z-index:2}
+.wrap{max-width:1180px;margin:0 auto;padding:0 30px;position:relative;z-index:1}
+
+/* masthead */
+.mast{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;padding:2.6rem 0 1.4rem;border-bottom:3px double var(--ink)}
+.mastleft{display:flex;align-items:center;gap:1.1rem}
+.monogram{width:64px;height:64px;background:var(--red);color:#fffdf6;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-weight:900;font-size:1.5rem;letter-spacing:.02em;box-shadow:4px 4px 0 var(--ink);flex:none}
+.mastname{font-family:"Playfair Display",serif;font-weight:900;font-size:1.55rem;letter-spacing:.14em;text-transform:uppercase}
+.mastsub{font-family:"PT Mono",monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);margin-top:.35rem}
+.mastright{text-align:right;font-family:"PT Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);line-height:2}
+.mastright b{color:var(--red)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.3fr .8fr;gap:4rem;padding:4.2rem 0 3.4rem;align-items:center}
+.kicker{font-family:"PT Mono",monospace;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:1.4rem}
+h1{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(2.4rem,5vw,3.9rem);line-height:1.06;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--blue)}
+.lead{margin-top:1.8rem;font-size:1.06rem;line-height:1.85;color:var(--ink2);max-width:56ch}
+.lead b{color:var(--ink)}
+.routeline{margin-top:2.2rem;font-family:"PT Mono",monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.routeline .arw{color:var(--red)}
+
+/* envelope widget */
+.env{background:var(--card);border:1px solid var(--line);padding:2.4rem 2rem 2rem;transform:rotate(2.2deg);box-shadow:0 24px 50px -22px rgba(43,38,32,.4);position:relative}
+.env::before{content:"";position:absolute;inset:8px;border:1px dashed rgba(46,74,122,.45);pointer-events:none}
+.envstamp{position:absolute;top:16px;right:16px;transform:rotate(4deg)}
+.envaddr{font-family:"Marck Script",cursive;font-size:1.42rem;line-height:1.75;color:var(--blue);margin-top:2.6rem}
+.envmeta{margin-top:1.5rem;font-family:"PT Mono",monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);line-height:2.1;border-top:1px solid var(--line);padding-top:1rem}
+
+/* divider */
+.divider{display:flex;align-items:center;gap:1.4rem;padding:.6rem 0 0;color:var(--ink2)}
+.divider .dl{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--ink2) 0 8px,transparent 8px 16px);opacity:.5}
+.divider span{font-family:"PT Mono",monospace;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase}
+
+/* postcards grid */
+.pcs{display:grid;grid-template-columns:1fr 1fr;gap:4.6rem 3.4rem;padding:4.4rem 0 1.2rem}
+.pc{background:var(--card);border:1px solid var(--line);padding:1.5rem 1.5rem 1.9rem;box-shadow:0 20px 44px -20px rgba(43,38,32,.38);transition:transform .3s ease,box-shadow .3s ease;position:relative}
+.pc:nth-child(4n+1){transform:rotate(-1.3deg)}
+.pc:nth-child(4n+2){transform:rotate(1.1deg)}
+.pc:nth-child(4n+3){transform:rotate(.8deg)}
+.pc:nth-child(4n+4){transform:rotate(-1deg)}
+.pc:hover{transform:rotate(0) translateY(-6px);box-shadow:0 30px 60px -22px rgba(43,38,32,.45);z-index:3}
+.pctop{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.pcnum{font-family:"Playfair Display",serif;font-weight:900;font-size:2.5rem;line-height:1;color:rgba(43,38,32,.2)}
+.pcplace{font-family:"PT Mono",monospace;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink2);margin-top:.55rem}
+.stamp{width:74px;height:90px;flex:none;transform:rotate(3deg);filter:drop-shadow(2px 3px 0 rgba(43,38,32,.14))}
+.pcphoto{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--line);background:#ddd}
+.pcphoto img{width:100%;height:100%;object-fit:cover;object-position:top right;display:block}
+.pm{position:absolute;top:-10px;right:10px;width:118px;opacity:.62;mix-blend-mode:multiply;transform:rotate(-9deg);pointer-events:none}
+.pchand{font-family:"Marck Script",cursive;font-size:1.42rem;line-height:1.5;color:var(--blue);margin:1.15rem .2rem .8rem}
+.pcnote{font-size:.95rem;line-height:1.8;color:var(--ink2)}
+.chips{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.55rem}
+.chip{font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);border:1px dashed var(--red);background:rgba(200,64,47,.06);padding:.42rem .7rem;text-decoration:none;transition:.2s}
+.chip:hover{background:var(--red);color:#fffdf6}
+.chip.b{color:var(--blue);border-color:var(--blue);background:rgba(46,74,122,.06)}
+.chip.b:hover{background:var(--blue);color:#fffdf6}
+
+/* outro */
+.outro{margin:4.6rem 0 0;background:var(--card);border:1px solid var(--line);border-left:10px solid var(--red);padding:2.8rem 3rem;box-shadow:0 20px 44px -22px rgba(43,38,32,.3)}
+.outro h2{font-family:"Playfair Display",serif;font-weight:900;font-size:1.7rem;margin-bottom:1.2rem}
+.outro p{font-size:1rem;line-height:1.85;color:var(--ink2);max-width:70ch}
+.credits{margin-top:1.9rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:"PT Mono",monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+.credits b{color:var(--ink)}
+
+/* hub button */
+.hubline{margin:3.4rem 0 3.6rem;text-align:center}
+.hubbtn{display:inline-block;padding:.85rem 1.7rem;border:1px solid var(--red);color:var(--red);border-radius:999px;text-decoration:none;font-family:"PT Mono",monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;position:relative;box-shadow:0 0 24px -6px var(--red);transition:.25s;background:rgba(255,253,246,.6)}
+.hubbtn::after{content:"";position:absolute;left:12%;right:12%;bottom:-10px;height:6px;border-radius:50%;background:var(--red);filter:blur(8px);opacity:.45}
+.hubbtn:hover{background:var(--red);color:#fffdf6;transform:translateY(-2px)}
+
+footer{border-top:3px double var(--ink);padding:1.8rem 0 2.2rem;text-align:center;font-family:"PT Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);line-height:2.2}
+
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;gap:3rem;padding:3rem 0 2.4rem}
+  .env{transform:rotate(0);max-width:440px}
+  .pcs{grid-template-columns:1fr;gap:3.2rem}
+  .pc,.pc:nth-child(n){transform:rotate(0)}
+  .mast{flex-direction:column;align-items:flex-start;gap:1.2rem}
+  .mastright{text-align:left}
+  .outro{padding:2rem 1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="airbar"></div>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mastleft">
+      <div class="monogram">SFN</div>
+      <div>
+        <div class="mastname">San Fierro News</div>
+        <div class="mastsub">Независимая редакция · Evolve Role Play</div>
+      </div>
+    </div>
+    <div class="mastright">
+      Ежедневный выпуск · <b>вечерний</b><br>
+      30 сентября 2026 · Los Santos<br>
+      10 кадров · авиапочта
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="kicker">Ежедневный выпуск · 30.09.2026</div>
+      <h1>Los Santos<br>в <em>десяти открытках</em></h1>
+      <p class="lead">Сегодняшняя почта с юга пришла плотной пачкой: десять кадров Los Santos — от холмов с гигантской надписью до фермы на окраине, где город заканчивается. О Los Santos мы обычно пишем по сводкам и вызовам, но в этот раз редакция посмотрела на город собственными глазами. Почти каждый адрес из пачки уже мелькал на наших полосах — и где можно, мы ставим ссылку на прошлые выпуски.</p>
+      <div class="routeline"><span>San Fierro</span><span class="arw">———✈———</span><span>Los Santos</span><span class="arw">·</span><span>обратно: архив редакции</span></div>
+    </div>
+    <div class="env">
+      <svg class="envstamp" width="74" height="90" viewBox="0 0 74 90">
+        <rect x="0" y="0" width="74" height="90" fill="#c8402f"/>
+        <rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-width="1" stroke-dasharray="3 3"/>
+        <circle cx="52" cy="24" r="7" fill="#f4d35e"/>
+        <g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="M34 62c-1-10-1-17 1-24"/>
+          <path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/>
+        </g>
+        <path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/>
+        <text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text>
+        <text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text>
+      </svg>
+      <div class="envaddr">Куда: читательский стол<br>редакции San Fierro News<br>и всем, кто любит юг</div>
+      <div class="envmeta">Откуда: Los Santos, южное побережье<br>Вложение: 10 кадров, бандероль<br>Отправлено: 30.09.2026, вечер</div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="dl"></div><span>далее — десять открыток</span><div class="dl"></div></div>
+
+  <section class="pcs">
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">01</div><div class="pcplace">Vinewood · холмы</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#2e4a7a"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG1}}" alt="Надпись VINEWOOD на зелёном склоне холма: пальмы, особняки и серпантин подъездных дорог вокруг"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Холмы, где буквы выше пальм</div>
+      <p class="pcnote">Надпись VINEWOOD стоит на склоне, как погранзастава между городом и небом. Внизу — серпантины подъездных дорог, белые кубы особняков и студии: здесь Los Santos снимает своё кино о себе и живёт по этому мифу. С этой точки юг виден весь — до самого океана.</p>
+      <div class="chips"></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">02</div><div class="pcplace">City Hall · правительство</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#c8402f"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG2}}" alt="Здание правительства Los Santos: ступенчатая башня в стиле ар-деко с колоннадой и флагами у входа"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Городская башня: ар-деко, колоннада, флаги</div>
+      <p class="pcnote">City Hall Los Santos поднимается ступенями: внизу — колоннада и площадь с флагами, выше — строгая башня без единого лишнего штриха. Внутри — приёмная, биржа труда, окно «работа с бизнесом» и стена мониторинга: каждое утро городская работа начинается именно здесь.</p>
+      <div class="chips"><a class="chip" href="fotoreport-city-hall.html">Уже писали: City Hall изнутри · 29.09</a></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">03</div><div class="pcplace">LSPD · штаб</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#3f7d44"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG3}}" alt="Штаб LSPD: патрульные машины на площади перед зданием с башенкой, вертолёт над крышей"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Патрульные на площади, вертолёт над крышей</div>
+      <p class="pcnote">Штаб LSPD работает без выходных: у входа выстроились патрульные машины, над крышей греется вертолёт, а фургон с хот-догами дежурит у площади по собственному протоколу. В конце сентября у департамента было много работы — от перестрелок до ночных оцеплений.</p>
+      <div class="chips"><a class="chip" href="daily-28-09-2026.html">Уже писали: ночь 28.09 и операции LSPD</a></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">04</div><div class="pcplace">All Saints · больница</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#2e4a7a"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG4}}" alt="All Saints General Hospital в Los Santos: стеклянный фасад, скорые у приёмного покоя, пальмы вдоль улицы"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">All Saints General: скорые не остывают</div>
+      <p class="pcnote">Главная больница Los Santos встречает стеклянной стеной главного корпуса и парковкой скорых: одни только что привезли, другие уже выезжают. Этой больнице мы посвящали отдельный выпуск — и продолжаем упоминать её в каждой сводке, где счёт идёт на минуты.</p>
+      <div class="chips"><a class="chip b" href="all-saints-hospital.html">Уже писали: отдельный выпуск об All Saints</a></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">05</div><div class="pcplace">Credit &amp; Commerce · банк</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#c8402f"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG5}}" alt="Банк Credit and Commerce в Los Santos: вывеска CB, билборд Didiersachs рядом, патрульная машина и колонна инкассаторских фургонов"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Credit &amp; Commerce: инкассаторы снова у стены</div>
+      <p class="pcnote">Угол банка Credit and Commerce с чёрным билбордом Didiersachs по соседству: 28.09 в этом лобби летали пули, а квартал стоял в оцеплении LSPD. Сегодня — рутина: колонна инкассаторских фургонов у стены, патруль у входа. Город снова дышит ровно.</p>
+      <div class="chips"><a class="chip" href="daily-28-09-2026.html">Уже писали: перестрелка в банке · 28.09</a></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">06</div><div class="pcplace">Ammu-Nation · амуниция</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#3f7d44"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG6}}" alt="Магазин Ammu-Nation в Los Santos: панно из звёзд и полос во всю стену и гигантский револьвер над входом"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Звёзды, полосы и револьвер над входом</div>
+      <p class="pcnote">Ammu-Nation в Los Santos не перепутать: вся стена — панно из звёзд и полос, над дверью — револьвер размером с витрину. Внутри — всё, что нужно городу для историй про «самооборону». Сеть мы упоминали в ежедневке от 27.09 и даже делали ей фирменный флаер.</p>
+      <div class="chips"><a class="chip" href="daily-27-09-2026.html">Уже писали: ежедневка 27.09</a><a class="chip b" href="flyers/ammu-nation-los-santos.png">Флаер редакции: Ammu-Nation</a></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">07</div><div class="pcplace">Victim · одежда</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#2e4a7a"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG7}}" alt="Магазин одежды Victim в Los Santos: бежевый фасад с арками и красные пятна бренда на вывеске"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Victim: красные пятна на серой плитке</div>
+      <p class="pcnote">Магазин одежды Victim стоит на тихой улице: арки, маркизы, пустой тротуар и фирменные алые пятна бренда на вывеске. Для наших полос это новое лицо: до сих пор мода Los Santos оставалась за кадром сводок. Будем исправлять — гардероб города заслуживает репортажа.</p>
+      <div class="chips"></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">08</div><div class="pcplace">Отель · южная дуга</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#c8402f"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG8}}" alt="Отель в Los Santos: изогнутая зелёная башня с рядами балконов вдоль полукруглой улицы с пальмами"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Зелёная дуга балконов лицом на юг</div>
+      <p class="pcnote">Гостиница Los Santos стоит волной: сотни одинаковых балконов повторяют изгиб улицы, во дворе — пальмы и клумбы. Важно не перепутать: наш Evolve Five Stars из репортажа 29.09 сияет в Las Venturas, а этот отель — южный, местный, и у него свой характер.</p>
+      <div class="chips"><a class="chip b" href="fotoreport-evolve-hotel.html">Не перепутать: Evolve Five Stars в Las Venturas</a></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">09</div><div class="pcplace">Los Santos News · соседи</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#3f7d44"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG9}}" alt="Офис Los Santos News: стеклянные цилиндрические башни у развязки шоссе, площадь с пальмами у подножия"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Стеклянные цилиндры Los Santos News</div>
+      <p class="pcnote">За этими стеклянными цилиндрами у развязки сидит редакция Los Santos News — южные соседи и дружеские конкуренты. Машем им из окон: наш архив толще на двадцать шесть выпусков и растёт каждый день. Пусть догоняют честно.</p>
+      <div class="chips"><a class="chip" href="newsroom.html">Наш архив: все выпуски SFN</a></div>
+    </article>
+
+    <article class="pc">
+      <div class="pctop">
+        <div><div class="pcnum">10</div><div class="pcplace">Окраина · ферма</div></div>
+        <svg class="stamp" viewBox="0 0 74 90"><rect width="74" height="90" fill="#2e4a7a"/><rect x="5" y="5" width="64" height="80" fill="none" stroke="#fffdf6" stroke-dasharray="3 3"/><circle cx="52" cy="24" r="7" fill="#f4d35e"/><g stroke="#fffdf6" stroke-width="2" fill="none" stroke-linecap="round"><path d="M34 62c-1-10-1-17 1-24"/><path d="M35 38c-7-5-14-5-19 0M35 38c-3-8-8-11-14-10M35 38c7-5 14-5 19 0M35 38c3-8 8-11 14-10M35 38c0-9 3-13 8-15"/></g><path d="M20 64h30" stroke="#fffdf6" stroke-width="2" stroke-linecap="round"/><text x="37" y="74" text-anchor="middle" font-size="6.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">SAN ANDREAS</text><text x="37" y="82" text-anchor="middle" font-size="5.5" fill="#fffdf6" font-family="monospace" letter-spacing="1">AIRMAIL · 10$</text></svg>
+      </div>
+      <div class="pcphoto"><img src="{{IMG10}}" alt="Ферма на окраине Los Santos: белый дом, амбар, силосная башня, водонапорная башня и ветряк среди сосен"><svg class="pm" viewBox="0 0 120 64"><g fill="none" stroke="#2e4a7a" stroke-width="1.6"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="17"/><path d="M60 22c8-4 14 4 22 0s14 4 22 0M60 32c8-4 14 4 22 0s14 4 22 0M60 42c8-4 14 4 22 0s14 4 22 0"/></g><text x="32" y="29" text-anchor="middle" font-size="7" fill="#2e4a7a" font-family="monospace">SFN·LS</text><text x="32" y="39" text-anchor="middle" font-size="6.5" fill="#2e4a7a" font-family="monospace">30.09.26</text></svg></div>
+      <div class="pchand">Окраина: водонапорка, амбар, ветряк</div>
+      <p class="pcnote">Последняя открытка — оттуда, где город заканчивается: ферма среди сосен, рыжая водонапорная башня, силос и ветряк над двором. Los Santos — это не только асфальт и неон: за холмами с надписью есть тихая земля, которая город кормит.</p>
+      <div class="chips"></div>
+    </article>
+
+  </section>
+
+  <section class="outro">
+    <h2>Из редакции</h2>
+    <p>На этом юг на сегодня всё. Пачка открыток отправляется в подшивку — вместе со ссылками на каждый выпуск, который мы вспомнили по дороге. Los Santos, спасибо за свет и пальмы; San Fierro, не ревнуй: завтра снова пишем о тебе. Увидимся в том же месте, в то же время — на полосах San Fierro News.</p>
+    <div class="credits">Кадры: <b>Anna Malboro</b> · Фоторедактор: <b>Sonya Malboro</b> · Текст: <b>Jonny Wilde</b></div>
+  </section>
+
+  <div class="hubline"><a class="hubbtn" href="newsroom.html">← Посмотреть все выпуски редакции</a></div>
+
+  <footer>© 2026 San Fierro News · Evolve Role Play · Los Santos, десять открыток<br>выпуск подшит в архив навсегда · 30.09.2026</footer>
+</div>
+<div class="airbar"></div>
+</body>
+</html>
