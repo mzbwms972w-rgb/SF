@@ -35,16 +35,18 @@ img{display:block;max-width:100%}
 .brand em{font-style:italic}
 .mast-sub{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sepia);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line);display:inline-block;padding:5px 18px;margin:6px auto 10px}
 .mast-dates{margin-top:4px}
-.hero-home{position:relative;min-height:92vh;display:flex;align-items:flex-end;background:var(--coal);overflow:hidden}
+.hero-home{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:var(--coal);overflow:hidden}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;filter:saturate(.75) contrast(1.05)}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(200deg,rgba(29,33,38,.28) 0%,rgba(29,33,38,.22) 30%,rgba(29,33,38,.55) 62%,rgba(29,33,38,.85) 100%),linear-gradient(90deg,rgba(29,33,38,.80) 0%,rgba(29,33,38,.55) 35%,rgba(29,33,38,.10) 70%,rgba(29,33,38,0) 100%)}
-.hero-inner{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:0 24px 56px;color:#f4f2ec;text-shadow:0 1px 3px rgba(29,33,38,.85),0 2px 14px rgba(29,33,38,.6)}
-.hero-kicker{font-family:'Courier New',monospace;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#ffd97a;margin-bottom:18px;border-left:3px solid var(--gold);padding-left:12px}
-.hero h1{font-size:clamp(30px,4.6vw,54px);line-height:1.18;font-weight:700;max-width:900px;text-shadow:0 2px 6px rgba(29,33,38,.9),0 4px 22px rgba(29,33,38,.65)}
-.hero .deck{max-width:780px;margin:20px 0 16px;font-size:16px;font-style:italic;color:#eae5da;line-height:1.55}
-.hero .byline{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#d6d0c2}
-.hero-cap{margin-top:22px;font-family:'Courier New',monospace;font-size:13px;color:#d0cabc;letter-spacing:.04em;border-top:1px solid rgba(255,255,255,.3);padding-top:10px;max-width:900px}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.finale-photo .hero-bg img{object-position:center 50%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,33,38,0) 0%,rgba(29,33,38,.06) 30%,rgba(29,33,38,.45) 50%,rgba(29,33,38,.85) 72%,rgba(29,33,38,.9) 100%),linear-gradient(90deg,rgba(29,33,38,.70) 0%,rgba(29,33,38,.45) 40%,rgba(29,33,38,.08) 75%,rgba(29,33,38,0) 100%)}
+.finale-photo .hero-shade{background:linear-gradient(180deg,rgba(29,33,38,.15) 0%,rgba(29,33,38,.25) 40%,rgba(29,33,38,.75) 75%,rgba(29,33,38,.88) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:0 24px 56px;color:#f4f2ec;text-shadow:0 1px 3px rgba(29,33,38,.9),0 2px 14px rgba(29,33,38,.7),0 0 30px rgba(29,33,38,.5)}
+.hero-kicker{display:inline-block;font-family:'Courier New',monospace;font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#f0c36a;margin-bottom:18px;border-left:3px solid var(--gold);padding:6px 12px;background:rgba(29,33,38,.55);text-shadow:0 1px 4px rgba(0,0,0,.8)}
+.hero h1{font-size:clamp(30px,4.6vw,54px);line-height:1.18;font-weight:700;max-width:900px;color:#fff;text-shadow:0 2px 6px rgba(29,33,38,.95),0 4px 22px rgba(29,33,38,.75),0 0 36px rgba(29,33,38,.6)}
+.hero .deck{max-width:780px;margin:20px 0 16px;font-size:16px;font-style:italic;color:#eee9df;line-height:1.55;text-shadow:0 1px 4px rgba(29,33,38,.9),0 2px 12px rgba(29,33,38,.6)}
+.hero .byline{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#e2dccf;text-shadow:0 1px 3px rgba(29,33,38,.9)}
+.hero-cap{margin-top:22px;font-family:'Courier New',monospace;font-size:13px;color:#e0dacd;letter-spacing:.04em;border-top:1px solid rgba(255,255,255,.35);padding-top:10px;max-width:900px;text-shadow:0 1px 3px rgba(29,33,38,.9)}
 .scroll-cue{display:inline-block;margin-top:14px;font-family:'Courier New',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#ffd97a;text-decoration:none;border:2px solid rgba(255,217,122,.85);padding:8px 16px;background:rgba(29,33,38,.35)}
 .scroll-cue:hover{background:rgba(207,154,78,.15)}
 .story{background:transparent}
