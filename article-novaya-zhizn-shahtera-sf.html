@@ -26,10 +26,7 @@ img{display:block;max-width:100%}
 /* === Акцент градиента «шахта → дом»: видимая шкала цвета === */
 .tempbar{position:fixed;top:0;left:0;right:0;height:9px;z-index:50;background:linear-gradient(90deg,#4d5560 0%,#7c6f52 30%,#c07f2e 62%,#f2c14e 88%,#ffd97a 100%);box-shadow:0 2px 10px rgba(0,0,0,.35)}
 .tempbar .knob{position:absolute;top:-4px;left:0;width:16px;height:16px;border-radius:50%;background:#fffdf7;border:3px solid #4d5560;transform:translateX(-50%);transition:left .25s ease,border-color .25s ease;box-shadow:0 2px 6px rgba(0,0,0,.4)}
-.temp-scale{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin:8px 0 0;padding:14px 18px;background:var(--paper-card);border:1px solid var(--line);font-family:'Courier New',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--cap)}
-.temp-scale .bar{flex:1;height:12px;border-radius:6px;background:linear-gradient(90deg,#4d5560,#7c6f52,#c07f2e,#f2c14e,#ffd97a);position:relative;box-shadow:inset 0 1px 3px rgba(0,0,0,.25)}
-.temp-scale .bar i{position:absolute;top:-4px;width:2px;height:16px;background:var(--ink);left:0;transition:left .3s ease}
-.temp-scale b{color:var(--brick);font-weight:700}
+
 .mast-top,.mast-dates{display:flex;justify-content:space-between;gap:16px;font-family:'Courier New',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6b6f76}
 .brand{display:inline-block;margin:12px 0 4px;text-decoration:none;color:var(--ink);font-weight:700;font-size:clamp(32px,5.5vw,58px);letter-spacing:.06em}
 .brand em{font-style:italic}
@@ -74,7 +71,8 @@ img{display:block;max-width:100%}
 .qmark{display:block;font-size:64px;line-height:.4;color:var(--gold);margin-bottom:18px;font-style:normal}
 /* === ГОРИЗОНТАЛЬНАЯ ЛЕНТА ХРОНОЛОГИИ === */
 .rail-wrap{grid-column:1/-1;margin:20px 0 0;display:flex;flex-direction:column}
-.rail-title{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);text-align:center;margin-bottom:14px}
+.rail-title{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);text-align:center;margin-bottom:10px}
+.rail-h-hint-inline{display:inline-block;margin-left:14px;font-size:11px;letter-spacing:.1em;color:var(--cap)}
 .rail-h{overflow-x:auto;overflow-y:hidden;padding:24px 16px 0;margin-bottom:0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
 .rail-h::-webkit-scrollbar{height:6px}
 .rail-h::-webkit-scrollbar-track{background:rgba(120,110,90,.12);border-radius:3px}
@@ -89,7 +87,7 @@ img{display:block;max-width:100%}
 .tl-fig{margin:10px 0 0}
 .tl-fig img{width:100%;height:170px;object-fit:cover;display:block;border:1px solid var(--line);padding:4px;background:#fff}
 .tl-fig figcaption{margin-top:8px;font-family:inherit;font-size:13px;line-height:1.5;color:var(--cap)}
-.rail-h-hint{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--cap);text-align:right;margin-top:6px}
+
 
 .interview{grid-column:1/-1;max-width:1000px;margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(260px,5fr) minmax(0,7fr);gap:28px;align-items:start}
 .qa-tabs{display:flex;flex-direction:column;gap:8px}
@@ -182,8 +180,7 @@ html{background:var(--dyn-bg,#f2f1ee);}
 <div class="pull-giant"><i class="qmark">«</i><p>«Тот день начинался обычно: после смены мы выезжали из промышленной зоны, солнце стояло высоко, и у отвалов мы заметили человека. Мы остановились».</p><cite>— Сотрудник редакции San-Fierro News, с которого начался этот день</cite></div>
 
 <div class="rail-wrap">
-<div class="rail-title">Линия времени одного дня · по кадрам съёмки</div>
-<div class="temp-scale"><span>❄ Шахта · холод и одиночество</span><div class="bar"><i id="scaleMark"></i></div><span>Дом · тепло и работа ☀</span></div>
+<div class="rail-title">Линия времени одного дня · по кадрам съёмки <span class="rail-h-hint-inline">&larr; листайте ленту вбок &rarr;</span></div>
 <div class="rail-h"><div class="rail-h-track">
 <div class="tl-card">
 <div class="tl-time">13:40</div>
@@ -228,7 +225,6 @@ html{background:var(--dyn-bg,#f2f1ee);}
 </div>
 </div><!-- /.rail-h-track -->
 </div><!-- /.rail-h -->
-<div class="rail-h-hint">&larr; листайте ленту вбок &rarr;</div>
 </div><!-- /.rail-wrap -->
 
 <div class="pull-giant warm"><i class="qmark">«</i><p>«Мы каждый день пишем о городе. В этот раз мы решили написать о нём так, чтобы герой истории проснулся не в забое, а у себя дома».</p><cite>— Генеральный директор редакции San-Fierro News</cite></div>
@@ -298,7 +294,6 @@ html{background:var(--dyn-bg,#f2f1ee);}
 <script>
 (function(){
 var knob=document.getElementById('tempKnob');
-var mark=document.getElementById('scaleMark');
 var story=document.getElementById('story');
 var doc=document.documentElement;
 function upd(){
@@ -306,7 +301,6 @@ function upd(){
   var p=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;
   if(knob){knob.style.left=(p*100)+'%';
     knob.style.borderColor=p<.34?'#6b7078':(p<.67?'#8a7a5f':'#cf9a4e');}
-  if(mark)mark.style.left=(p*100)+'%';
   var cls=p<.33?'c-cold':(p<.66?'c-warm':'c-hot');
   if(!doc.classList.contains(cls)){doc.classList.remove('c-cold','c-warm','c-hot');doc.classList.add(cls);}
 }
@@ -340,8 +334,6 @@ upd();
     document.documentElement.style.setProperty('--dyn-ink',mix(stops[i].ink,stops[i+1].ink,t));
     var knob=document.querySelector('.tempbar .knob');
     if(knob){knob.style.left=(p*100)+'%';knob.style.borderColor=mix('#4d5560','#f2c14e',p);}
-    var mark=document.querySelector('.temp-scale .bar i');
-    if(mark){mark.style.left='calc('+ (p*100) +'%)';}
   }
   window.addEventListener('scroll',upd,{passive:true});
   window.addEventListener('resize',upd);
