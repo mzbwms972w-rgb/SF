@@ -107,7 +107,7 @@ img{display:block;max-width:100%}
 .qa-answer{display:none;font-size:19px;line-height:1.7;color:var(--ink);opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
 .qa-answer.show{display:block}
 .qa-answer.visible{opacity:1;transform:none}
-.qa-nav{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.qa-nav{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:20px;padding-top:12px;border-top:1px solid var(--line)}
 .qa-count{font-family:'Courier New',monospace;font-size:13px;color:var(--cap)}
 .qa-arrows{display:flex;gap:8px}
 .qa-arrow{font:inherit;font-size:15px;line-height:1;padding:6px 14px;background:transparent;color:var(--ink);border:1px solid var(--ink);cursor:pointer;transition:border-color .3s ease,color .3s ease}
@@ -287,7 +287,7 @@ html{background:var(--dyn-bg,#f2f1ee);}
 <div class="qa-answer" id="qa-a-3">«Не ключи. Ключи — это железо. Запомнился магазин одежды в Los-Santos: меня туда привезли прямо с шахты, я зашёл в том, в чём с конвейера приехал, а вышел в нормальных вещах. Я там просто выбирал одежду, как обычный покупатель. Вот это „как обычный“ — я такое два года не слышал. Кровать в социальном жилье — на втором месте. Первую ночь там я почти не спал: сначала полчаса просто сидел на краю, боялся лечь, испачкать. А платить за неё мне не надо — это социальное жилье, о нём позаботились. Впервые за два года я спал в чистом.»</div>
 <div class="qa-answer" id="qa-a-4">«Легче шахты, честное слово. Палеты, сканер, талоны на обед, зарплата по расписанию — и никто не ждёт, что ты завтра исчезнешь. На обеде бригадир спросил, откуда руки такие — я говорю: с угольной, из San-Fierro. Он посмеялся и дал самый дальний ряд стеллажей: „Новичкам самое скучное“. Самое скучное — это лучшее, что со мной случалось за два года.»</div>
 <div class="qa-answer" id="qa-a-5">«Не говорил бы им „ждите доброго человека с машиной“ — таких мало, и они не обязаны. Сказал бы другое: держите документы при себе и не привыкайте к своему месту на лавке или в бытовке. Привычка — это то, что потом не даёт встать и пойти. Меня подняли не ключи и не кровать. Меня подняло то, что со мной заговорили как с человеком, у которого есть будущее.»</div>
-<div class="qa-nav"><button class="qa-arrow" id="qa-prev" aria-label="Предыдущий вопрос">←</button><span class="qa-count" id="qa-count">Вопрос 1 из 6</span><button class="qa-arrow" id="qa-next" aria-label="Следующий вопрос">→</button></div>
+<div class="qa-nav"><button class="qa-arrow" id="qa-prev" aria-label="Предыдущий вопрос">←</button><button class="qa-arrow" id="qa-next" aria-label="Следующий вопрос">→</button></div>
 </div>
 </div>
 
@@ -393,18 +393,7 @@ upd();
   if(stage){
     var first=stage.querySelector('.qa-answer.show');
     if(first){first.classList.add('visible');}
-    stage.setQaHeight=function(){
-      var max=0;
-      stage.querySelectorAll('.qa-answer').forEach(function(a){
-        var prev=a.style.display;a.style.display='block';a.style.position='absolute';a.style.visibility='hidden';
-        max=Math.max(max,a.offsetHeight);
-        a.style.display=prev;a.style.position='';a.style.visibility='';
-      });
-      var navH=(stage.querySelector('.qa-nav')||{offsetHeight:0}).offsetHeight;
-      var tabsH=document.querySelector('.qa-tabs')?document.querySelector('.qa-tabs').offsetHeight:0;
-      var pad=52; // padding 26px сверху и снизу карточки
-      stage.style.minHeight=(tabsH>0?Math.max(max+pad+navH,tabsH):(max+pad+navH))+'px';
-    };
+    stage.setQaHeight=function(){stage.style.minHeight='';};
     stage.setQaHeight();
     window.addEventListener('resize',stage.setQaHeight);
   }
