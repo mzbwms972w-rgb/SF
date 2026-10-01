@@ -11,7 +11,7 @@ html.c-warm{--bg:#f3ece0;--mast-bg:#efe7da;--ink:#2b2418;--ink-soft:#5d5341;--de
 html.c-hot{--bg:#fdf6e7;--mast-bg:#f8eeda;--ink:#2f2413;--ink-soft:#6b5c40;--deck:#f0e4cb;--paper-card:#fffaf0;--line:#dfc797;--cap:#75644a;--brick:#b4560f;--rail-a:#cf9a4e;--rail-b:#cf9a4e;--rail-c:#e8b45c}
 html,.masthead,.story,body{transition:background-color 1.4s ease,color 1.4s ease}
 .masthead,.box,.ph,.phmini,.hand{transition:background-color 1.4s ease,border-color 1.4s ease,box-shadow 1.4s ease}
-.qa-q,.qa-a,.side,.block-text p,.editor,.part h2,.hero .deck,.pull-giant p{transition:color 1.4s ease}
+.qa-tab,.qa-answer,.side,.block-text p,.editor,.part h2,.hero .deck,.pull-giant p{transition:color 1.4s ease}
 :root{
   --coal:#1d2126;--steel:#2c323a;--fog:#e9eae7;--paper:#f2efe8;--cream:#fffdf7;
   --ink:#26262a;--ink-soft:#4c4b47;--gray-line:#cdc8bc;
@@ -95,11 +95,25 @@ img{display:block;max-width:100%}
 .ff-row span{font-family:'Courier New',monospace;font-size:13px;text-transform:uppercase;color:#7a766c;flex-shrink:0}
 .ff-row b{color:var(--ink);text-align:right;font-weight:700}
 .side-note{margin-top:14px;font-style:italic;font-size:14.5px;color:#8a7a5f}
-.interview{grid-column:1/-1;max-width:820px;margin:0 auto;width:100%}
-.qa-item{padding:26px 0;border-bottom:1px solid var(--line)}
-.qa-q{font-weight:700;font-size:19px;line-height:1.5;margin-bottom:12px;color:var(--ink)}
-.qa-mark{display:block;font-family:'Courier New',monospace;font-size:11.5px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);margin-bottom:8px}
-.qa-a{font-size:18px;line-height:1.75;font-style:italic;color:var(--ink-soft)}
+.interview{grid-column:1/-1;max-width:1000px;margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(260px,5fr) minmax(0,7fr);gap:28px;align-items:start}
+.qa-tabs{display:flex;flex-direction:column;gap:8px}
+.qa-tab{display:block;text-align:left;font:inherit;font-weight:700;font-size:15.5px;line-height:1.45;color:var(--ink);background:transparent;border:none;border-left:3px solid var(--line);padding:10px 12px;cursor:pointer;transition:border-color .35s ease,color .35s ease,background .35s ease}
+.qa-tab:hover{border-left-color:var(--gold);color:var(--amber)}
+.qa-tab.active{border-left-color:var(--gold);color:var(--amber);background:rgba(201,138,46,.08)}
+.qa-stage{position:relative;border:1px solid var(--line);background:var(--paper-card);padding:26px 28px;box-shadow:0 8px 20px rgba(40,35,25,.08)}
+.qa-stage::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(90deg,var(--gold-soft),var(--gold))}
+.qa-answer{display:none;font-size:17px;line-height:1.7;color:var(--ink);opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+.qa-answer.show{display:block}
+.qa-answer.visible{opacity:1;transform:none}
+@media(max-width:800px){
+.interview{grid-template-columns:1fr;gap:10px}
+.qa-tabs{gap:0}
+.qa-tab{width:100%;border-left:none;border-bottom:1px solid var(--line)}
+.qa-tab.active{background:transparent;color:var(--amber);border-bottom-color:var(--gold)}
+.qa-stage{border:none;padding:0;box-shadow:none;background:transparent}
+.qa-stage::before{display:none}
+.qa-answer{font-size:17px;padding:6px 2px 14px;border-bottom:1px solid var(--line)}
+}
 .hand-intro{max-width:720px;margin:36px auto 0;font-size:17px;color:var(--ink-soft)}
 .hand{max-width:640px;margin:18px auto 8px;background:var(--paper-card);border:1px dashed var(--sepia);padding:26px 30px;font-style:italic;font-size:19px;line-height:1.7;color:var(--cap);transform:rotate(-1deg);box-shadow:0 10px 24px rgba(40,35,25,.1)}
 .finale-home{background:var(--steel);color:#f4f2ec;padding:0}
@@ -248,12 +262,24 @@ html{background:var(--dyn-bg,#f2f1ee);}
 
 <div class="block-text"><div class="inner"><p>На следующий день после переезда герой этой истории зашёл в редакцию по пути со смены — уже чистый, в новой одежде и с восстановленными документами. Большое интервью мы записали дословно, с минимальной редактурой. Он попросил не называть его полного имени до конца испытательного срока — «чтобы не сглазили зарплату». Далее — его ответы.</p></div></div>
 
-<div class="interview"><div class="qa-item"><div class="qa-q"><span class="qa-mark">SF News · Вопрос</span>Расскажите, как вы оказались на шахте. Сколько вы там прожили?</div><div class="qa-a">«До San-Fierro у меня была нормальная жизнь: работал на автобазаре, снимал угол, по выходным подрабатывал на погрузке. Потом подрядчик обанкротился, хозяин квартиры поднял цену вдвое, а через месяц у меня украли документы и сумку со всем, что было. Сначала ночевал на лавках у дока, а потом пришёл сюда — на шахту берут всех, кто может держать лопату, и спрашивать не любят. Итого — почти два года. Точный счёт я бросил вести после первых шести месяцев.»</div></div>
-<div class="qa-item"><div class="qa-q"><span class="qa-mark">SF News · Вопрос</span>Что для вас значила эта работа? Она ведь тяжёлая.</div><div class="qa-a">«Шахта меня не отпускала — я сам её не отпускал. Там пыльно, шумно, лёгкие к концу смены чёрные… зато никому не должен и всегда знаешь, где переночевать — в бытовке, если пустой угол найдёшь. Бездомному страшно не тяжело работать. Страшно проснуться там, где тебя утром не найдёт никто. Я к этому месту привык, как привыкают к больному зубу.»</div></div>
-<div class="qa-item"><div class="qa-q"><span class="qa-mark">SF News · Вопрос</span>Когда у ворот остановилась машина редакции — что вы подумали?</div><div class="qa-a">«Подумал: опять будут снимать „для коллекции нищих“, как эти с телефонами ходят и фоткают ради смеха. Я уже и камеры-то узнавать начал. А когда сотрудник вашей редакции вышел из машины, посмотрел на меня и сказал не „бедный“, а „поехали“ — я минут пять стоял и не мог ответить. Согласился-то сразу. Просто голос не сразу послушался.»</div></div>
-<div class="qa-item"><div class="qa-q"><span class="qa-mark">SF News · Вопрос</span>Шахта, магазин, ключи… Что запомнилось сильнее всего?</div><div class="qa-a">«Не ключи. Ключи — это железо. Запомнился магазин одежды в Los-Santos: меня туда привезли прямо с шахты, я зашёл в том, в чём с конвейера приехал, а вышел в нормальных вещах. Я там просто выбирал одежду, как обычный покупатель. Вот это „как обычный“ — я такое два года не слышал. Кровать в социальном жилье — на втором месте. Первую ночь там он почти не спал: сначала полчаса просто сидел на краю, боялся лечь, испачкать. А платить за неё мне не надо — это социальное жилье, о нём позаботились. Впервые за два года я спал в чистом.»</div></div>
-<div class="qa-item"><div class="qa-q"><span class="qa-mark">SF News · Вопрос</span>Первая смена грузчиком прошла как?</div><div class="qa-a">«Легче шахты, честное слово. Палеты, сканер, талоны на обед, зарплата по расписанию — и никто не ждёт, что ты завтра исчезнешь. На обеде бригадир спросил, откуда руки такие — я говорю: с угольной, из San-Fierro. Он посмеялся и дал самый дальний ряд стеллажей: „Новичкам самое скучное“. Самое скучное — это лучшее, что со мной случалось за два года.»</div></div>
-<div class="qa-item"><div class="qa-q"><span class="qa-mark">SF News · Вопрос</span>Что бы вы сказали тем, кто сейчас живёт так, как вы полгода назад?</div><div class="qa-a">«Не говорил бы им „ждите доброго человека с машиной“ — таких мало, и они не обязаны. Сказал бы другое: держите документы при себе и не привыкайте к своему месту на лавке или в бытовке. Привычка — это то, что потом не даёт встать и пойти. Меня подняли не ключи и не кровать. Меня подняло то, что со мной заговорили как с человеком, у которого есть будущее.»</div></div></div>
+<div class="interview">
+<div class="qa-tabs">
+<button class="qa-tab active" data-qa="0" aria-expanded="true">Расскажите, как вы оказались на шахте. Сколько вы там прожили?</button>
+<button class="qa-tab" data-qa="1" aria-expanded="false">Что для вас значила эта работа? Она ведь тяжёлая.</button>
+<button class="qa-tab" data-qa="2" aria-expanded="false">Когда у ворот остановилась машина редакции — что вы подумали?</button>
+<button class="qa-tab" data-qa="3" aria-expanded="false">Шахта, магазин, ключи… Что запомнилось сильнее всего?</button>
+<button class="qa-tab" data-qa="4" aria-expanded="false">Первая смена грузчиком прошла как?</button>
+<button class="qa-tab" data-qa="5" aria-expanded="false">Что бы вы сказали тем, кто сейчас живёт так, как вы полгода назад?</button>
+</div>
+<div class="qa-stage">
+<div class="qa-answer show" id="qa-a-0">«До San-Fierro у меня была нормальная жизнь: работал на автобазаре, снимал угол, по выходным подрабатывал на погрузке. Потом подрядчик обанкротился, хозяин квартиры поднял цену вдвое, а через месяц у меня украли документы и сумку со всем, что было. Сначала ночевал на лавках у дока, а потом пришёл сюда — на шахту берут всех, кто может держать лопату, и спрашивать не любят. Итого — почти два года. Точный счёт я бросил вести после первых шести месяцев.»</div>
+<div class="qa-answer" id="qa-a-1">«Шахта меня не отпускала — я сам её не отпускал. Там пыльно, шумно, лёгкие к концу смены чёрные… зато никому не должен и всегда знаешь, где переночевать — в бытовке, если пустой угол найдёшь. Бездомному страшно не тяжело работать. Страшно проснуться там, где тебя утром не найдёт никто. Я к этому месту привык, как привыкают к больному зубу.»</div>
+<div class="qa-answer" id="qa-a-2">«Подумал: опять будут снимать „для коллекции нищих“, как эти с телефонами ходят и фоткают ради смеха. Я уже и камеры-то узнавать начал. А когда сотрудник вашей редакции вышел из машины, посмотрел на меня и сказал не „бедный“, а „поехали“ — я минут пять стоял и не мог ответить. Согласился-то сразу. Просто голос не сразу послушался.»</div>
+<div class="qa-answer" id="qa-a-3">«Не ключи. Ключи — это железо. Запомнился магазин одежды в Los-Santos: меня туда привезли прямо с шахты, я зашёл в том, в чём с конвейера приехал, а вышел в нормальных вещах. Я там просто выбирал одежду, как обычный покупатель. Вот это „как обычный“ — я такое два года не слышал. Кровать в социальном жилье — на втором месте. Первую ночь там он почти не спал: сначала полчаса просто сидел на краю, боялся лечь, испачкать. А платить за неё мне не надо — это социальное жилье, о нём позаботились. Впервые за два года я спал в чистом.»</div>
+<div class="qa-answer" id="qa-a-4">«Легче шахты, честное слово. Палеты, сканер, талоны на обед, зарплата по расписанию — и никто не ждёт, что ты завтра исчезнешь. На обеде бригадир спросил, откуда руки такие — я говорю: с угольной, из San-Fierro. Он посмеялся и дал самый дальний ряд стеллажей: „Новичкам самое скучное“. Самое скучное — это лучшее, что со мной случалось за два года.»</div>
+<div class="qa-answer" id="qa-a-5">«Не говорил бы им „ждите доброго человека с машиной“ — таких мало, и они не обязаны. Сказал бы другое: держите документы при себе и не привыкайте к своему месту на лавке или в бытовке. Привычка — это то, что потом не даёт встать и пойти. Меня подняли не ключи и не кровать. Меня подняло то, что со мной заговорили как с человеком, у которого есть будущее.»</div>
+</div>
+</div>
 
 <div class="block-text"><div class="inner">
 <p class="hand-intro">Рукописную страницу с итогами интервью он оставил редакции сам:</p>
@@ -332,6 +358,35 @@ upd();
   window.addEventListener('scroll',upd,{passive:true});
   window.addEventListener('resize',upd);
   upd();
+})();
+</script>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.qa-tab'), stage=document.querySelector('.qa-stage');
+  function show(i){
+    tabs.forEach(function(t,j){t.classList.toggle('active',j===i);t.setAttribute('aria-expanded',j===i?'true':'false')});
+    document.querySelectorAll('.qa-answer').forEach(function(a,j){
+      if(j===i){a.classList.add('show');requestAnimationFrame(function(){requestAnimationFrame(function(){a.classList.add('visible')})});}
+      else{a.classList.remove('show','visible');}
+    });
+    if(stage&&stage.setQaHeight)stage.setQaHeight();
+  }
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){show(i)})});
+  if(stage){
+    var first=stage.querySelector('.qa-answer.show');
+    if(first){first.classList.add('visible');}
+    stage.setQaHeight=function(){
+      var max=0;
+      stage.querySelectorAll('.qa-answer').forEach(function(a){
+        var prev=a.style.display;a.style.display='block';a.style.position='absolute';a.style.visibility='hidden';
+        max=Math.max(max,a.offsetHeight);
+        a.style.display=prev;a.style.position='';a.style.visibility='';
+      });
+      stage.style.minHeight=(max+52)+'px';
+    };
+    stage.setQaHeight();
+    window.addEventListener('resize',stage.setQaHeight);
+  }
 })();
 </script>
 </body>
