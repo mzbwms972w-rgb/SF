@@ -10,7 +10,7 @@ html{--bg:#e9eae7;--mast-bg:#e6e7e3;--ink:#26262a;--ink-soft:#4c4b47;--deck:#ddd
 html.c-warm{--bg:#f3ece0;--mast-bg:#efe7da;--ink:#2b2418;--ink-soft:#5d5341;--deck:#e6dcc8;--paper-card:#faf4e8;--line:#d8c8a8;--cap:#6a5f4c;--brick:#9c5527;--rail-a:#8a7a5f;--rail-b:#cf9a4e;--rail-c:#cf9a4e}
 html.c-hot{--bg:#fdf6e7;--mast-bg:#f8eeda;--ink:#2f2413;--ink-soft:#6b5c40;--deck:#f0e4cb;--paper-card:#fffaf0;--line:#dfc797;--cap:#75644a;--brick:#b4560f;--rail-a:#cf9a4e;--rail-b:#cf9a4e;--rail-c:#e8b45c}
 html,.masthead,.story,body{transition:background-color 1.4s ease,color 1.4s ease}
-.masthead,.box,.ph,.phmini,.hand{transition:background-color 1.4s ease,border-color 1.4s ease,box-shadow 1.4s ease}
+.masthead,.ph,.phmini,.hand{transition:background-color 1.4s ease,border-color 1.4s ease,box-shadow 1.4s ease}
 .qa-tab,.qa-answer,.side,.block-text p,.editor,.part h2,.hero .deck,.pull-giant p{transition:color 1.4s ease}
 :root{
   --coal:#1d2126;--steel:#2c323a;--fog:#e9eae7;--paper:#f2efe8;--cream:#fffdf7;
@@ -90,13 +90,7 @@ img{display:block;max-width:100%}
 .tl-fig img{width:100%;height:170px;object-fit:cover;display:block;border:1px solid var(--line);padding:4px;background:#fff}
 .tl-fig figcaption{margin-top:8px;font-family:inherit;font-size:13px;line-height:1.5;color:var(--cap)}
 .rail-h-hint{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--cap);text-align:right;margin-top:6px}
-.factbar{grid-column:1/-1;display:grid;grid-template-columns:5fr 7fr;gap:24px;margin:48px 0 8px}
-.box{background:var(--paper-card);border:1px solid var(--line);border-top:4px solid var(--gold);padding:24px 26px;font-size:16px;line-height:1.65;color:var(--ink-soft)}
-.box h3{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--brick);margin-bottom:14px}
-.ff-row{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--gray-line);padding:7px 0}
-.ff-row span{font-family:'Courier New',monospace;font-size:13px;text-transform:uppercase;color:#7a766c;flex-shrink:0}
-.ff-row b{color:var(--ink);text-align:right;font-weight:700}
-.side-note{margin-top:14px;font-style:italic;font-size:14.5px;color:#8a7a5f}
+
 .interview{grid-column:1/-1;max-width:1000px;margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(260px,5fr) minmax(0,7fr);gap:28px;align-items:start}
 .qa-tabs{display:flex;flex-direction:column;gap:8px}
 .qa-tab{display:block;text-align:left;font:inherit;font-weight:700;font-size:15.5px;line-height:1.45;color:var(--ink);background:transparent;border:none;border-left:3px solid var(--line);padding:10px 12px;cursor:pointer;transition:border-color .35s ease,color .35s ease,background .35s ease}
@@ -141,7 +135,6 @@ img{display:block;max-width:100%}
 @media(max-width:800px){
   .hero-home{min-height:78vh}
   .block-duo{grid-template-columns:1fr}
-  .factbar{grid-template-columns:1fr}
   .tl-card{flex:0 0 260px;width:260px}
   .tilt-a,.tilt-b{transform:none}
 }
@@ -237,20 +230,6 @@ html{background:var(--dyn-bg,#f2f1ee);}
 </div><!-- /.rail-h -->
 <div class="rail-h-hint">&larr; листайте ленту вбок &rarr;</div>
 </div><!-- /.rail-wrap -->
-
-<div class="factbar">
-<div class="box"><h3>Герой материала</h3>
-<div class="ff-row"><span>Где нашли</span><b>угольная шахта, San-Fierro</b></div>
-<div class="ff-row"><span>Жил там</span><b>почти два года</b></div>
-<div class="ff-row"><span>Новая работа</span><b>грузчик на складе</b></div>
-<div class="ff-row"><span>Жильё</span><b>социальное, выданы ключи</b></div>
-<div class="ff-row"><span>Просит</span><b>не публиковать полное имя до конца испытательного срока</b></div>
-<div class="side-note">Имя и детали скрыты по просьбе героя. Редакция продолжает наблюдение за его историей.</div>
-</div>
-<div class="box"><h3>Что произошло за один день</h3>
-<p>Машина редакции — магазин одежды в Los-Santos — первая смена грузчиком на складе — ключи от социального жилья в San-Fierro. Коллеги на складе приняли как своего: привычка к физическому труду, оставшаяся с шахты, только помогла. Так замкнулась цепочка одного дня. Хронология последующих событий — в следующем выпуске.</p>
-</div>
-</div>
 
 <div class="pull-giant warm"><i class="qmark">«</i><p>«Мы каждый день пишем о городе. В этот раз мы решили написать о нём так, чтобы герой истории проснулся не в забое, а у себя дома».</p><cite>— Генеральный директор редакции San-Fierro News</cite></div>
 
