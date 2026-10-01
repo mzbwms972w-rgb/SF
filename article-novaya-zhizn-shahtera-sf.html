@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="c-cold">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>«Я думал, меня тут не существует»: новая жизнь шахтёра — San-Fierro News</title>
 <style>
+/* === Тема «от холода к теплу»: переключается JS при прокрутке === */
+html{--bg:#e9eae7;--mast-bg:#e6e7e3;--ink:#26262a;--ink-soft:#4c4b47;--deck:#ddd8cc;--paper-card:#f1f1ee;--line:#cdc8bc;--cap:#5a574f;--brick:#7d5a44;--rail-a:#6b6f76;--rail-b:#8a7a5f;--rail-c:#cf9a4e}
+html.c-warm{--bg:#f3ece0;--mast-bg:#efe7da;--ink:#2b2418;--ink-soft:#5d5341;--deck:#e6dcc8;--paper-card:#faf4e8;--line:#d8c8a8;--cap:#6a5f4c;--brick:#9c5527;--rail-a:#8a7a5f;--rail-b:#cf9a4e;--rail-c:#cf9a4e}
+html.c-hot{--bg:#fdf6e7;--mast-bg:#f8eeda;--ink:#2f2413;--ink-soft:#6b5c40;--deck:#f0e4cb;--paper-card:#fffaf0;--line:#dfc797;--cap:#75644a;--brick:#b4560f;--rail-a:#cf9a4e;--rail-b:#cf9a4e;--rail-c:#e8b45c}
+html,.masthead,.story,body{transition:background-color 1.4s ease,color 1.4s ease}
+.masthead,.box,.ph,.phmini,.hand{transition:background-color 1.4s ease,border-color 1.4s ease,box-shadow 1.4s ease}
+.qa-q,.qa-a,.side,.block-text p,.editor,.part h2,.hero .deck,.pull-giant p{transition:color 1.4s ease}
 :root{
   --coal:#1d2126;--steel:#2c323a;--fog:#e9eae7;--paper:#f2efe8;--cream:#fffdf7;
   --ink:#26262a;--ink-soft:#4c4b47;--gray-line:#cdc8bc;
@@ -12,10 +19,17 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--fog);color:var(--ink);font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.65}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.65}
 img{display:block;max-width:100%}
 .page{max-width:1100px;margin:0 auto;padding:0 24px}
-.masthead{border-bottom:3px double var(--ink);padding:22px 0 14px;text-align:center;background:var(--paper)}
+.masthead{border-bottom:3px double var(--ink);padding:22px 0 14px;text-align:center;background:var(--mast-bg)}
+/* === Акцент градиента «шахта → дом»: видимая шкала цвета === */
+.tempbar{position:fixed;top:0;left:0;right:0;height:5px;z-index:50;background:linear-gradient(90deg,#6b7078 0%,#8a7a5f 38%,#cf9a4e 72%,#e8b45c 100%);box-shadow:0 1px 6px rgba(0,0,0,.25)}
+.tempbar .knob{position:absolute;top:-3px;left:0;width:11px;height:11px;border-radius:50%;background:#fffdf7;border:2px solid #6b7078;transform:translateX(-50%);transition:left .25s ease,border-color .25s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.temp-scale{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin:8px 0 0;padding:14px 18px;background:var(--paper-card);border:1px solid var(--line);font-family:'Courier New',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--cap)}
+.temp-scale .bar{flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,#6b7078,#8a7a5f,#cf9a4e,#e8b45c);position:relative}
+.temp-scale .bar i{position:absolute;top:-4px;width:2px;height:16px;background:var(--ink);left:0;transition:left .3s ease}
+.temp-scale b{color:var(--brick);font-weight:700}
 .mast-top,.mast-dates{display:flex;justify-content:space-between;gap:16px;font-family:'Courier New',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6b6f76}
 .brand{display:inline-block;margin:12px 0 4px;text-decoration:none;color:var(--ink);font-weight:700;font-size:clamp(32px,5.5vw,58px);letter-spacing:.06em}
 .brand em{font-style:italic}
@@ -28,12 +42,12 @@ img{display:block;max-width:100%}
 .hero-inner{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:0 24px 56px;color:#f4f2ec}
 .hero-kicker{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;border-left:3px solid var(--gold);padding-left:12px}
 .hero h1{font-size:clamp(30px,4.6vw,54px);line-height:1.18;font-weight:700;max-width:900px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
-.hero .deck{max-width:780px;margin:20px 0 16px;font-size:19px;font-style:italic;color:#ddd8cc;line-height:1.55}
+.hero .deck{max-width:780px;margin:20px 0 16px;font-size:19px;font-style:italic;color:var(--deck);line-height:1.55}
 .hero .byline{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#bdb7a8}
 .hero-cap{margin-top:22px;font-family:'Courier New',monospace;font-size:12px;color:#a9a396;letter-spacing:.04em;border-top:1px solid rgba(255,255,255,.25);padding-top:10px;max-width:900px}
 .scroll-cue{display:inline-block;margin-top:14px;font-family:'Courier New',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);text-decoration:none;border:1px solid rgba(207,154,78,.5);padding:8px 16px}
 .scroll-cue:hover{background:rgba(207,154,78,.15)}
-.story{background:linear-gradient(180deg,#e9eae7 0%,#eeeae1 22%,#f3ece0 45%,#f7eedd 68%,#faf3e4 85%,#fdf6e7 100%)}
+.story{background:var(--bg)}
 .part{padding:56px 0 8px;text-align:center}
 .part-label{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);margin-bottom:10px}
 .part h2{font-size:clamp(24px,3.4vw,38px);line-height:1.25;max-width:820px;margin:0 auto}
@@ -43,46 +57,46 @@ img{display:block;max-width:100%}
 .block-text .inner{max-width:720px;margin:0 auto;font-size:18.5px;line-height:1.75}
 .block-photo{grid-column:1/-1}
 .block-duo{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-.ph{background:var(--cream);border:1px solid var(--gray-line);padding:8px;box-shadow:0 10px 28px rgba(40,35,25,.12);margin:24px 0}
+.ph{background:var(--paper-card);border:1px solid var(--line);padding:8px;box-shadow:0 10px 28px rgba(40,35,25,.12);margin:24px 0}
 .ph img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .block-photo .ph img{aspect-ratio:16/9}
-.ph figcaption{font-family:'Courier New',monospace;font-size:14px;line-height:1.5;color:#5a574f;padding:12px 6px 4px;border-top:1px solid var(--gray-line);margin-top:10px}
+.ph figcaption{font-family:'Courier New',monospace;font-size:14px;line-height:1.5;color:var(--cap);padding:12px 6px 4px;border-top:1px solid var(--line);margin-top:10px}
 .ph figcaption b{color:var(--brick);font-weight:700}
 .tilt-a{transform:rotate(-1deg)}
 .tilt-b{transform:rotate(1deg)}
-.pull-giant{grid-column:1/-1;margin:48px 0;padding:56px 8%;text-align:center;background:linear-gradient(180deg,#232830,#2c323a);color:#f2efe6;border-radius:2px}
-.pull-giant.warm{background:linear-gradient(180deg,#8a5a22,#b9772f)}
+.pull-giant{grid-column:1/-1;margin:48px 0;padding:56px 8%;text-align:center;background:linear-gradient(180deg,#232830,#2c323a);color:#f2efe6;border-radius:2px;border-top:4px solid #6b7078}
+.pull-giant.warm{background:linear-gradient(180deg,#8a5a22,#b9772f);border-top-color:#cf9a4e}
 .pull-giant p{font-size:clamp(26px,3.8vw,44px);line-height:1.3;font-style:italic;font-weight:700;max-width:900px;margin:0 auto}
 .pull-giant cite{display:block;margin-top:22px;font-style:normal;font-family:'Courier New',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft)}
 .pull-giant.warm cite{color:#ffe9c4}
 .qmark{display:block;font-size:64px;line-height:.4;color:var(--gold);margin-bottom:18px;font-style:normal}
 .rail-wrap{grid-column:1/-1;margin:40px 0 8px}
-.rail-title{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);text-align:center;margin-bottom:34px}
+.rail-title{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);text-align:center;margin-bottom:14px}
 .rail{position:relative;padding:0 0 10px}
-.rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#6b6f76 0%,#8a7a5f 55%,#cf9a4e 100%);transform:translateX(-1px)}
+.rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--rail-a) 0%,var(--rail-b) 55%,var(--rail-c) 100%);transform:translateX(-1px);transition:background 1.4s ease}
 .stop{display:grid;grid-template-columns:1fr 96px 1fr;align-items:start;margin-bottom:44px}
-.stop .dot{grid-column:2;justify-self:center;margin-top:6px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:4px solid var(--paper);box-shadow:0 0 0 2px var(--gold);z-index:1}
+.stop .dot{grid-column:2;justify-self:center;margin-top:6px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:4px solid var(--bg);box-shadow:0 0 0 2px var(--gold);z-index:1}
 .stop .time{grid-column:2;justify-self:center;text-align:center;font-family:'Courier New',monospace;font-weight:700;font-size:26px;color:var(--ink);margin-top:14px;letter-spacing:.02em}
-.stop .side{font-size:16.5px;line-height:1.6;max-width:420px}
+.stop .side{font-size:16.5px;line-height:1.6;max-width:420px;color:var(--ink)}
 .stop.left .side{grid-column:1;justify-self:end;text-align:right}
 .stop.right .side{grid-column:3;justify-self:start;text-align:left}
-.stop .side .cap{display:block;margin-top:8px;font-family:'Courier New',monospace;font-size:12.5px;color:#6a675f}
-.stop .phmini{background:var(--cream);border:1px solid var(--gray-line);padding:6px;box-shadow:0 8px 20px rgba(40,35,25,.12);margin:20px 0 0}
+.stop .side .cap{display:block;margin-top:8px;font-family:'Courier New',monospace;font-size:12.5px;color:var(--cap)}
+.stop .phmini{background:var(--paper-card);border:1px solid var(--line);padding:6px;box-shadow:0 8px 20px rgba(40,35,25,.12);margin:20px 0 0}
 .stop .phmini img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .factbar{grid-column:1/-1;display:grid;grid-template-columns:5fr 7fr;gap:24px;margin:48px 0 8px}
-.box{background:var(--cream);border:1px solid var(--gray-line);border-top:4px solid var(--gold);padding:24px 26px;font-size:16px;line-height:1.65;color:var(--ink-soft)}
+.box{background:var(--paper-card);border:1px solid var(--line);border-top:4px solid var(--gold);padding:24px 26px;font-size:16px;line-height:1.65;color:var(--ink-soft)}
 .box h3{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--brick);margin-bottom:14px}
 .ff-row{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--gray-line);padding:7px 0}
 .ff-row span{font-family:'Courier New',monospace;font-size:13px;text-transform:uppercase;color:#7a766c;flex-shrink:0}
 .ff-row b{color:var(--ink);text-align:right;font-weight:700}
 .side-note{margin-top:14px;font-style:italic;font-size:14.5px;color:#8a7a5f}
 .interview{grid-column:1/-1;max-width:820px;margin:0 auto;width:100%}
-.qa-item{padding:26px 0;border-bottom:1px solid var(--gray-line)}
+.qa-item{padding:26px 0;border-bottom:1px solid var(--line)}
 .qa-q{font-weight:700;font-size:19px;line-height:1.5;margin-bottom:12px;color:var(--ink)}
 .qa-mark{display:block;font-family:'Courier New',monospace;font-size:11.5px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);margin-bottom:8px}
-.qa-a{font-size:18px;line-height:1.75;font-style:italic;color:#3d3a34}
+.qa-a{font-size:18px;line-height:1.75;font-style:italic;color:var(--ink-soft)}
 .hand-intro{max-width:720px;margin:36px auto 0;font-size:17px;color:var(--ink-soft)}
-.hand{max-width:640px;margin:18px auto 8px;background:var(--cream);border:1px dashed var(--sepia);padding:26px 30px;font-style:italic;font-size:19px;line-height:1.7;color:#5a5344;transform:rotate(-1deg);box-shadow:0 10px 24px rgba(40,35,25,.1)}
+.hand{max-width:640px;margin:18px auto 8px;background:var(--paper-card);border:1px dashed var(--sepia);padding:26px 30px;font-style:italic;font-size:19px;line-height:1.7;color:var(--cap);transform:rotate(-1deg);box-shadow:0 10px 24px rgba(40,35,25,.1)}
 .finale-home{background:var(--steel);color:#f4f2ec;padding:0}
 .finale-photo{position:relative;min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end}
 .finale-quote{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:160px 24px 48px;text-align:center}
@@ -109,6 +123,8 @@ img{display:block;max-width:100%}
 </style>
 </head>
 <body>
+
+<div class="tempbar" aria-hidden="true"><div class="knob" id="tempKnob"></div></div>
 
 <header class="masthead"><div class="page">
 <div class="mast-top"><span>Vol. XII · No. 214</span><span>Городское издание · Седмица пятая</span><span>Цена: 5$</span></div>
@@ -146,6 +162,7 @@ img{display:block;max-width:100%}
 
 <div class="rail-wrap">
 <div class="rail-title">Линия времени одного вечера · по кадрам съёмки</div>
+<div class="temp-scale"><span>❄ Шахта · холод и одиночество</span><div class="bar"><i id="scaleMark"></i></div><span>Дом · тепло и работа ☀</span></div>
 <div class="rail">
 
 <div class="stop left">
@@ -265,5 +282,25 @@ img{display:block;max-width:100%}
 </div></div>
 </footer>
 
+<script>
+(function(){
+var knob=document.getElementById('tempKnob');
+var mark=document.getElementById('scaleMark');
+var story=document.getElementById('story');
+var doc=document.documentElement;
+function upd(){
+  var h=document.documentElement.scrollHeight-window.innerHeight;
+  var p=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;
+  if(knob){knob.style.left=(p*100)+'%';
+    knob.style.borderColor=p<.34?'#6b7078':(p<.67?'#8a7a5f':'#cf9a4e');}
+  if(mark)mark.style.left=(p*100)+'%';
+  var cls=p<.33?'c-cold':(p<.66?'c-warm':'c-hot');
+  if(!doc.classList.contains(cls)){doc.classList.remove('c-cold','c-warm','c-hot');doc.classList.add(cls);}
+}
+window.addEventListener('scroll',upd,{passive:true});
+window.addEventListener('resize',upd);
+upd();
+})();
+</script>
 </body>
 </html>
