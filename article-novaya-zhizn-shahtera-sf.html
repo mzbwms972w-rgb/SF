@@ -19,15 +19,15 @@ html,.masthead,.story,body{transition:background-color 1.4s ease,color 1.4s ease
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.65}
+body{background:var(--dyn-bg,var(--bg));color:var(--ink);font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.65}
 img{display:block;max-width:100%}
 .page{max-width:1100px;margin:0 auto;padding:0 24px}
 .masthead{border-bottom:3px double var(--ink);padding:22px 0 14px;text-align:center;background:var(--mast-bg)}
 /* === Акцент градиента «шахта → дом»: видимая шкала цвета === */
-.tempbar{position:fixed;top:0;left:0;right:0;height:5px;z-index:50;background:linear-gradient(90deg,#6b7078 0%,#8a7a5f 38%,#cf9a4e 72%,#e8b45c 100%);box-shadow:0 1px 6px rgba(0,0,0,.25)}
-.tempbar .knob{position:absolute;top:-3px;left:0;width:11px;height:11px;border-radius:50%;background:#fffdf7;border:2px solid #6b7078;transform:translateX(-50%);transition:left .25s ease,border-color .25s ease;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.tempbar{position:fixed;top:0;left:0;right:0;height:9px;z-index:50;background:linear-gradient(90deg,#4d5560 0%,#7c6f52 30%,#c07f2e 62%,#f2c14e 88%,#ffd97a 100%);box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.tempbar .knob{position:absolute;top:-4px;left:0;width:16px;height:16px;border-radius:50%;background:#fffdf7;border:3px solid #4d5560;transform:translateX(-50%);transition:left .25s ease,border-color .25s ease;box-shadow:0 2px 6px rgba(0,0,0,.4)}
 .temp-scale{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin:8px 0 0;padding:14px 18px;background:var(--paper-card);border:1px solid var(--line);font-family:'Courier New',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--cap)}
-.temp-scale .bar{flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,#6b7078,#8a7a5f,#cf9a4e,#e8b45c);position:relative}
+.temp-scale .bar{flex:1;height:12px;border-radius:6px;background:linear-gradient(90deg,#4d5560,#7c6f52,#c07f2e,#f2c14e,#ffd97a);position:relative;box-shadow:inset 0 1px 3px rgba(0,0,0,.25)}
 .temp-scale .bar i{position:absolute;top:-4px;width:2px;height:16px;background:var(--ink);left:0;transition:left .3s ease}
 .temp-scale b{color:var(--brick);font-weight:700}
 .mast-top,.mast-dates{display:flex;justify-content:space-between;gap:16px;font-family:'Courier New',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6b6f76}
@@ -47,7 +47,7 @@ img{display:block;max-width:100%}
 .hero-cap{margin-top:22px;font-family:'Courier New',monospace;font-size:12px;color:#a9a396;letter-spacing:.04em;border-top:1px solid rgba(255,255,255,.25);padding-top:10px;max-width:900px}
 .scroll-cue{display:inline-block;margin-top:14px;font-family:'Courier New',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);text-decoration:none;border:1px solid rgba(207,154,78,.5);padding:8px 16px}
 .scroll-cue:hover{background:rgba(207,154,78,.15)}
-.story{background:var(--bg)}
+.story{background:transparent}
 .part{padding:56px 0 8px;text-align:center}
 .part-label{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brick);margin-bottom:10px}
 .part h2{font-size:clamp(24px,3.4vw,38px);line-height:1.25;max-width:820px;margin:0 auto}
@@ -73,10 +73,10 @@ img{display:block;max-width:100%}
 .rail-wrap{grid-column:1/-1;margin:40px 0 8px}
 .rail-title{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);text-align:center;margin-bottom:14px}
 .rail{position:relative;padding:0 0 10px}
-.rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--rail-a) 0%,var(--rail-b) 55%,var(--rail-c) 100%);transform:translateX(-1px);transition:background 1.4s ease}
+.rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:5px;border-radius:3px;background:linear-gradient(180deg,#565d68 0%,#8a7a5f 45%,#d99a3a 78%,#ffd97a 100%);transform:translateX(-2.5px);transition:background 1.4s ease}
 .stop{display:grid;grid-template-columns:1fr 96px 1fr;align-items:start;margin-bottom:44px}
 .stop .dot{grid-column:2;justify-self:center;margin-top:6px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:4px solid var(--bg);box-shadow:0 0 0 2px var(--gold);z-index:1}
-.stop .time{grid-column:2;justify-self:center;text-align:center;font-family:'Courier New',monospace;font-weight:700;font-size:26px;color:var(--ink);margin-top:14px;letter-spacing:.02em}
+.stop .time{position:relative;z-index:2;grid-column:2;justify-self:center;text-align:center;font-family:'Courier New',monospace;font-weight:700;font-size:26px;color:var(--ink);margin-top:10px;padding:4px 14px;background:var(--bg);border:1px solid var(--line);border-radius:999px;letter-spacing:.02em;box-shadow:0 2px 8px rgba(40,35,25,.10)}
 .stop .side{font-size:16.5px;line-height:1.6;max-width:420px;color:var(--ink)}
 .stop.left .side{grid-column:1;justify-self:end;text-align:right}
 .stop.right .side{grid-column:3;justify-self:start;text-align:left}
@@ -120,6 +120,8 @@ img{display:block;max-width:100%}
   .tilt-a,.tilt-b{transform:none}
 }
 
+
+html{background:var(--dyn-bg,#f2f1ee);}
 </style>
 </head>
 <body>
@@ -300,6 +302,39 @@ function upd(){
 window.addEventListener('scroll',upd,{passive:true});
 window.addEventListener('resize',upd);
 upd();
+})();
+</script>
+<script>
+/* Сильный акцент градиента: фон страницы «согревается» по мере чтения */
+(function(){
+  var stops=[
+    {p:0.00, bg:'#f2f1ee', ink:'#26262a'},   /* холодная шахта */
+    {p:0.30, bg:'#f4f0e8', ink:'#2a2723'},
+    {p:0.55, bg:'#f7f0e0', ink:'#2d2822'},
+    {p:0.78, bg:'#faf1da', ink:'#302a1f'},
+    {p:1.00, bg:'#fdf3d7', ink:'#33291a'}     /* тёплый дом */
+  ];
+  function lerp(a,b,t){return Math.round(a+(b-a)*t);}
+  function mix(c1,c2,t){
+    function h(c){return [parseInt(c.substr(1,2),16),parseInt(c.substr(3,2),16),parseInt(c.substr(5,2),16)];}
+    var A=h(c1),B=h(c2);
+    return 'rgb('+lerp(A[0],B[0],t)+','+lerp(A[1],B[1],t)+','+lerp(A[2],B[2],t)+')';
+  }
+  function upd(){
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    var p=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
+    var i=0; while(i<stops.length-2 && p>stops[i+1].p) i++;
+    var t=(p-stops[i].p)/(stops[i+1].p-stops[i].p||1);
+    document.documentElement.style.setProperty('--dyn-bg',mix(stops[i].bg,stops[i+1].bg,t));
+    document.documentElement.style.setProperty('--dyn-ink',mix(stops[i].ink,stops[i+1].ink,t));
+    var knob=document.querySelector('.tempbar .knob');
+    if(knob){knob.style.left=(p*100)+'%';knob.style.borderColor=mix('#4d5560','#f2c14e',p);}
+    var mark=document.querySelector('.temp-scale .bar i');
+    if(mark){mark.style.left='calc('+ (p*100) +'%)';}
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  upd();
 })();
 </script>
 </body>
