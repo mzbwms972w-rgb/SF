@@ -511,6 +511,18 @@ body {
   pointer-events: none;
 }
 </style>
+
+<style>
+/* Лёгкая тень только для заголовка материала */
+.hero h1{ text-shadow: 0 2px 4px rgba(0,0,0,.42), 0 5px 12px rgba(0,0,0,.20) !important; }
+</style>
+
+<style id="hero-title-visible-shadow">
+.hero-home .hero-inner h1 {
+  text-shadow: 2px 3px 0 rgba(0,0,0,.62), 0 5px 10px rgba(0,0,0,.72), 0 10px 22px rgba(0,0,0,.45) !important;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,.55));
+}
+</style>
 </head>
 <body>
 <div aria-hidden="true" class="tempbar"><div class="knob" id="tempKnob"></div></div>
@@ -891,5 +903,11 @@ body{font-size:17px;line-height:1.6}
 }
 </style>
 
+
+<style id="hero-title-soft-shadow">
+.hero h1 {
+  text-shadow: 0 2px 3px rgba(0,0,0,.95), 0 4px 8px rgba(0,0,0,.88), 0 8px 18px rgba(0,0,0,.68), 0 0 24px rgba(0,0,0,.38) !important;
+}
+</style>
 </body>
 </html>
