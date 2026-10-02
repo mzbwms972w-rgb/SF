@@ -398,10 +398,19 @@ upd();
     next.className='tl-side-arrow';next.innerHTML='&rarr;';next.setAttribute('aria-label','Дальше');
     host.appendChild(prev);host.appendChild(next);
     function place(){
-      var top=sc.offsetTop+sc.offsetHeight/2-22;
-      prev.style.top=next.style.top=top+'px';
-      prev.style.left=(sc.offsetLeft+10)+'px';
-      next.style.left=(sc.offsetLeft+sc.offsetWidth-54)+'px';
+      var roomL=sc.offsetLeft, roomR=host.clientWidth-(sc.offsetLeft+sc.offsetWidth);
+      if(roomL>=60&&roomR>=60){
+        var top=sc.offsetTop+sc.offsetHeight/2-22;
+        prev.style.top=next.style.top=top+'px';
+        prev.style.left=(sc.offsetLeft-56)+'px';
+        next.style.left=(sc.offsetLeft+sc.offsetWidth+12)+'px';
+      }else{
+        var t2=sc.offsetTop+sc.offsetHeight+10;
+        var mid=sc.offsetLeft+sc.offsetWidth/2;
+        prev.style.top=next.style.top=t2+'px';
+        prev.style.left=(mid-52)+'px';
+        next.style.left=(mid+8)+'px';
+      }
     }
     function state(){
       prev.disabled=sc.scrollLeft<=2;
