@@ -73,7 +73,7 @@ img{display:block;max-width:100%}
 .rail-wrap{grid-column:1/-1;margin:20px 0 0;display:flex;flex-direction:column}
 .rail-title{font-family:'Courier New',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);text-align:center;margin-bottom:10px}
 .rail-h-hint-inline{display:inline-block;margin-left:14px;font-size:11px;letter-spacing:.1em;color:var(--cap)}
-.rail-h{overflow-x:auto;overflow-y:hidden;padding:24px 16px 0;margin-bottom:0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.rail-h{overflow-x:auto;overflow-y:hidden;padding:24px 16px 0;margin-bottom:0;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-behavior:smooth}
 .rail-h::-webkit-scrollbar{display:none}
 .rail-h-track{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:flex-start;height:auto;gap:24px;width:max-content;position:relative}
 .rail-h-track::before{content:"";position:absolute;top:7px;left:0;right:0;height:3px;border-radius:2px;background:linear-gradient(90deg,#565d68 0%,#8a7a5f 45%,#d99a3a 78%,#ffd97a 100%)}
