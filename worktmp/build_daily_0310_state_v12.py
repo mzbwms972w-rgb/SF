@@ -42,6 +42,9 @@ IMG, A = ns['IMG'], ns['A']
 
 # ---- правка главреда: номер борта 2504 удалён полностью ----
 REPL = [
+    ('человек с предметом, похожим на оружие', 'сотрудник полиции с предметом, похожим на оружие'),
+    ('у двери седана — человек с предметом, похожим на оружие',
+     'у двери седана — сотрудник полиции с предметом, похожим на оружие'),
     ('Борт 2504 и автомобиль', 'Патрульный автомобиль и машина'),
     ('Борт 2504 и легковушка', 'Патрульный автомобиль и легковушка'),
     ('Борт 2504:', 'Патрульный автомобиль:'),
@@ -66,7 +69,7 @@ for _key, _a in A.items():
 IDX = {'fallen': '01', 'crash': '02', 'gas': '03', 'kpp': '04', 'truck': '05', 'square': '06',
        'stop': '07', 'hwy': '08', 'dragons': '09', 'caligula': '10', 'heli': '11', 'yacht': '12'}
 
-CSS = """/* SFN-DESIGN-029: day-grid-12clean · 03.10.2026 */
+CSS = """/* SFN-DESIGN-029: day-grid-pure · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -162,14 +165,8 @@ grid-template-areas:"n n" "h h" "s s" "ph ph" "cap t" "e e"}
 .t-showcase figure img{grid-area:ph;width:100%;height:auto}
 .t-showcase figcaption{grid-area:cap;margin-top:9px}
 .t-showcase .txt{grid-area:t}
-.t-report{grid-template-columns:6fr 4fr;column-gap:var(--gut);
-grid-template-rows:auto auto auto 1fr auto auto;
-grid-template-areas:"n n" "h h" "ph s" "ph t" "ph x" "e e"}
-.t-report .num{font-size:56px}
-.t-photolead{grid-template-columns:7fr 5fr;column-gap:var(--gut);
-grid-template-rows:auto auto auto auto auto auto auto;
-grid-template-areas:"n n" "ph h" "ph s" "ph t" "ph x" "w x" "e e"}
-.t-photolead .num{font-size:56px}
+
+
 .t-finale{grid-template-columns:4fr 8fr;column-gap:var(--gut);
 grid-template-rows:auto auto auto 1fr auto;
 grid-template-areas:"n n" "h ph" "s ph" "t ph" "e e"}
@@ -178,7 +175,7 @@ grid-template-areas:"n n" "h ph" "s ph" "t ph" "e e"}
 .t-finale h3{font-size:clamp(18px,2.1vw,27px)}
 /* ==== дословный вынос-якорь (функциональный элемент материала) ==== */
 .twrap{grid-area:t}
-.pull{font-family:Oswald,sans-serif;font-weight:600;font-size:clamp(15px,1.7vw,21px);
+.pull{margin-top:14px;font-family:Oswald,sans-serif;font-weight:600;font-size:clamp(15px,1.7vw,21px);
 line-height:1.15;text-transform:uppercase;color:var(--ox);border-top:3px solid var(--ink);
 border-bottom:1px solid var(--hair);padding:9px 0;margin-top:14px}
 /* ==== редакционные инфоблоки из существующих фактов (единый набор) ==== */
@@ -197,10 +194,6 @@ border-top:3px solid var(--ink);padding:10px 0 12px;margin:2px 0 0}
 .info.kr .li{border-top:0;margin-top:0;padding-top:0;border-left:1px solid var(--hair);
 padding-left:12px}
 .info.kr .li:first-of-type{border-left:0;padding-left:0}
-.schema{grid-area:w;display:flex;align-items:center;gap:12px;margin-top:14px;
-font-family:"PT Mono",monospace;font-weight:700;font-size:8.5px;letter-spacing:.22em;
-text-transform:uppercase;color:var(--mut)}
-.schema i{flex:1;border-top:1px solid var(--ink);opacity:.6}
 /* ==== мебель страниц (единый набор) ==== */
 .mtop{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
 padding:14px var(--pad) 10px;font-family:"PT Mono",monospace;font-weight:700;font-size:9.5px;
@@ -255,8 +248,6 @@ text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
  #a01,#a02,#a03,#a04,#a05,#a06,#a07,#a08,#a09,#a10,#a11,#a12,#vd3,#vd4{grid-area:auto}
  .t-lead{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "e"}
 .t-showcase{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "cap" "t" "e"}
-.t-report{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "x" "e"}
-.t-photolead{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "x" "w" "e"}
 .t-finale{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "e"}
 .info.kr{grid-template-columns:1fr;grid-area:auto}
  .hsep{grid-area:auto}
@@ -303,7 +294,7 @@ P = []
 P.append("""<!DOCTYPE html>
 <html lang="ru">
 <head>
-<!-- © 2026 San Fierro News / Jonny Wilde. Дизайн и вёрстка защищены: CC BY-NC-ND 4.0. Копирование и переработка запрещены. -->
+<!-- © 2026 San Fierro News. Дизайн и вёрстка защищены: CC BY-NC-ND 4.0. Копирование и переработка запрещены. -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>San Fierro News — ежедневный выпуск по штату от 03.10.2026</title>
@@ -324,7 +315,7 @@ P.append('<div class="mmeta"><span><b>№ 30</b> · ежедневный вып�
          '<span>Лос-Сантос — Лас-Вентурас — трассы штата</span>'
          '<span>12 материалов · 4 полосы · 03.10.2026</span>'
          '<span>Кадры: Anna Malboro · Фоторедактор: Sonya Malboro</span>'
-         '<span>Текст/Редактор: Jonny Wilde</span></div>')
+         '</div>')
 P.append('<div class="grid">')
 P.append('<div class="hsep" aria-hidden="true"></div>')
 P.append(f'<article class="m t-lead" id="a01">{nn("fallen")}{a["h1html"]}'
@@ -356,7 +347,7 @@ P.append('<aside class="info kr"><div class="ih">Кратко</div>'
          '<div class="li"><b>06</b><span>тело на пустой площади: фургон стоял в отдалении</span></div>'
          '<div class="li"><b>07</b><span>патрульный автомобиль остановил седан у обочины</span></div>'
          '</aside>')
-P.append(f'<article class="m t-wide" id="a05">{nn("truck", short=True)}<h3>{t["t"]}</h3>'
+P.append(f'<article class="m t-wide" id="a05">{nn("truck")}<h3>{t["t"]}</h3>'
          f'<div class="stand">{t["s"]}</div>{fig("truck", band=True)}{txt("truck", "cols2")}{end()}</article>')
 P.append(f'<article class="m t-side-a" id="a06">{nn("square", short=True)}<h3>{q["t"]}</h3>'
          f'<div class="stand">{q["s"]}</div>{fig("square")}{txt("square")}{end()}</article>')
@@ -375,16 +366,12 @@ P.append('<div class="folio"><span><b>San Fierro News</b> · выпуск № 30
 P.append('<header class="sect"><span class="snum">02</span><h2>Криминал · Экономика</h2>'
          '<span class="stail" aria-hidden="true"></span><span class="sdate">03.10.2026</span></header>')
 P.append('<div class="grid">')
-P.append(f'<article class="m t-report" id="a08">{nn("hwy")}<h3>{h["t"]}</h3>'
+P.append(f'<article class="m t-wide" id="a08">{nn("hwy")}<h3>{h["t"]}</h3>'
          f'<div class="stand">{h["s"]}</div>'
-         f'<div class="twrap">{txt("hwy")}'
+         f'{fig("hwy", band=True)}'
+         f'<div class="twrap">{txt("hwy", "cols2")}'
          f'<div class="pull">На полотне — отделившаяся деталь кузова</div></div>'
-         f'<div class="info"><div class="ih">Сцена</div>'
-         f'<div class="isub">трасса штата · под Лас-Вентурасом</div>'
-         f'<div class="li"><b>01</b><span>патрульный автомобиль</span></div>'
-         f'<div class="li"><b>02</b><span>чёрный седан</span></div>'
-         f'<div class="li"><b>03</b><span>отделившаяся деталь кузова</span></div></div>'
-         f'{fig("hwy", band=True)}{end()}</article>')
+         f'{end()}</article>')
 P.append(f'<article class="m t-side-b" id="a09">{nn("dragons", short=True)}<h3>{d["t"]}</h3>'
          f'<div class="stand">{d["s"]}</div>{txt("dragons")}{fig("dragons")}{end()}</article>')
 P.append(f'<article class="m t-side-a" id="a10">{nn("caligula", short=True)}<h3>{cc["t"]}</h3>'
@@ -402,28 +389,21 @@ P.append('<div class="folio"><span><b>San Fierro News</b> · выпуск № 30
 P.append('<header class="sect"><span class="snum">03</span><h2>Необычные истории</h2>'
          '<span class="stail" aria-hidden="true"></span><span class="sdate">03.10.2026</span></header>')
 P.append('<div class="grid">')
-P.append(f'<article class="m t-photolead" id="a11">{nn("heli", short=True)}<h3>{he["t"]}</h3>'
-         f'<div class="stand">{he["s"]}</div>{fig("heli", band=True)}{txt("heli")}'
-         f'<div class="info"><div class="ih">Что известно</div>'
-         f'<div class="li"><b>01</b><span>роторы неподвижны, людей рядом нет</span></div>'
-         f'<div class="li"><b>02</b><span>повреждений обшивки и следов копоти не видно</span></div>'
-         f'<div class="li"><b>03</b><span>сводок о пропавших вертолётах город не публиковал</span></div></div>'
-         f'<div class="schema"><span>Лос-Сантос</span><i aria-hidden="true"></i>'
-         f'<span>тоннель</span><i aria-hidden="true"></i><span>Сан-Фиерро</span></div>'
+P.append(f'<article class="m t-wide" id="a11">{nn("heli")}<h3>{he["t"]}</h3>'
+         f'<div class="stand">{he["s"]}</div>{fig("heli", band=True)}{txt("heli", "cols2")}'
          f'{end()}</article>')
 P.append(f'<article class="m t-finale" id="a12">{nn("yacht")}<h3>{y["t"]}</h3>'
          f'<div class="stand">{y["s"]}</div>{fig("yacht", band=True)}{txt("yacht")}'
          f'{end()}</article>')
 P.append('</div>')
 P.append('<footer class="colophon"><div>'
-         '<div class="credits">Кадры: Anna Malboro · Фоторедактор: Sonya Malboro · '
-         'Текст/Редактор: Jonny Wilde</div>'
+         '<div class="credits">Кадры: Anna Malboro · Фоторедактор: Sonya Malboro</div>'
          '<div class="made">выпуск очереди подшивки · 03.10.2026 · '
          'дизайн и вёрстка — редакция San Fierro News</div></div>'
          '<a class="backpill" href="newsroom.html">← Посмотреть все выпуски редакции</a></footer>')
 P.append('</section>\n')
 
-P.append('<!-- SFN · 2026 · 029 · day-grid-12clean -->\n</body>\n</html>\n')
+P.append('<!-- SFN · 2026 · 029 · day-grid-pure -->\n</body>\n</html>\n')
 
 html = ''.join(P)
 
@@ -433,7 +413,7 @@ assert html.count('data:image/jpeg;base64,') == 12, 'кадров не 12'
 assert 'style="' not in html, 'inline-стили вернулись'
 for n in range(1, 13):
     assert f'id="a{n:02d}"' in html, f'нет материала a{n:02d}'
-assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-12clean -->' in html
+assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-pure -->' in html
 assert '<title>' in html[:4000] and 'viewport' in html[:4000] and 'name="description"' in html[:4000]
 assert 'дизайн и вёрстка — редакция San Fierro News' in html
 assert 'href="newsroom.html"' in html
