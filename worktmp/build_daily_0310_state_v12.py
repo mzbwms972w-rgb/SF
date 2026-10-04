@@ -80,7 +80,7 @@ for _key, _a in A.items():
 IDX = {'fallen': '01', 'crash': '02', 'gas': '03', 'kpp': '04', 'truck': '05', 'square': '06',
        'stop': '07', 'hwy': '08', 'dragons': '09', 'caligula': '10', 'heli': '11', 'yacht': '12'}
 
-CSS = """/* SFN-DESIGN-029: day-rubric-p1 · 03.10.2026 */
+CSS = """/* SFN-DESIGN-029: day-motion · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -256,6 +256,34 @@ text-transform:uppercase;color:var(--mut)}
 font-family:"PT Mono",monospace;font-weight:700;font-size:10.5px;letter-spacing:.12em;
 text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
 .backpill:hover{background:var(--ox);color:var(--paper)}
+/* ==== SFN MOTION · day-motion: тонкий слой движения (только transform/opacity) ==== */
+/* Появление при загрузке: полосы и материалы — opacity 0→1 + translateY(10px→0), 550–650мс,
+   мягкий каскад задержек; заголовки выходят вместе со своим материалом с коротким сдвигом;
+   красный декор (номера разделов, хвосты материалов, стат-блок, точка колофона) проявляется
+   с небольшой задержкой. Ховер фото — очень лёгкое увеличение scale(1.02) внутри исходного
+   контейнера (overflow:hidden): без изменения layout, пропорций, обрезки в покое и скролла.
+   Размеры блоков, высота полос, тексты, цвета и геометрия не меняются. */
+@keyframes sfn-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sfn-fade{from{opacity:0}to{opacity:1}}
+.sheet{animation:sfn-rise .65s cubic-bezier(.22,.61,.36,1) both}
+#p2.sheet{animation-delay:.06s}
+#p3.sheet{animation-delay:.12s}
+#p4.sheet{animation-delay:.18s}
+.m,.info.kr{animation:sfn-rise .55s cubic-bezier(.22,.61,.36,1) both;animation-delay:var(--md,.12s)}
+#a01,#a05,#a08,#a11{--md:.10s}
+#a02,#a06,#a09{--md:.17s}
+#a03,#a07,#a10,#a12{--md:.24s}
+#a04{--md:.28s}
+.info.kr{--md:.06s}
+.m h1,.m h3{animation:sfn-fade .5s ease both;animation-delay:calc(var(--md,.12s) + .09s)}
+.m .end,.m .stat{animation:sfn-fade .6s ease both;animation-delay:calc(var(--md,.12s) + .16s)}
+.sect{animation:sfn-fade .6s ease both;animation-delay:.05s}
+.colophon{animation:sfn-fade .6s ease both;animation-delay:.2s}
+.ph{overflow:hidden}
+.ph img{transition:filter .45s,transform .35s ease}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.ph:hover img{transform:scale(1.02)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
+@media print{*{animation:none!important;transition:none!important}}
 /* ==== мобильная версия: одна колонка, сценарии складываются ==== */
 @media(max-width:920px){
  :root{--pad:18px}
@@ -421,7 +449,7 @@ P.append('<footer class="colophon"><div>'
          '<a class="backpill" href="newsroom.html">← Посмотреть все выпуски редакции</a></footer>')
 P.append('</section>\n')
 
-P.append('<!-- SFN · 2026 · 029 · day-rubric-p1 -->\n</body>\n</html>\n')
+P.append('<!-- SFN · 2026 · 029 · day-motion -->\n</body>\n</html>\n')
 
 html = ''.join(P)
 
@@ -433,7 +461,7 @@ assert html.count('data:image/jpeg;base64,') == 12, 'кадров не 12'
 assert 'style="' not in html, 'inline-стили вернулись'
 for n in range(1, 13):
     assert f'id="a{n:02d}"' in html, f'нет материала a{n:02d}'
-assert 'SFN-DESIGN-029: day-rubric-p1' in html and '<!-- SFN · 2026 · 029 · day-rubric-p1 -->' in html
+assert 'SFN-DESIGN-029: day-motion' in html and '<!-- SFN · 2026 · 029 · day-motion -->' in html
 assert '<title>' in html[:4000] and 'viewport' in html[:4000] and 'name="description"' in html[:4000]
 assert 'дизайн и вёрстка — редакция San Fierro News' in html
 assert 'href="newsroom.html"' in html
