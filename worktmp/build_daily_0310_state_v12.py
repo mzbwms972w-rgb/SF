@@ -69,7 +69,7 @@ for _key, _a in A.items():
 IDX = {'fallen': '01', 'crash': '02', 'gas': '03', 'kpp': '04', 'truck': '05', 'square': '06',
        'stop': '07', 'hwy': '08', 'dragons': '09', 'caligula': '10', 'heli': '11', 'yacht': '12'}
 
-CSS = """/* SFN-DESIGN-029: day-grid-balance · 03.10.2026 */
+CSS = """/* SFN-DESIGN-029: day-grid-polish · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -171,17 +171,14 @@ grid-template-areas:"n n" "h h" "s s" "ph ph" "cap t" "e e"}
 .t-showcase .txt{grid-area:t}
 
 
-.t-finale{grid-template-columns:4fr 8fr;column-gap:var(--gut);
-grid-template-rows:auto auto auto 1fr 1fr;
+.t-finale{grid-template-columns:8fr 16fr;column-gap:var(--gut);row-gap:14px;
+grid-template-rows:auto auto auto 1fr auto;
 grid-template-areas:"n n" "h ph" "s ph" "t ph" "e e"}
 .t-finale .nn{border-bottom:3px solid var(--ink)}
 .t-finale .num{font-size:56px;color:var(--ox)}
 .t-finale h3{font-size:clamp(18px,2.1vw,27px)}
+#p4 #a12 .ph{margin-right:calc(-1 * var(--pad))}
 /* ==== дословный вынос-якорь (функциональный элемент материала) ==== */
-.twrap{grid-area:t}
-.pull{margin-top:14px;font-family:Oswald,sans-serif;font-weight:600;font-size:clamp(15px,1.7vw,21px);
-line-height:1.15;text-transform:uppercase;color:var(--ox);border-top:3px solid var(--ink);
-border-bottom:1px solid var(--hair);padding:9px 0;margin-top:14px}
 /* ==== редакционные инфоблоки из существующих фактов (единый набор) ==== */
 .info{border-top:3px solid var(--ink);padding-top:10px;margin-top:14px}
 .info .ih{font-family:Oswald,sans-serif;font-weight:600;font-size:12px;letter-spacing:.22em;
@@ -217,7 +214,7 @@ padding:10px var(--pad);border-bottom:2px solid var(--ink);font-family:"PT Mono"
 font-weight:700;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
 .folio b{color:var(--ox)}
 .folio .f3{background:var(--ink);color:var(--paper);padding:2px 8px}
-.sect{display:flex;align-items:center;gap:18px;margin:0 0 2px}
+.sect{display:flex;align-items:center;gap:18px;margin:0 0 clamp(4px,0.8vw,12px)}
 .sect .snum{font-family:Anton,sans-serif;font-weight:400;font-size:clamp(40px,5.2vw,64px);
 line-height:1;color:var(--ox);padding:6px 0 6px var(--pad)}
 .sect h2{font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(22px,3vw,38px);
@@ -256,6 +253,7 @@ text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
 .info.kr{grid-template-columns:1fr;grid-area:auto}
  .hsep{grid-area:auto}
  #p1 #a01 .ph,#p1 #a02 .ph{margin-left:0;margin-right:0}
+ #p4 #a12 .ph{margin-right:0}
 .info.kr .li{border-left:0;padding-left:0}
 .info.kr .li+.li{border-top:1px solid var(--hair);margin-top:6px;padding-top:6px}
  .cols2,.cols3{columns:1}
@@ -373,9 +371,7 @@ P.append('<header class="sect"><span class="snum">02</span><h2>Криминал 
 P.append('<div class="grid">')
 P.append(f'<article class="m t-wide" id="a08">{nn("hwy")}<h3>{h["t"]}</h3>'
          f'<div class="stand">{h["s"]}</div>'
-         f'{fig("hwy", band=True)}'
-         f'<div class="twrap">{txt("hwy", "cols2")}'
-         f'<div class="pull">На полотне — отделившаяся деталь кузова</div></div>'
+         f'{fig("hwy", band=True)}{txt("hwy", "cols2")}'
          f'{end()}</article>')
 P.append(f'<article class="m t-side-b" id="a09">{nn("dragons", short=True)}<h3>{d["t"]}</h3>'
          f'<div class="stand">{d["s"]}</div>{txt("dragons")}{fig("dragons")}{end()}</article>')
@@ -408,7 +404,7 @@ P.append('<footer class="colophon"><div>'
          '<a class="backpill" href="newsroom.html">← Посмотреть все выпуски редакции</a></footer>')
 P.append('</section>\n')
 
-P.append('<!-- SFN · 2026 · 029 · day-grid-balance -->\n</body>\n</html>\n')
+P.append('<!-- SFN · 2026 · 029 · day-grid-polish -->\n</body>\n</html>\n')
 
 html = ''.join(P)
 
@@ -418,7 +414,7 @@ assert html.count('data:image/jpeg;base64,') == 12, 'кадров не 12'
 assert 'style="' not in html, 'inline-стили вернулись'
 for n in range(1, 13):
     assert f'id="a{n:02d}"' in html, f'нет материала a{n:02d}'
-assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-balance -->' in html
+assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-polish -->' in html
 assert '<title>' in html[:4000] and 'viewport' in html[:4000] and 'name="description"' in html[:4000]
 assert 'дизайн и вёрстка — редакция San Fierro News' in html
 assert 'href="newsroom.html"' in html
