@@ -1,0 +1,7 @@
+<a class="card" style="--stripe:#c8102e" href="daily-03-10-2026.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>03.10.2026</b><span>Лос-Сантос · Лас-Вентурас</span></div>
+      <div class="cardtitle">Двенадцать кадров субботы</div>
+      <div class="carddesc">Выпуск по штату: гибель двоих полицейских на трассе под Лас-Вентурасом, торги за заправку со ставкой $100 млн, военные на КПП, вертолёт в тоннеле и яхта в парковом пруду.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>
