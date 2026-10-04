@@ -69,7 +69,7 @@ for _key, _a in A.items():
 IDX = {'fallen': '01', 'crash': '02', 'gas': '03', 'kpp': '04', 'truck': '05', 'square': '06',
        'stop': '07', 'hwy': '08', 'dragons': '09', 'caligula': '10', 'heli': '11', 'yacht': '12'}
 
-CSS = """/* SFN-DESIGN-029: day-grid-leadpair · 03.10.2026 */
+CSS = """/* SFN-DESIGN-029: day-grid-photohier · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -86,12 +86,14 @@ box-shadow:0 16px 40px rgba(20,24,28,.22);position:relative}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px 22px;
 padding:20px var(--pad) 0}
 /* размещение материалов по сценарию полосы (только место, без композиции) */
-#p1 .grid{grid-template-areas:"a01 a01 a01 a01 a01 a01 a01 a02 a02 a02 a02 a02"
+#p1 .grid{grid-template-areas:"a01 a01 a01 a01 a01 a01 a01 a01 a02 a02 a02 a02"
  "hs hs hs hs hs hs hs hs hs hs hs hs"
  "a03 a03 a03 a03 a03 a03 a04 a04 a04 a04 a04 a04"}
 #p1 #a01{border-right:1px solid var(--hair);padding-right:var(--gut)}
 #p1 #a01 .ph{margin-right:-22px}
-#p1 #a02 .ph{margin-right:calc(-1 * var(--pad));margin-bottom:10px}
+#p1 #a02 .ph{margin-bottom:10px}
+#p1 #a03 .ph{max-width:240px}
+#p1 #a04 .ph{max-width:205px;margin-left:auto;margin-top:14px}
 #p1 #a02 h3{font-size:clamp(18px,2.05vw,26px);margin-bottom:9px}
 #p1 #a02 .stand{margin-bottom:10px}
 #p1 #a03{border-right:1px solid var(--hair);padding-right:var(--gut)}
@@ -148,10 +150,9 @@ line-height:.95;color:var(--ox);white-space:nowrap;margin:0 0 4px}
 .stat small{display:block;font-family:"PT Mono",monospace;font-weight:700;font-size:8.5px;
 letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
 /* ==== ТИПЫ материалов: один набор стилей на тип ==== */
-.t-lead{grid-template-columns:47fr 53fr;column-gap:var(--gut);
-grid-template-rows:auto auto auto auto auto 1fr;
-grid-template-areas:"n n" "h ph" "s ph" "t ph" "t x" "e e"}
-.t-lead .j2{grid-area:x;margin-top:10px}
+.t-lead{grid-template-columns:70fr 30fr;column-gap:var(--gut);
+grid-template-rows:auto auto auto auto 1fr;
+grid-template-areas:"n n" "h h" "ph s" "t t" "e e"}
 .t-lead .end{align-self:start}
 .t-lead .nn{border-bottom:3px solid var(--ink)}
 .t-lead .num{font-size:72px;color:var(--ox)}
@@ -163,6 +164,9 @@ grid-template-areas:"n n" "h ph" "s ph" "t ph" "t x" "e e"}
 .t-wide{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto 1fr;grid-template-areas:"n" "h" "s" "ph" "t" "e"}
 .t-wide .num{font-size:56px}
 .t-wide h3{font-size:clamp(19px,2.3vw,30px)}
+.t-split{grid-template-columns:240px 1fr;column-gap:var(--gut);
+grid-template-areas:"n n" "ph h" "ph s" "x t" "e e"}
+.t-split .num{font-size:44px}
 .t-showcase{grid-template-columns:35fr 65fr;column-gap:var(--gut);
 grid-template-rows:auto auto auto auto auto 1fr;
 grid-template-areas:"n n" "h h" "s s" "ph ph" "cap t" "e e"}
@@ -249,12 +253,14 @@ text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
  .grid{gap:26px}
  #p1 .grid,#p2 .grid,#p3 .grid,#p4 .grid{grid-template-columns:1fr;grid-template-areas:none}
  #a01,#a02,#a03,#a04,#a05,#a06,#a07,#a08,#a09,#a10,#a11,#a12,#vd3,#vd4{grid-area:auto}
- .t-lead{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "t" "ph" "x" "e"}
+ .t-lead{grid-template-columns:1fr;grid-template-areas:"n" "h" "ph" "s" "t" "e"}
 .t-showcase{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "cap" "t" "e"}
 .t-finale{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "e"}
 .info.kr{grid-template-columns:1fr;grid-area:auto}
  .hsep{grid-area:auto}
  #p1 #a01 .ph,#p1 #a02 .ph{margin-left:0;margin-right:0}
+ #p1 #a03 .ph,#p1 #a04 .ph{max-width:none;margin:0}
+ .t-split{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "x" "t" "e"}
  #p4 #a12 .ph{margin-right:0}
 .info.kr .li{border-left:0;padding-left:0}
 .info.kr .li+.li{border-top:1px solid var(--hair);margin-top:6px;padding-top:6px}
@@ -323,21 +329,15 @@ P.append('<div class="mmeta"><span><b>№ 30</b> · ежедневный вып�
          '</div>')
 P.append('<div class="grid">')
 P.append('<div class="hsep" aria-hidden="true"></div>')
-_full = A['fallen']['p'][0]
-_cut = _full.index('Имена и подразделения')
-_j1, _j2 = _full[:_cut], _full[_cut:]
-assert (_j1 + _j2) == _full
 P.append(f'<article class="m t-lead" id="a01">{nn("fallen")}{a["h1html"]}'
-         f'<div class="stand">{a["s"]}</div>'
-         f'<div class="txt">{_j1}</div>'
-         f'{fig("fallen", band=True)}'
-         f'<div class="txt j2">{_j2}</div>'
-         f'{end()}</article>')
+         f'{fig("fallen", band=True)}<div class="stand">{a["s"]}</div>'
+         f'{txt("fallen", "cols2")}{end()}</article>')
 P.append(f'<article class="m t-side-a" id="a02">{nn("crash", short=True)}<h3>{c["t"]}</h3>'
          f'<div class="stand">{c["s"]}</div>{fig("crash")}{txt("crash")}{end()}</article>')
-P.append(f'<article class="m t-side-b" id="a03">{nn("gas", short=True)}<h3>{g["t"]}</h3>'
+P.append(f'<article class="m t-split" id="a03">{nn("gas", short=True)}<h3>{g["t"]}</h3>'
+         f'{fig("gas", band=True)}'
          f'<div class="stat"><b>$100 000 000</b><small>предыдущая ставка торгов</small></div>'
-         f'<div class="stand">{g["s"]}</div>{txt("gas")}{fig("gas", band=True)}{end()}</article>')
+         f'<div class="stand">{g["s"]}</div>{txt("gas")}{end()}</article>')
 P.append(f'<article class="m t-side-a" id="a04">{nn("kpp", short=True)}<h3>{k["t"]}</h3>'
          f'<div class="stand">{k["s"]}</div>{fig("kpp")}{txt("kpp")}{end()}</article>')
 P.append('</div>')
@@ -414,7 +414,7 @@ P.append('<footer class="colophon"><div>'
          '<a class="backpill" href="newsroom.html">← Посмотреть все выпуски редакции</a></footer>')
 P.append('</section>\n')
 
-P.append('<!-- SFN · 2026 · 029 · day-grid-leadpair -->\n</body>\n</html>\n')
+P.append('<!-- SFN · 2026 · 029 · day-grid-photohier -->\n</body>\n</html>\n')
 
 html = ''.join(P)
 
@@ -424,7 +424,7 @@ assert html.count('data:image/jpeg;base64,') == 12, 'кадров не 12'
 assert 'style="' not in html, 'inline-стили вернулись'
 for n in range(1, 13):
     assert f'id="a{n:02d}"' in html, f'нет материала a{n:02d}'
-assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-leadpair -->' in html
+assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-photohier -->' in html
 assert '<title>' in html[:4000] and 'viewport' in html[:4000] and 'name="description"' in html[:4000]
 assert 'дизайн и вёрстка — редакция San Fierro News' in html
 assert 'href="newsroom.html"' in html
