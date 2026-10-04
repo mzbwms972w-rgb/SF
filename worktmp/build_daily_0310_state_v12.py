@@ -67,10 +67,20 @@ for _key, _a in A.items():
     for _pp in _a['p']:
         assert '2504' not in _pp, f'2504 остался в {_key}.p'
 
+# ---- правка главреда (04.10.2026): рубрика материала 01 — обычная тематическая,
+# как у всех материалов; «Главное сегодня» удалено, приоритет — только размером ----
+assert A['fallen']['k'] == 'Главное сегодня · Лас-Вентурас', 'рубрика 01 неожиданно изменена'
+A['fallen']['k'] = 'Происшествия · Лас-Вентурас'
+for _key, _a in A.items():
+    for _f in ('k', 't', 's', 'cap', 'alt'):
+        assert 'Главное' not in _a[_f], f'«Главное» осталось в {_key}.{_f}'
+    for _pp in _a['p']:
+        assert 'Главное' not in _pp, f'«Главное» осталось в {_key}.p'
+
 IDX = {'fallen': '01', 'crash': '02', 'gas': '03', 'kpp': '04', 'truck': '05', 'square': '06',
        'stop': '07', 'hwy': '08', 'dragons': '09', 'caligula': '10', 'heli': '11', 'yacht': '12'}
 
-CSS = """/* SFN-DESIGN-029: day-grid-fix5 · 03.10.2026 */
+CSS = """/* SFN-DESIGN-029: day-rubric-p1 · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -411,17 +421,19 @@ P.append('<footer class="colophon"><div>'
          '<a class="backpill" href="newsroom.html">← Посмотреть все выпуски редакции</a></footer>')
 P.append('</section>\n')
 
-P.append('<!-- SFN · 2026 · 029 · day-grid-fix5 -->\n</body>\n</html>\n')
+P.append('<!-- SFN · 2026 · 029 · day-rubric-p1 -->\n</body>\n</html>\n')
 
 html = ''.join(P)
 
 # ---- самопроверка ----
 assert '2504' not in html, 'в выпуске остался номер 2504'
+assert 'Происшествия · Лас-Вентурас' in html, 'нет новой рубрики материала 01'
+assert 'Главное сегодня' not in html, '«Главное сегодня» осталось в выпуске'
 assert html.count('data:image/jpeg;base64,') == 12, 'кадров не 12'
 assert 'style="' not in html, 'inline-стили вернулись'
 for n in range(1, 13):
     assert f'id="a{n:02d}"' in html, f'нет материала a{n:02d}'
-assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-fix5 -->' in html
+assert 'SFN-DESIGN-029: day-rubric-p1' in html and '<!-- SFN · 2026 · 029 · day-rubric-p1 -->' in html
 assert '<title>' in html[:4000] and 'viewport' in html[:4000] and 'name="description"' in html[:4000]
 assert 'дизайн и вёрстка — редакция San Fierro News' in html
 assert 'href="newsroom.html"' in html
