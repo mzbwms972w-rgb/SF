@@ -7,7 +7,7 @@
 <title>San Fierro News — ежедневный выпуск по штату от 03.10.2026</title>
 <meta name="description" content="Ежедневный выпуск по штату San Andreas: гибель двоих полицейских на трассе под Лас-Вентурасом, торги за AngelPine Gas со ставкой $100 млн, военный КПП, вертолёт в тоннеле и яхта в парковом пруду — 12 кадров дня.">
 <style>
-/* SFN-DESIGN-029: day-livemotion · 03.10.2026 */
+/* SFN-DESIGN-029: day-pageindicator · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -230,10 +230,11 @@ text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
    экран (≥1300px): ← и → стоят не у краёв монитора, а вплотную к листу — в
    боковых полях, в 24px от краёв полосы (отсчёт от центральной оси: лист
    1120px, calc(50% ∓ 640px)), вертикально по центру видимой области;
-   содержимое газеты не перекрывают. Счётчик N / 4 — там же, в левом поле под
-   стрелкой ←. Узкий экран: боковых полей нет, поэтому весь компактный блок
-   ← N / 4 → автоматически встает у верха экрана. Повторные нажатия во время
-   перехода гасит блокировка busy. */
+   содержимое газеты не перекрывают. Узкий экран: боковых полей нет, поэтому
+   компактный блок ← → автоматически встает у верха экрана. Повторные нажатия
+   во время перехода гасит блокировка busy. Номера полосы рядом со стрелками
+   больше нет — он показывается только на время перехода (блок PAGEINDICATOR
+   ниже). */
 .sheetnav{display:none;position:fixed;z-index:120;top:8px;left:50%;
 transform:translateX(-50%);align-items:center;gap:8px;
 background:var(--paper);border:1.5px solid var(--ink);padding:4px 6px;
@@ -244,8 +245,6 @@ cursor:pointer;transition:background .2s,color .2s,opacity .2s}
 .sheetnav .navbtn:hover:not(:disabled){background:var(--ink);color:var(--paper)}
 .sheetnav .navbtn:focus-visible{outline:2px solid var(--ox);outline-offset:2px}
 .sheetnav .navbtn:disabled{opacity:.28;cursor:default}
-.sheetnav .navcount{min-width:52px;text-align:center;font-family:"PT Mono",monospace;
-font-size:12px;letter-spacing:.14em;color:var(--mut);-webkit-user-select:none;user-select:none}
 html.js-nav .sheetnav{display:flex}
 html.js-nav{overflow-anchor:none}
 html.js-nav #newspaper.pages-stage{position:relative}
@@ -268,9 +267,6 @@ html.js-nav .sheetnav #navPrev{position:fixed;left:calc(50% - 640px);top:50%;tra
 width:56px;height:56px;font-size:20px;padding:0 0 4px;box-shadow:0 6px 18px rgba(20,24,28,.18)}
 html.js-nav .sheetnav #navNext{position:fixed;right:calc(50% - 640px);top:50%;transform:translateY(-50%);
 width:56px;height:56px;font-size:20px;padding:0 0 4px;box-shadow:0 6px 18px rgba(20,24,28,.18)}
-html.js-nav .sheetnav .navcount{position:fixed;left:calc(50% - 640px);top:50%;transform:translateY(38px);
-width:56px;min-width:0;padding:6px 0;background:var(--paper);border:1.5px solid var(--ink);
-color:var(--ink);box-shadow:0 6px 18px rgba(20,24,28,.18)}
 }
 @media print{
 .sheetnav{display:none!important}
@@ -278,6 +274,36 @@ html.js-nav #newspaper{min-height:0!important}
 html.js-nav #newspaper .sheet{display:block!important;position:relative!important;
 opacity:1!important;transform:none!important}
 }
+/* ==== SFN PAGEINDICATOR · day-pageindicator: временный номер полосы (бриф главреда 04.10.2026) ==== */
+/* Постоянный счётчик N / 4 у стрелок удалён целиком — в навигационном баре не
+   осталось ни его самого, ни пустого места под него. Номер полосы показывается
+   ТОЛЬКО в момент переключения: плашка «ПОЛОСА N / 4» встаёт по центру вверху
+   экрана (position:fixed, pointer-events:none, z-index 10000) — места в макете
+   газеты не занимает, .sheet не сдвигает, стрелки не перекрывает и клики не
+   перехватывает. Стиль газетный: бумажный фон, тёмный моноширинный капс и
+   тонкая красная линейка снизу — без рамок, теней и UI-глянца. Один цикл
+   pageIndicatorInOut 1.6s ease both: появление opacity 0→1 +
+   translateY(-8px→0) (18% ≈ 0.29s), пауза до 70% ≈ 0.83s, уход opacity 1→0 +
+   translateY(0→-8px); по окончании анимации класс show снимается — плашка
+   гаснет целиком (opacity 0 + visibility:hidden), не показывается до следующего
+   переключения, не попадает в выделение текста и в innerText. На
+   узких экранах (<1300px), где компактный блок ← → стоит у самого верха,
+   плашка опускается под него (top:60px), чтобы не ложиться на кнопки. Без
+   скрипта плашки нет вовсе, в печати она скрыта. */
+.page-indicator{display:none;position:fixed;top:24px;left:50%;
+transform:translateX(-50%) translateY(-8px);opacity:0;pointer-events:none;z-index:10000;
+visibility:hidden;font-family:"PT Mono",monospace;font-size:10px;font-weight:700;
+letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:var(--paper);
+border-bottom:2px solid var(--ox);padding:7px 12px;-webkit-user-select:none;user-select:none}
+html.js-nav .page-indicator{display:block}
+html.js-nav .page-indicator.show{visibility:visible;animation:pageIndicatorInOut 1.6s ease both}
+@keyframes pageIndicatorInOut{
+0%{opacity:0;transform:translateX(-50%) translateY(-8px)}
+18%{opacity:1;transform:translateX(-50%) translateY(0)}
+70%{opacity:1;transform:translateX(-50%) translateY(0)}
+100%{opacity:0;transform:translateX(-50%) translateY(-8px)}}
+@media (max-width:1299px){html.js-nav .page-indicator{top:60px}}
+@media print{.page-indicator{display:none!important}}
 /* ==== мобильная версия: одна колонка, сценарии складываются ==== */
 @media(max-width:920px){
  :root{--pad:18px}
@@ -306,9 +332,9 @@ opacity:1!important;transform:none!important}
 </div>
 <nav class="sheetnav" aria-label="Полосы выпуска">
 <button class="navbtn" id="navPrev" type="button" aria-label="Предыдущая полоса" disabled>←</button>
-<span class="navcount" id="navCount" aria-live="polite">1 / 4</span>
 <button class="navbtn" id="navNext" type="button" aria-label="Следующая полоса">→</button>
 </nav>
+<div class="page-indicator" id="pageIndicator" role="status" aria-live="polite" aria-atomic="true"></div>
 <script>
 /* SFN · 2026 · day-navglide: живое переключение полос выпуска. Уходящая и
    входящая полосы существуют одновременно: уходящая становится слоем поверх
@@ -323,19 +349,28 @@ opacity:1!important;transform:none!important}
    полоса снимается из активного состояния (is-off), классы перехода чистятся.
    Флаг busy гасит повторные нажатия. Анимации перехода и прокрутки работают
    ВСЕГДА — системная настройка «уменьшить движение» их больше не глушит
-   (решение главреда от 04.10.2026); статичной остаётся только печать. */
+   (решение главреда от 04.10.2026); статичной остаётся только печать.
+   Номера полосы рядом со стрелками больше нет: одновременно с переходом
+   вверху экрана всплывает временная плашка «ПОЛОСА N / 4» (showPageIndicator)
+   — 1.6s на весь цикл (появление → пауза → уход), после чего гаснет сама;
+   следующее переключение перезапускает её заново с новым номером. */
 (function(){
   var wrap=document.getElementById('newspaper');
   if(!wrap)return;
   var sheets=[].slice.call(wrap.querySelectorAll('.sheet'));
   if(sheets.length!==4)return;
   var btnP=document.getElementById('navPrev'),btnN=document.getElementById('navNext'),
-      cnt=document.getElementById('navCount');
-  if(!btnP||!btnN||!cnt)return;
+      ind=document.getElementById('pageIndicator');
+  if(!btnP||!btnN||!ind)return;
   var root=document.documentElement;
   var DUR=600;
   var cur=0,busy=false,raf=0;
-  function counter(n){cnt.textContent=(n+1)+' / '+sheets.length;}
+  function showPageIndicator(n){
+    ind.textContent='ПОЛОСА '+n+' / '+sheets.length;
+    ind.classList.remove('show');
+    void ind.offsetWidth;
+    ind.classList.add('show');
+  }
   function buttons(n){btnP.disabled=(n===0);btnN.disabled=(n===sheets.length-1);}
   function cb(t,a,b){var u=1-t;return 3*u*u*t*a+3*u*t*t*b+t*t*t;}
   function ease(x){var lo=0,hi=1,t,i;
@@ -370,7 +405,7 @@ opacity:1!important;transform:none!important}
     if(ni<0||ni>=sheets.length)return;
     busy=true;
     btnP.disabled=true;btnN.disabled=true;
-    counter(ni);
+    showPageIndicator(ni+1);
     var from=cur;
     cur=ni;
     var vh=window.innerHeight||root.clientHeight;
@@ -386,12 +421,12 @@ opacity:1!important;transform:none!important}
   }
   btnP.addEventListener('click',function(){go(-1);});
   btnN.addEventListener('click',function(){go(1);});
+  ind.addEventListener('animationend',function(){ind.classList.remove('show');});
   root.classList.add('js-nav');
   for(var i=1;i<sheets.length;i++)sheets[i].classList.add('is-off');
-  counter(0);
   buttons(0);
 })();
 </script>
-<!-- SFN · 2026 · 029 · day-livemotion -->
+<!-- SFN · 2026 · 029 · day-pageindicator -->
 </body>
 </html>
