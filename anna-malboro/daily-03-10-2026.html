@@ -7,7 +7,7 @@
 <title>San Fierro News — ежедневный выпуск по штату от 03.10.2026</title>
 <meta name="description" content="Ежедневный выпуск по штату San Andreas: гибель двоих полицейских на трассе под Лас-Вентурасом, торги за AngelPine Gas со ставкой $100 млн, военный КПП, вертолёт в тоннеле и яхта в парковом пруду — 12 кадров дня.">
 <style>
-/* SFN-DESIGN-029: day-flip · 03.10.2026 */
+/* SFN-DESIGN-029: day-navfade · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -211,52 +211,57 @@ text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
 @media (hover:hover) and (prefers-reduced-motion:no-preference){.ph:hover img{transform:scale(1.02)}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
 @media print{*{animation:none!important;transition:none!important}}
-/* ==== SFN FLIP · day-flip: перелистывание полос (бумажный лист, петля слева) ==== */
-/* Меняется только способ перехода между полосами; дизайн, тексты, фото,
-   размеры материалов, сетка, цвета и композиция не тронуты. Стопочный режим
-   включает скрипт в конце body (html.js-flip): полосы #p1–#p4 лежат в общей
-   стопке, высота обёртки равна высоте текущей полосы и плавно ведётся к
-   следующей. Без скрипта полосы остаются в обычном потоке, навигация скрыта.
-   Перелистывание: rotateY вокруг левого края (transform-origin:left center)
-   в perspective обёртки, 800мс, плавная кривая; за вертикалью лист физически
-   уходит из стопки (backface-visibility:hidden) — не fade и не слайдер.
-   Лёгкая тень переворота: двойной box-shadow листа в воздухе + градиент
-   #flipshade на открываемой полосе. Повторные нажатия гасит блокировка busy. */
-.sheetnav{display:none;max-width:1120px;margin:30px auto 0;padding:0 12px;
-align-items:center;justify-content:center;gap:22px}
-.sheetnav .navbtn{width:58px;height:42px;background:var(--paper);border:1.5px solid var(--ink);
-color:var(--ink);font-family:"PT Mono",monospace;font-size:18px;line-height:1;padding:0 0 4px;
+/* ==== SFN NAVFADE · day-navfade: спокойное переключение полос (бриф главреда 04.10.2026) ==== */
+/* Меняются только навигация и способ перехода между полосами; дизайн, тексты,
+   фото, размеры материалов, сетка, цвета и композиция не тронуты. Режим одной
+   полосы включает скрипт в конце body (html.js-nav): из полос #p1–#p4 видна
+   только текущая. Переход: текущая полоса плавно исчезает (pageFadeOut,
+   opacity 1→0, .4s ease), затем следующая мягко появляется на её месте
+   (page-enter → pageFadeIn: opacity 0→1 + очень лёгкий translateY(8px→0),
+   .45s ease). Никаких 3D-поворотов, эффекта бумажного листа, горизонтальных
+   слайдов и резких скачков. Без скрипта полосы остаются в обычном потоке,
+   как раньше, навигация скрыта.
+   Навигация фиксирована рядом с газетой и всегда под рукой во время чтения.
+   Широкий экран (≥1300px): ← закреплена слева от листа, → справа, обе примерно
+   по центру видимой области, в боковых полях — содержимое газеты не перекрывают;
+   счётчик N / 4 — там же, под левой стрелкой. Узкий экран: боковых полей нет,
+   поэтому весь компактный блок ← N / 4 → автоматически встает у верха экрана,
+   рядом с верхней частью газеты. Повторные нажатия во время перехода гасит
+   блокировка busy. */
+.sheetnav{display:none;position:fixed;z-index:120;top:8px;left:50%;
+transform:translateX(-50%);align-items:center;gap:8px;
+background:var(--paper);border:1.5px solid var(--ink);padding:4px 6px;
+box-shadow:0 6px 18px rgba(20,24,28,.18)}
+.sheetnav .navbtn{width:44px;height:34px;background:var(--paper);border:1.5px solid var(--ink);
+color:var(--ink);font-family:"PT Mono",monospace;font-size:16px;line-height:1;padding:0 0 3px;
 cursor:pointer;transition:background .2s,color .2s,opacity .2s}
 .sheetnav .navbtn:hover:not(:disabled){background:var(--ink);color:var(--paper)}
-.sheetnav .navbtn:focus-visible{outline:2px solid var(--ox);outline-offset:3px}
+.sheetnav .navbtn:focus-visible{outline:2px solid var(--ox);outline-offset:2px}
 .sheetnav .navbtn:disabled{opacity:.28;cursor:default}
-.sheetnav .navcount{min-width:72px;text-align:center;font-family:"PT Mono",monospace;
-font-size:12px;letter-spacing:.16em;color:var(--mut);-webkit-user-select:none;user-select:none}
-html.js-flip .sheetnav{display:flex}
-html.js-flip #newspaper{position:relative;perspective:4800px;overflow-x:clip;
-transition:height .8s cubic-bezier(.4,.1,.25,1)}
-html.js-flip #newspaper .sheet{position:absolute;top:0;left:0;right:0;margin:0 auto;z-index:1;
-transform-origin:left center;backface-visibility:hidden;
-box-shadow:0 16px 40px rgba(20,24,28,.22),-22px 18px 56px rgba(26,23,20,0);
-transition:transform .8s cubic-bezier(.4,.1,.25,1),box-shadow .5s ease,visibility 0s}
-html.js-flip #newspaper .sheet.is-on{z-index:2}
-html.js-flip #newspaper .sheet.is-turn{z-index:4;will-change:transform;
-box-shadow:0 16px 40px rgba(20,24,28,.22),-22px 18px 56px rgba(26,23,20,.3);
-transition:transform .8s cubic-bezier(.4,.1,.25,1),box-shadow .35s ease,visibility 0s}
-html.js-flip #newspaper .sheet.turn-next{transform:rotateY(-95deg)}
-html.js-flip #newspaper .sheet.is-off{visibility:hidden;transform:rotateY(-95deg)}
-html.no-anim #newspaper,html.no-anim #newspaper .sheet{transition:none!important}
-#flipshade{position:absolute;top:0;left:0;right:0;bottom:0;z-index:3;pointer-events:none;
-opacity:0;background:linear-gradient(to right,rgba(26,23,20,.22),rgba(26,23,20,.1) 30%,rgba(26,23,20,0) 60%)}
-#flipshade.shading{animation:flipshade .8s cubic-bezier(.4,.1,.25,1)}
-@keyframes flipshade{0%{opacity:0}40%{opacity:1}100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){#flipshade.shading{animation:none;opacity:0}}
+.sheetnav .navcount{min-width:52px;text-align:center;font-family:"PT Mono",monospace;
+font-size:12px;letter-spacing:.14em;color:var(--mut);-webkit-user-select:none;user-select:none}
+html.js-nav .sheetnav{display:flex}
+html.js-nav{overflow-anchor:none}
+html.js-nav #newspaper .sheet.is-off{display:none}
+html.js-nav #newspaper .sheet.is-on{animation:none}
+html.js-nav #newspaper .sheet.is-on *{animation:none}
+html.js-nav #newspaper .sheet.is-turn{animation:pageFadeOut .4s ease both}
+html.js-nav #newspaper .sheet.page-enter{animation:pageFadeIn .45s ease both}
+@keyframes pageFadeOut{from{opacity:1}to{opacity:0}}
+@keyframes pageFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media (min-width:1300px){
+html.js-nav .sheetnav{display:contents}
+html.js-nav .sheetnav #navPrev{position:fixed;left:18px;top:50%;transform:translateY(-50%);
+width:56px;height:56px;font-size:20px;padding:0 0 4px;box-shadow:0 6px 18px rgba(20,24,28,.18)}
+html.js-nav .sheetnav #navNext{position:fixed;right:18px;top:50%;transform:translateY(-50%);
+width:56px;height:56px;font-size:20px;padding:0 0 4px;box-shadow:0 6px 18px rgba(20,24,28,.18)}
+html.js-nav .sheetnav .navcount{position:fixed;left:18px;top:50%;transform:translateY(38px);
+width:56px;min-width:0;padding:6px 0;background:var(--paper);border:1.5px solid var(--ink);
+color:var(--ink);box-shadow:0 6px 18px rgba(20,24,28,.18)}
+}
 @media print{
-.sheetnav,#flipshade{display:none!important}
-html.js-flip #newspaper{height:auto!important;perspective:none;overflow:visible;transition:none}
-html.js-flip #newspaper .sheet{position:static;visibility:visible!important;transform:none!important;
-margin:0 auto 26px;box-shadow:0 16px 40px rgba(20,24,28,.22);transition:none}
-html.js-flip #newspaper .sheet+.sheet{margin-top:34px}
+.sheetnav{display:none!important}
+html.js-nav #newspaper .sheet{display:block!important;opacity:1!important;transform:none!important}
 }
 /* ==== мобильная версия: одна колонка, сценарии складываются ==== */
 @media(max-width:920px){
@@ -290,10 +295,14 @@ html.js-flip #newspaper .sheet+.sheet{margin-top:34px}
 <button class="navbtn" id="navNext" type="button" aria-label="Следующая полоса">→</button>
 </nav>
 <script>
-/* SFN · 2026 · day-flip: перелистывание полос выпуска. Бумажный лист на петле
-   у левого края: rotateY вокруг left center в perspective обёртки; за 90° лист
-   убирает backface-visibility — полоса физически уходит за следующую. Состояние
-   защищает флаг busy: повторные нажатия во время переворота игнорируются. */
+/* SFN · 2026 · day-navfade: спокойное переключение полос выпуска. Без бумаги
+   и 3D: текущая полоса плавно исчезает (pageFadeOut, 400мс, ease), в момент
+   смены вид возвращается к началу газеты, и на её месте с того же положения
+   экрана мягко появляется следующая (page-enter → pageFadeIn: opacity 0→1 +
+   очень лёгкий translateY(8px→0), 450мс, ease). Прокручивать страницу после
+   переключения не нужно: навигация фиксирована и всегда под рукой. Флаг busy
+   гасит повторные нажатия во время перехода; prefers-reduced-motion —
+   мгновенное переключение. */
 (function(){
   var wrap=document.getElementById('newspaper');
   if(!wrap)return;
@@ -302,25 +311,19 @@ html.js-flip #newspaper .sheet+.sheet{margin-top:34px}
   var btnP=document.getElementById('navPrev'),btnN=document.getElementById('navNext'),
       cnt=document.getElementById('navCount');
   if(!btnP||!btnN||!cnt)return;
-  var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var DUR=800,FALL=DUR+250;
-  var cur=0,busy=false;
-  var shade=document.createElement('div');
-  shade.id='flipshade';
-  shade.setAttribute('aria-hidden','true');
-  wrap.appendChild(shade);
   var root=document.documentElement;
-  function fit(){
-    if(!busy&&sheets[cur])wrap.style.height=sheets[cur].offsetHeight+'px';
-  }
+  var mqRM=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):null;
+  var OUT=420,IN=510;
+  var cur=0,busy=false;
   function counter(n){cnt.textContent=(n+1)+' / '+sheets.length;}
   function buttons(n){btnP.disabled=(n===0);btnN.disabled=(n===sheets.length-1);}
-  function scrollUp(){
-    var y=Math.max(0,Math.round(wrap.getBoundingClientRect().top+
-      (window.scrollY||window.pageYOffset))-14);
-    if(Math.abs((window.scrollY||window.pageYOffset)-y)>8){
-      window.scrollTo({top:y,behavior:RM?'auto':'smooth'});
-    }
+  function swap(from,to){
+    sheets[from].classList.remove('is-turn');
+    sheets[from].classList.add('is-off');
+    sheets[to].classList.remove('is-off');
+    sheets[to].classList.add('is-on','page-enter');
+    cur=to;
+    window.scrollTo(0,0);
   }
   function go(dir){
     if(busy)return;
@@ -328,71 +331,32 @@ html.js-flip #newspaper .sheet+.sheet{margin-top:34px}
     if(ni<0||ni>=sheets.length)return;
     busy=true;
     btnP.disabled=true;btnN.disabled=true;
-    var A=sheets[cur],B=sheets[ni];
-    var hB=B.offsetHeight;
-    A.style.animation='none';B.style.animation='none';
-    wrap.style.height=hB+'px';
-    scrollUp();
-    cur=ni;
     counter(ni);
-    shade.classList.remove('shading');
-    void shade.offsetWidth;
-    shade.classList.add('shading');
-    var moving;
-    if(dir>0){
-      A.classList.add('is-turn');
-      B.style.transition='none';
-      B.classList.remove('is-off');
-      B.classList.add('is-on');
-      void B.offsetWidth;
-      B.style.transition='';
-      void A.offsetWidth;
-      A.classList.add('turn-next');
-      moving=A;
-    }else{
-      B.classList.add('is-on','is-turn');
-      void B.offsetWidth;
-      B.classList.remove('is-off');
-      moving=B;
-    }
-    var done=false;
-    function settle(){
-      if(done)return;
-      done=true;
-      shade.classList.remove('shading');
-      A.style.transition='none';
-      A.classList.remove('is-turn','turn-next','is-on');
-      A.classList.add('is-off');
-      void A.offsetWidth;
-      A.style.transition='';
-      if(dir<0)B.classList.remove('is-turn');
-      busy=false;
+    if(mqRM&&mqRM.matches){
+      swap(cur,ni);
+      sheets[cur].classList.remove('page-enter');
       buttons(cur);
-      fit();
+      busy=false;
+      return;
     }
-    moving.addEventListener('transitionend',function(ev){
-      if(ev.target===moving&&ev.propertyName==='transform')settle();
-    });
-    setTimeout(settle,FALL);
+    sheets[cur].classList.add('is-turn');
+    setTimeout(function(){
+      swap(cur,ni);
+      setTimeout(function(){
+        sheets[cur].classList.remove('page-enter');
+        busy=false;
+        buttons(cur);
+      },IN);
+    },OUT);
   }
   btnP.addEventListener('click',function(){go(-1);});
   btnN.addEventListener('click',function(){go(1);});
-  window.addEventListener('resize',fit);
-  window.addEventListener('load',fit);
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
-  root.classList.add('no-anim');
-  root.classList.add('js-flip');
-  sheets[0].classList.add('is-on');
+  root.classList.add('js-nav');
   for(var i=1;i<sheets.length;i++)sheets[i].classList.add('is-off');
-  fit();
   counter(0);
   buttons(0);
-  void wrap.offsetWidth;
-  requestAnimationFrame(function(){
-    requestAnimationFrame(function(){root.classList.remove('no-anim');});
-  });
 })();
 </script>
-<!-- SFN · 2026 · 029 · day-flip -->
+<!-- SFN · 2026 · 029 · day-navfade -->
 </body>
 </html>
