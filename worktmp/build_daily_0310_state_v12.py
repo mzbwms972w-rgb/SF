@@ -66,7 +66,7 @@ for _key, _a in A.items():
 IDX = {'fallen': '01', 'crash': '02', 'gas': '03', 'kpp': '04', 'truck': '05', 'square': '06',
        'stop': '07', 'hwy': '08', 'dragons': '09', 'caligula': '10', 'heli': '11', 'yacht': '12'}
 
-CSS = """/* SFN-DESIGN-029: day-grid-tight · 03.10.2026 */
+CSS = """/* SFN-DESIGN-029: day-grid-showcase · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -154,10 +154,14 @@ grid-template-areas:"n n" "h ph" "s ph" "t ph" "e e"}
 .t-wide{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "e"}
 .t-wide .num{font-size:56px}
 .t-wide h3{font-size:clamp(19px,2.3vw,30px)}
-.t-split{grid-template-columns:4fr 6fr;column-gap:var(--gut);
-grid-template-rows:auto auto auto 1fr auto;
-grid-template-areas:"n n" "h h" "s s" "ph t" "e e"}
-.t-split .num{font-size:56px}
+.t-showcase{grid-template-columns:35fr 65fr;column-gap:var(--gut);
+grid-template-rows:auto auto auto auto auto auto;
+grid-template-areas:"n n" "h h" "s s" "ph ph" "cap t" "e e"}
+.t-showcase .num{font-size:56px}
+.t-showcase figure{display:contents}
+.t-showcase figure img{grid-area:ph;width:100%;height:auto}
+.t-showcase figcaption{grid-area:cap;margin-top:9px}
+.t-showcase .txt{grid-area:t}
 .t-report{grid-template-columns:6fr 4fr;column-gap:var(--gut);
 grid-template-rows:auto auto auto 1fr auto auto;
 grid-template-areas:"n n" "h h" "ph s" "ph t" "ph x" "e e"}
@@ -249,7 +253,8 @@ text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
  .grid{gap:26px}
  #p1 .grid,#p2 .grid,#p3 .grid,#p4 .grid{grid-template-columns:1fr;grid-template-areas:none}
  #a01,#a02,#a03,#a04,#a05,#a06,#a07,#a08,#a09,#a10,#a11,#a12,#vd3,#vd4{grid-area:auto}
- .t-lead,.t-split{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "e"}
+ .t-lead{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "e"}
+.t-showcase{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "cap" "t" "e"}
 .t-report{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "x" "e"}
 .t-photolead{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "x" "w" "e"}
 .t-finale{grid-template-columns:1fr;grid-template-areas:"n" "h" "s" "ph" "t" "x" "e"}
@@ -355,7 +360,7 @@ P.append(f'<article class="m t-wide" id="a05">{nn("truck", short=True)}<h3>{t["t
          f'<div class="stand">{t["s"]}</div>{fig("truck", band=True)}{txt("truck", "cols2")}{end()}</article>')
 P.append(f'<article class="m t-side-a" id="a06">{nn("square", short=True)}<h3>{q["t"]}</h3>'
          f'<div class="stand">{q["s"]}</div>{fig("square")}{txt("square")}{end()}</article>')
-P.append(f'<article class="m t-split" id="a07">{nn("stop", short=True)}<h3>{s["t"]}</h3>'
+P.append(f'<article class="m t-showcase" id="a07">{nn("stop", short=True)}<h3>{s["t"]}</h3>'
          f'<div class="stand">{s["s"]}</div>{fig("stop")}{txt("stop")}{end()}</article>')
 P.append('</div>')
 P.append('<footer class="pagefoot"><span>полоса 2 · выпуск № 30 · происшествия</span>'
@@ -422,7 +427,7 @@ P.append('<footer class="colophon"><div>'
          '<a class="backpill" href="newsroom.html">← Посмотреть все выпуски редакции</a></footer>')
 P.append('</section>\n')
 
-P.append('<!-- SFN · 2026 · 029 · day-grid-tight -->\n</body>\n</html>\n')
+P.append('<!-- SFN · 2026 · 029 · day-grid-showcase -->\n</body>\n</html>\n')
 
 html = ''.join(P)
 
@@ -432,7 +437,7 @@ assert html.count('data:image/jpeg;base64,') == 12, 'кадров не 12'
 assert 'style="' not in html, 'inline-стили вернулись'
 for n in range(1, 13):
     assert f'id="a{n:02d}"' in html, f'нет материала a{n:02d}'
-assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-tight -->' in html
+assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-showcase -->' in html
 assert '<title>' in html[:4000] and 'viewport' in html[:4000] and 'name="description"' in html[:4000]
 assert 'дизайн и вёрстка — редакция San Fierro News' in html
 assert 'href="newsroom.html"' in html
