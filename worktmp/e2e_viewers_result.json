@@ -1,0 +1,100 @@
+[
+ {
+  "label": "A htmlpreview (ссылка Анны)",
+  "reduced_motion": "default",
+  "load_s": 0.9,
+  "frame_found": true,
+  "frame_url": "https://htmlpreview.github.io/?https://github.com/mzbwms972w-rgb/SF/blob/main/anna-malboro",
+  "jsnav": true,
+  "navdisp": "contents",
+  "counter": "1 / 4",
+  "rm": false,
+  "stamp": null,
+  "disp": [
+   "block",
+   "none",
+   "none",
+   "none"
+  ],
+  "error": "could not convert string to float: ' 14)'",
+  "pageerrors": []
+ },
+ {
+  "label": "B raw.githack (прямой)",
+  "reduced_motion": "default",
+  "load_s": 100.4,
+  "frame_found": false,
+  "pageerrors": []
+ },
+ {
+  "label": "C локальный + reduce (гипотеза)",
+  "reduced_motion": "reduce",
+  "load_s": 0.5,
+  "frame_found": true,
+  "frame_url": "file:///tmp/arena/tenants/f41a25f4-655d-4f59-b936-844de26efcae/sessions/313fd78f-0b5a-4220",
+  "jsnav": true,
+  "navdisp": "contents",
+  "counter": "1 / 4",
+  "rm": true,
+  "stamp": null,
+  "disp": [
+   "block",
+   "none",
+   "none",
+   "none"
+  ],
+  "sampler": {
+   "frames": 55,
+   "both_visible_frames": 0,
+   "mid_opacities": [],
+   "enter_ty_range": null,
+   "exit_class_seen": false,
+   "enter_class_seen": false,
+   "final": [
+    {
+     "d": "none",
+     "o": 1
+    },
+    {
+     "d": "block",
+     "o": 1
+    },
+    {
+     "d": "none",
+     "o": 1
+    },
+    {
+     "d": "none",
+     "o": 1
+    }
+   ],
+   "scroll_vals": [
+    0
+   ]
+  },
+  "day_motion_probe": {
+   "present": false
+  },
+  "pageerrors": []
+ },
+ {
+  "label": "D локальный контроль",
+  "reduced_motion": "no-preference",
+  "load_s": 0.7,
+  "frame_found": true,
+  "frame_url": "file:///tmp/arena/tenants/f41a25f4-655d-4f59-b936-844de26efcae/sessions/313fd78f-0b5a-4220",
+  "jsnav": true,
+  "navdisp": "contents",
+  "counter": "1 / 4",
+  "rm": false,
+  "stamp": null,
+  "disp": [
+   "block",
+   "none",
+   "none",
+   "none"
+  ],
+  "error": "could not convert string to float: ' 14)'",
+  "pageerrors": []
+ }
+]

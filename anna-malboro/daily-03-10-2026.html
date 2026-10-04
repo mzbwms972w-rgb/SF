@@ -7,7 +7,7 @@
 <title>San Fierro News — ежедневный выпуск по штату от 03.10.2026</title>
 <meta name="description" content="Ежедневный выпуск по штату San Andreas: гибель двоих полицейских на трассе под Лас-Вентурасом, торги за AngelPine Gas со ставкой $100 млн, военный КПП, вертолёт в тоннеле и яхта в парковом пруду — 12 кадров дня.">
 <style>
-/* SFN-DESIGN-029: day-navglide · 03.10.2026 */
+/* SFN-DESIGN-029: day-livemotion · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -208,8 +208,7 @@ text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
 .colophon{animation:sfn-fade .6s ease both;animation-delay:.2s}
 .ph{overflow:hidden}
 .ph img{transition:filter .45s,transform .35s ease}
-@media (hover:hover) and (prefers-reduced-motion:no-preference){.ph:hover img{transform:scale(1.02)}}
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
+@media (hover:hover){.ph:hover img{transform:scale(1.02)}}
 @media print{*{animation:none!important;transition:none!important}}
 /* ==== SFN NAVGLIDE · day-navglide: стрелки вплотную к газете + живой кроссфейд полос (бриф главреда 04.10.2026) ==== */
 /* Меняются только положение стрелок, логика навигации, анимация перехода между
@@ -322,8 +321,9 @@ opacity:1!important;transform:none!important}
    без резкого скачка. Высота сцены на время перехода фиксируется minHeight,
    чтобы диапазон прокрутки не схлопывался; после завершения анимации уходящая
    полоса снимается из активного состояния (is-off), классы перехода чистятся.
-   Флаг busy гасит повторные нажатия; prefers-reduced-motion — мгновенное
-   переключение. */
+   Флаг busy гасит повторные нажатия. Анимации перехода и прокрутки работают
+   ВСЕГДА — системная настройка «уменьшить движение» их больше не глушит
+   (решение главреда от 04.10.2026); статичной остаётся только печать. */
 (function(){
   var wrap=document.getElementById('newspaper');
   if(!wrap)return;
@@ -333,7 +333,6 @@ opacity:1!important;transform:none!important}
       cnt=document.getElementById('navCount');
   if(!btnP||!btnN||!cnt)return;
   var root=document.documentElement;
-  var mqRM=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):null;
   var DUR=600;
   var cur=0,busy=false,raf=0;
   function counter(n){cnt.textContent=(n+1)+' / '+sheets.length;}
@@ -372,17 +371,6 @@ opacity:1!important;transform:none!important}
     busy=true;
     btnP.disabled=true;btnN.disabled=true;
     counter(ni);
-    if(mqRM&&mqRM.matches){
-      sheets[cur].classList.remove('is-on');
-      sheets[cur].classList.add('is-off');
-      sheets[ni].classList.remove('is-off');
-      sheets[ni].classList.add('is-on');
-      cur=ni;
-      window.scrollTo(0,0);
-      busy=false;
-      buttons(cur);
-      return;
-    }
     var from=cur;
     cur=ni;
     var vh=window.innerHeight||root.clientHeight;
@@ -404,6 +392,6 @@ opacity:1!important;transform:none!important}
   buttons(0);
 })();
 </script>
-<!-- SFN · 2026 · 029 · day-navglide -->
+<!-- SFN · 2026 · 029 · day-livemotion -->
 </body>
 </html>
