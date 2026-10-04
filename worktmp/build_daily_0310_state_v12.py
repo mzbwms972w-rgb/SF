@@ -69,7 +69,7 @@ for _key, _a in A.items():
 IDX = {'fallen': '01', 'crash': '02', 'gas': '03', 'kpp': '04', 'truck': '05', 'square': '06',
        'stop': '07', 'hwy': '08', 'dragons': '09', 'caligula': '10', 'heli': '11', 'yacht': '12'}
 
-CSS = """/* SFN-DESIGN-029: day-grid-solid · 03.10.2026 */
+CSS = """/* SFN-DESIGN-029: day-grid-leadbig · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -144,9 +144,9 @@ line-height:.95;color:var(--ox);white-space:nowrap;margin:0 0 4px}
 .stat small{display:block;font-family:"PT Mono",monospace;font-weight:700;font-size:8.5px;
 letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
 /* ==== ТИПЫ материалов: один набор стилей на тип ==== */
-.t-lead{grid-template-columns:9fr 15fr;column-gap:var(--gut);
-grid-template-rows:auto auto auto 1fr auto;
-grid-template-areas:"n n" "h ph" "s ph" "t ph" "e e"}
+.t-lead{grid-template-columns:1fr;
+grid-template-rows:auto auto auto auto auto auto;
+grid-template-areas:"n" "h" "s" "t" "ph" "e"}
 .t-lead .nn{border-bottom:3px solid var(--ink)}
 .t-lead .num{font-size:72px;color:var(--ox)}
 .t-lead h1{font-size:clamp(21px,2.3vw,30px)}
@@ -319,7 +319,7 @@ P.append('<div class="mmeta"><span><b>№ 30</b> · ежедневный вып�
 P.append('<div class="grid">')
 P.append('<div class="hsep" aria-hidden="true"></div>')
 P.append(f'<article class="m t-lead" id="a01">{nn("fallen")}{a["h1html"]}'
-         f'<div class="stand">{a["s"]}</div>{txt("fallen")}{fig("fallen", band=True)}{end()}</article>')
+         f'<div class="stand">{a["s"]}</div>{txt("fallen", "cols3")}{fig("fallen", band=True)}{end()}</article>')
 P.append(f'<article class="m t-side-a" id="a02">{nn("crash", short=True)}<h3>{c["t"]}</h3>'
          f'<div class="stand">{c["s"]}</div>{fig("crash")}{txt("crash")}{end()}</article>')
 P.append(f'<article class="m t-side-b" id="a03">{nn("gas", short=True)}<h3>{g["t"]}</h3>'
@@ -403,7 +403,7 @@ P.append('<footer class="colophon"><div>'
          '<a class="backpill" href="newsroom.html">← Посмотреть все выпуски редакции</a></footer>')
 P.append('</section>\n')
 
-P.append('<!-- SFN · 2026 · 029 · day-grid-solid -->\n</body>\n</html>\n')
+P.append('<!-- SFN · 2026 · 029 · day-grid-leadbig -->\n</body>\n</html>\n')
 
 html = ''.join(P)
 
@@ -413,7 +413,7 @@ assert html.count('data:image/jpeg;base64,') == 12, 'кадров не 12'
 assert 'style="' not in html, 'inline-стили вернулись'
 for n in range(1, 13):
     assert f'id="a{n:02d}"' in html, f'нет материала a{n:02d}'
-assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-solid -->' in html
+assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-leadbig -->' in html
 assert '<title>' in html[:4000] and 'viewport' in html[:4000] and 'name="description"' in html[:4000]
 assert 'дизайн и вёрстка — редакция San Fierro News' in html
 assert 'href="newsroom.html"' in html
