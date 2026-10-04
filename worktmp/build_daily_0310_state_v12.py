@@ -45,6 +45,7 @@ REPL = [
     ('человек с предметом, похожим на оружие', 'сотрудник полиции с предметом, похожим на оружие'),
     ('у двери седана — человек с предметом, похожим на оружие',
      'у двери седана — сотрудник полиции с предметом, похожим на оружие'),
+    ('от ярких кроссоверов до лимузина у крыла', 'от ярких кроссоверов до фургона у крыла'),
     ('Борт 2504 и автомобиль', 'Патрульный автомобиль и машина'),
     ('Борт 2504 и легковушка', 'Патрульный автомобиль и легковушка'),
     ('Борт 2504:', 'Патрульный автомобиль:'),
@@ -69,7 +70,7 @@ for _key, _a in A.items():
 IDX = {'fallen': '01', 'crash': '02', 'gas': '03', 'kpp': '04', 'truck': '05', 'square': '06',
        'stop': '07', 'hwy': '08', 'dragons': '09', 'caligula': '10', 'heli': '11', 'yacht': '12'}
 
-CSS = """/* SFN-DESIGN-029: day-grid-leadfit · 03.10.2026 */
+CSS = """/* SFN-DESIGN-029: day-grid-fix5 · 03.10.2026 */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%}
@@ -94,7 +95,7 @@ padding:20px var(--pad) 0}
 #p1 #a02 .stand{margin-bottom:10px}
 #p1 #a03{border-right:1px solid var(--hair);padding-right:var(--gut)}
 #p1 #a04 .nmeta{display:none}
-#p1 #a04{grid-template-areas:"n" "h" "ph" "s" "x" "t" "e"}
+#p1 #a04{grid-template-areas:"n" "h" "ph" "s" "t" "e"}
 .hsep{grid-area:hs;border-top:1px solid var(--hair)}
 #p2 .grid{grid-template-areas:"kr kr kr kr kr kr kr kr kr kr kr kr"
  "a05 a05 a05 a05 a05 a05 a05 a05 a05 a05 a05 a05"
@@ -111,7 +112,7 @@ padding:20px var(--pad) 0}
 .m .nn{grid-area:n;display:flex;align-items:baseline;gap:14px;
 border-bottom:1px solid var(--hair);padding-bottom:7px;margin-bottom:10px}
 .m .num{font-family:Anton,sans-serif;font-weight:400;line-height:.84;color:var(--ink);
-font-size:44px;letter-spacing:.01em}
+font-size:38px;letter-spacing:.01em}
 .m .k{font-family:"PT Mono",monospace;font-weight:700;font-size:9.5px;letter-spacing:.24em;
 text-transform:uppercase;color:var(--ox)}
 .m .nmeta{margin-left:auto;align-self:center;font-family:"PT Mono",monospace;font-weight:700;
@@ -128,7 +129,7 @@ color:var(--ink);letter-spacing:.006em;line-height:1.08;margin-bottom:9px}
 .m h3{font-size:clamp(16px,1.75vw,22px);font-weight:600;margin-bottom:7px}
 .m .stand{grid-area:s;font:italic 400 13.5px/1.58 "PT Serif",serif;color:var(--mut);
 border-left:2px solid var(--ox);padding-left:11px;margin-bottom:9px}
-.m .txt,.m .cols2,.m .cols3{grid-area:t;align-self:start}
+.m .txt,.m .cols2,.m .cols3{grid-area:t;align-self:start;margin-top:5px}
 .m .stand{align-self:start}
 .txt p{font:400 14px/1.68 "PT Serif",serif;margin:0 0 8px}
 .cols2{columns:2;column-gap:26px}
@@ -152,22 +153,23 @@ grid-template-rows:auto auto auto auto 1fr;
 grid-template-areas:"n n" "h h" "ph t" "s t" "e e"}
 .t-lead .end{align-self:start}
 .t-lead .nn{border-bottom:3px solid var(--ink)}
-.t-lead .num{font-size:72px;color:var(--ox)}
+.t-lead .num{font-size:56px}
 .t-lead h1{font-size:clamp(21px,2.3vw,30px)}
 .t-lead h1 .ln1{color:var(--ink)}
 .t-lead h1 .ln2{color:var(--ox)}
 .t-side-a{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto 1fr;grid-template-areas:"n" "ph" "h" "s" "t" "e"}
-.t-side-b{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto auto 1fr;grid-template-areas:"n" "h" "x" "s" "t" "ph" "e"}
-.t-wide{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto auto 1fr;grid-template-areas:"n" "h" "s" "ph" "x" "t" "e"}
-.t-wide .num{font-size:56px}
+.t-side-b{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto 1fr;grid-template-areas:"n" "h" "s" "t" "ph" "e"}
+.t-wide{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto 1fr;grid-template-areas:"n" "h" "s" "ph" "t" "e"}
+.t-wide .num{font-size:44px}
 .t-wide h3{font-size:clamp(19px,2.3vw,30px)}
 .t-split{grid-template-columns:1fr;
-grid-template-areas:"n" "h" "s" "ph" "x" "t" "e"}
-.t-split .num{font-size:44px}
+grid-template-areas:"n" "h" "s" "x" "ph" "t" "e"}
+.t-split .num{font-size:38px}
+.t-split .stat b{font-size:clamp(34px,4.2vw,58px)}
 .t-showcase{grid-template-columns:35fr 65fr;column-gap:var(--gut);
 grid-template-rows:auto auto auto auto auto 1fr;
 grid-template-areas:"n n" "h h" "s s" "ph ph" "cap t" "e e"}
-.t-showcase .num{font-size:56px}
+.t-showcase .num{font-size:44px}
 .t-showcase figure{display:contents}
 .t-showcase figure img{grid-area:ph;width:100%;height:auto}
 .t-showcase figcaption{grid-area:cap;margin-top:9px}
@@ -178,7 +180,7 @@ grid-template-areas:"n n" "h h" "s s" "ph ph" "cap t" "e e"}
 grid-template-rows:auto auto auto 1fr auto;
 grid-template-areas:"n n" "h ph" "s ph" "t ph" "e e"}
 .t-finale .nn{border-bottom:3px solid var(--ink)}
-.t-finale .num{font-size:56px;color:var(--ox)}
+.t-finale .num{font-size:44px}
 .t-finale h3{font-size:clamp(18px,2.1vw,27px)}
 #p4 #a12 .ph{margin-right:calc(-1 * var(--pad))}
 /* ==== дословный вынос-якорь (функциональный элемент материала) ==== */
@@ -332,7 +334,7 @@ P.append(f'<article class="m t-split" id="a03">{nn("gas", short=True)}<h3>{g["t"
          f'<div class="stand">{g["s"]}</div>'
          f'{fig("gas", band=True)}'
          f'<div class="stat"><b>$100 000 000</b><small>предыдущая ставка торгов</small></div>'
-         f'{txt("gas", "cols2")}{end()}</article>')
+         f'{txt("gas")}{end()}</article>')
 P.append(f'<article class="m t-wide" id="a04">{nn("kpp", short=True)}<h3>{k["t"]}</h3>'
          f'<div class="stand">{k["s"]}</div>{fig("kpp")}{txt("kpp")}{end()}</article>')
 P.append('</div>')
@@ -409,7 +411,7 @@ P.append('<footer class="colophon"><div>'
          '<a class="backpill" href="newsroom.html">← Посмотреть все выпуски редакции</a></footer>')
 P.append('</section>\n')
 
-P.append('<!-- SFN · 2026 · 029 · day-grid-leadfit -->\n</body>\n</html>\n')
+P.append('<!-- SFN · 2026 · 029 · day-grid-fix5 -->\n</body>\n</html>\n')
 
 html = ''.join(P)
 
@@ -419,7 +421,7 @@ assert html.count('data:image/jpeg;base64,') == 12, 'кадров не 12'
 assert 'style="' not in html, 'inline-стили вернулись'
 for n in range(1, 13):
     assert f'id="a{n:02d}"' in html, f'нет материала a{n:02d}'
-assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-leadfit -->' in html
+assert 'SFN-DESIGN-029: day-grid' in html and '<!-- SFN · 2026 · 029 · day-grid-fix5 -->' in html
 assert '<title>' in html[:4000] and 'viewport' in html[:4000] and 'name="description"' in html[:4000]
 assert 'дизайн и вёрстка — редакция San Fierro News' in html
 assert 'href="newsroom.html"' in html
