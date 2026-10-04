@@ -263,7 +263,7 @@ text-transform:uppercase;text-decoration:none;transition:.2s;white-space:nowrap}
    с небольшой задержкой. Ховер фото — очень лёгкое увеличение scale(1.02) внутри исходного
    контейнера (overflow:hidden): без изменения layout, пропорций, обрезки в покое и скролла.
    Размеры блоков, высота полос, тексты, цвета и геометрия не меняются. */
-@keyframes sfn-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sfn-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes sfn-fade{from{opacity:0}to{opacity:1}}
 .sheet{animation:sfn-rise .65s cubic-bezier(.22,.61,.36,1) both}
 #p2.sheet{animation-delay:.06s}
