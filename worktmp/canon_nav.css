@@ -1,0 +1,94 @@
+/* ==== SFN NAVGLIDE · day-navglide: стрелки вплотную к газете + живой кроссфейд полос (бриф главреда 04.10.2026) ==== */
+/* Меняются только положение стрелок, логика навигации, анимация перехода между
+   полосами и прокрутка; дизайн, тексты, фото, размеры материалов, сетка, цвета,
+   типографика и композиция не тронуты. Режим одной полосы включает скрипт в
+   конце body (html.js-nav): из полос #p1–#p4 в потоке только текущая.
+   Переход — настоящий кроссфейд: уходящая и входящая полосы существуют
+   одновременно. Уходящая становится слоем поверх сцены (.pages-stage =
+   #newspaper, position:relative; page-exit → pageExit: opacity 1→0, .6s) и
+   после анимации снимается из активного состояния (is-off); входящая плавно
+   появляется в потоке: вперёд — page-enter-next → pageEnterNext (opacity 0→1 +
+   translateY(14px→0)), назад — page-enter-prev → pageEnterPrev (opacity 0→1 +
+   translateY(-14px→0)), обе .6s cubic-bezier(.22,.61,.36,1). Одновременно вид
+   плавно (та же кривая, 600мс, rAF) возвращается к началу новой полосы — она
+   всегда открывается сверху, без резкого скачка. Никаких 3D-поворотов,
+   горизонтальных слайдов и мгновенной замены. Без скрипта полосы остаются в
+   обычном потоке, как раньше, навигация скрыта.
+   Навигация фиксирована рядом с газетой и доступна при прокрутке. Широкий
+   экран (≥1300px): ← и → стоят не у краёв монитора, а вплотную к листу — в
+   боковых полях, в 24px от краёв полосы (отсчёт от центральной оси: лист
+   1120px, calc(50% ∓ 640px)), вертикально по центру видимой области;
+   содержимое газеты не перекрывают. Узкий экран: боковых полей нет, поэтому
+   компактный блок ← → автоматически встает у верха экрана. Повторные нажатия
+   во время перехода гасит блокировка busy. Номера полосы рядом со стрелками
+   больше нет — он показывается только на время перехода (блок PAGEINDICATOR
+   ниже). */
+.sheetnav{display:none;position:fixed;z-index:120;top:8px;left:50%;
+transform:translateX(-50%);align-items:center;gap:8px;
+background:var(--paper);border:1.5px solid var(--ink);padding:4px 6px;
+box-shadow:0 6px 18px rgba(20,24,28,.18)}
+.sheetnav .navbtn{width:44px;height:34px;background:var(--paper);border:1.5px solid var(--ink);
+color:var(--ink);font-family:"PT Mono",monospace;font-size:16px;line-height:1;padding:0 0 3px;
+cursor:pointer;transition:background .2s,color .2s,opacity .2s}
+.sheetnav .navbtn:hover:not(:disabled){background:var(--ink);color:var(--paper)}
+.sheetnav .navbtn:focus-visible{outline:2px solid var(--ox);outline-offset:2px}
+.sheetnav .navbtn:disabled{opacity:.28;cursor:default}
+html.js-nav .sheetnav{display:flex}
+html.js-nav{overflow-anchor:none}
+html.js-nav #newspaper.pages-stage{position:relative}
+html.js-nav #newspaper .sheet{margin-top:0}
+html.js-nav #newspaper .sheet.is-off{display:none}
+html.js-nav #newspaper .sheet.is-on{animation:none}
+html.js-nav #newspaper .sheet.is-on *{animation:none}
+html.js-nav #newspaper .sheet.page-exit{position:absolute;top:0;left:0;right:0;z-index:3;
+pointer-events:none;animation:pageExit .6s cubic-bezier(.22,.61,.36,1) both}
+html.js-nav #newspaper .sheet.page-enter-next{z-index:2;
+animation:pageEnterNext .6s cubic-bezier(.22,.61,.36,1) both}
+html.js-nav #newspaper .sheet.page-enter-prev{z-index:2;
+animation:pageEnterPrev .6s cubic-bezier(.22,.61,.36,1) both}
+@keyframes pageEnterNext{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pageEnterPrev{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pageExit{from{opacity:1}to{opacity:0}}
+@media (min-width:1300px){
+html.js-nav .sheetnav{display:contents}
+html.js-nav .sheetnav #navPrev{position:fixed;left:calc(50% - 640px);top:50%;transform:translateY(-50%);
+width:56px;height:56px;font-size:20px;padding:0 0 4px;box-shadow:0 6px 18px rgba(20,24,28,.18)}
+html.js-nav .sheetnav #navNext{position:fixed;right:calc(50% - 640px);top:50%;transform:translateY(-50%);
+width:56px;height:56px;font-size:20px;padding:0 0 4px;box-shadow:0 6px 18px rgba(20,24,28,.18)}
+}
+@media print{
+.sheetnav{display:none!important}
+html.js-nav #newspaper{min-height:0!important}
+html.js-nav #newspaper .sheet{display:block!important;position:relative!important;
+opacity:1!important;transform:none!important}
+}
+/* ==== SFN PAGEINDICATOR · day-pageindicator: временный номер полосы (бриф главреда 04.10.2026) ==== */
+/* Постоянный счётчик N / 4 у стрелок удалён целиком — в навигационном баре не
+   осталось ни его самого, ни пустого места под него. Номер полосы показывается
+   ТОЛЬКО в момент переключения: плашка «ПОЛОСА N / 4» встаёт по центру вверху
+   экрана (position:fixed, pointer-events:none, z-index 10000) — места в макете
+   газеты не занимает, .sheet не сдвигает, стрелки не перекрывает и клики не
+   перехватывает. Стиль газетный: бумажный фон, тёмный моноширинный капс и
+   тонкая красная линейка снизу — без рамок, теней и UI-глянца. Один цикл
+   pageIndicatorInOut 1.6s ease both: появление opacity 0→1 +
+   translateY(-8px→0) (18% ≈ 0.29s), пауза до 70% ≈ 0.83s, уход opacity 1→0 +
+   translateY(0→-8px); по окончании анимации класс show снимается — плашка
+   гаснет целиком (opacity 0 + visibility:hidden), не показывается до следующего
+   переключения, не попадает в выделение текста и в innerText. На
+   узких экранах (<1300px), где компактный блок ← → стоит у самого верха,
+   плашка опускается под него (top:60px), чтобы не ложиться на кнопки. Без
+   скрипта плашки нет вовсе, в печати она скрыта. */
+.page-indicator{display:none;position:fixed;top:24px;left:50%;
+transform:translateX(-50%) translateY(-8px);opacity:0;pointer-events:none;z-index:10000;
+visibility:hidden;font-family:"PT Mono",monospace;font-size:10px;font-weight:700;
+letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:var(--paper);
+border-bottom:2px solid var(--ox);padding:7px 12px;-webkit-user-select:none;user-select:none}
+html.js-nav .page-indicator{display:block}
+html.js-nav .page-indicator.show{visibility:visible;animation:pageIndicatorInOut 1.6s ease both}
+@keyframes pageIndicatorInOut{
+0%{opacity:0;transform:translateX(-50%) translateY(-8px)}
+18%{opacity:1;transform:translateX(-50%) translateY(0)}
+70%{opacity:1;transform:translateX(-50%) translateY(0)}
+100%{opacity:0;transform:translateX(-50%) translateY(-8px)}}
+@media (max-width:1299px){html.js-nav .page-indicator{top:60px}}
+@media print{.page-indicator{display:none!important}
