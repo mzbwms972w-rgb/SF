@@ -1,0 +1,7 @@
+<a class="card" style="--stripe:#c8271e" href="daily-04-10-2026.html">
+      <div class="badgerow"><span class="badge" style="color:#16283c;border-color:#16283c">Ежедневная газета</span></div>
+      <div class="cardmeta mono"><b>04.10.2026</b><span>Лос-Сантос · Сан-Фиерро · Лас-Вентурас</span></div>
+      <div class="cardtitle">Хроника дня: двенадцать кадров воскресенья</div>
+      <div class="carddesc">Дайджест по штату: массовое убийство на трассе Лас-Вентураса, хроника тоннелей Лос-Сантос—Сан-Фиерро, фура на перекрёстке Сан-Фиерро, торги Carsharing Guaranteed за $1.800.000.000 и упавший самолёт в Сан-Фиерро.</div>
+      <div class="cardlink mono">Читать выпуск</div>
+    </a>

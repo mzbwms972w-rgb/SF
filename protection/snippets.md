@@ -78,7 +78,7 @@ RP-чистота соблюдена: никаких «лицензия/CC/copyr
 | 027 | socio-governor-poll.html | governor-poll |
 | 028 | daily-02-10-2026-las-venturas.html | roulette-noir-lv |
 | 029 | daily-03-10-2026.html | day-pageindicator |
-| 030 | (следующий выпуск) | … |
+| 030 | daily-04-10-2026.html | chronicle-digest |
 
 Примечание форензики: номер 029 первоначально собран со слагом `state-broadsheet`;
 после редизайна по брифу главреда (03.10.2026, пересборщик `worktmp/build_daily_0310_state_v2.py`)
