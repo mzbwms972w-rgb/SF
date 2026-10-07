@@ -108,6 +108,10 @@ RP-чистота соблюдена: никаких «лицензия/CC/copyr
 `.logbook/.logrow`, `.hubbtn`, `.tape/.tnum/.t-red/.t-blk/.t-zero`, `.mapframe/.pin/.pinprev/.pvplate`,
 `.lvlegend`, `.tomap/.tomapline`, `.wxcard/.hocard/.wxbin/.hobin/.ho-min/.wx-min`, `.hostars/.hoday`,
 `.sidestrip`, `.fin ttl/.fintext` (класс `.finttl`), `.factrow/.fact`, `.divider`, `.secno/.rubric/.rule`.
+С 04.10.2026 (слаг `redline-report`, выпуск daily-04-10-2026.html, система rlx):
+`.rlx-band/.rlx-spine/.rlx-deck/.rlx-main/.rlx-nav/.rlx-btn/.rlx-flag/.rlx-fig/.rlx-note/.rlx-plate/
+.rlx-kick/.rlx-rule/.rlx-mount/.rlx-biz/.rlx-idx/.rlx-ix`, состояния `st-off/st-in/st-out/st-live`,
+keyframes `rlxBandIn/rlxBandOut/rlxRise/rlxFlag/rlxDraw`.
 Пополнять реестр при каждом новом фирменном элементе; при рефакторе — не удалять записи,
 а помечать датой «имя жило до …».
 
@@ -116,3 +120,4 @@ RP-чистота соблюдена: никаких «лицензия/CC/copyr
 Делается одним коммитом скриптом (добавляет блоки §1 и §3 по номеру из таблицы), после чего
 сразу коммит + тег + манифест.
 | 031 | daily-04-10-2026.html | red-pink-bold |
+| 032 | daily-04-10-2026.html | redline-report |
