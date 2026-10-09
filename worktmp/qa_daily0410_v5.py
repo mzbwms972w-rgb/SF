@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""SFN · QA ежедневного выпуска 04.10.2026, раунд 5 (SFN-DESIGN-034: full-plate).
+"""SFN · QA ежедневного выпуска 09.10.2026, раунд 5 (SFN-DESIGN-034: full-plate).
 
 Запуск:  python3 qa_daily0410_v5.py <путь-к-html> [путь-к-папке-с-12-оригиналами]
 Проверяет бриф главреда от 10.10.2026 («убрать случайные пустоты, кадры — полноценные
@@ -20,7 +20,7 @@ def chk(name, cond, extra=''):
 
 # ---------- 1. штампы, маркеры, мета ----------
 chk('штамп 034 первой строкой CSS', S.lstrip().startswith('<!DOCTYPE html>') and
-    '/* SFN-DESIGN-034: full-plate · 04.10.2026 */' in S[:S.index('</style>')])
+    '/* SFN-DESIGN-034: full-plate · 09.10.2026 */' in S[:S.index('</style>')])
 chk('маркер 034 перед </body>', '<!-- SFN · 2026 · 034 · full-plate -->' in S[-400:])
 chk('нет старых штампов 031/032/033', not re.search(r'SFN-DESIGN-03[123]', S))
 chk('title есть', '<title>' in S[:4000])

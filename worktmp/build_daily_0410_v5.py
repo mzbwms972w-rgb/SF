@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""SFN · сборщик ежедневного выпуска 04.10.2026, раунд 5 (anna-malboro/daily-04-10-2026.html).
+"""SFN · сборщик ежедневного выпуска 09.10.2026, раунд 5 (anna-malboro/daily-04-10-2026.html).
 
 Новая композиционная система «полнополосные кадры» по брифу главреда от 10.10.2026,
 штамп SFN-DESIGN-034. Бриф: убрать случайные пустоты, фотографии — полноценные участники
@@ -37,7 +37,7 @@ UP = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.getcwd(), 'uploads')
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(os.getcwd(), 'out.html')
 assert os.path.isdir(UP), UP
 
-STAMP = '/* SFN-DESIGN-034: full-plate · 04.10.2026 */'
+STAMP = '/* SFN-DESIGN-034: full-plate · 09.10.2026 */'
 MARKER = '<!-- SFN · 2026 · 034 · full-plate -->'
 COPY = '<!-- © 2026 San Fierro News. Дизайн и вёрстка защищены: CC BY-NC-ND 4.0. Копирование и переработка запрещены. -->'
 
@@ -268,7 +268,7 @@ html.sfn-js .rlx-rv{opacity:1}
 """
 
 # ============================== БЛОКИ ==============================
-SPINE = '<div class="rlx-spine" aria-hidden="true"><span>San Fierro News · 04.10.2026</span><b>SFN</b></div>'
+SPINE = '<div class="rlx-spine" aria-hidden="true"><span>San Fierro News · 09.10.2026</span><b>SFN</b></div>'
 
 def fig(mid, alt, cls='', r=None, plate=None, kick=None):
     rv = ' rlx-rv' if r else ''
@@ -300,7 +300,7 @@ B1 = """
 <div class="rlx-intro rlx-rv" data-r="4">
 <p class="rlx-lead-w">Воздушное судно обнаружили прямо внутри тоннеля между Лос-Сантосом и Сан-Фиерро.</p>
 <p class="rlx-tx-w">Как вертолёт оказался в тоннеле — неизвестно. Подробности происшествия к моменту публикации не поступали.</p></div>
-<p class="rlx-meta rlx-rv" data-r="5">Выпуск 04.10.2026 · 12 событий · Лос-Сантос · Сан-Фиерро · Лас-Вентурас</p>
+<p class="rlx-meta rlx-rv" data-r="5">Выпуск 09.10.2026 · 12 событий · Лос-Сантос · Сан-Фиерро · Лас-Вентурас</p>
 </div>
 </div>
 </section>"""
@@ -468,7 +468,7 @@ B6 = """
 <div class="rlx-row r-1"><p class="rlx-sub rlx-rv" data-r="3">Двенадцать событий выпуска — одним списком: от трасс Лас-Вентураса до мэрии Лос-Сантоса.</p></div>
 <div class="rlx-row r-1"><div class="rlx-idx rlx-rv" data-r="4">""" + IDXH + """</div></div>
 <div class="rlx-row r-1"><div class="rlx-colo rlx-rv" data-r="5"><span>San Fierro News — ежедневная редакция</span>
-<span>Выпуск 04.10.2026</span><b class="rlx-mark-s">SFN</b></div></div>
+<span>Выпуск 09.10.2026</span><b class="rlx-mark-s">SFN</b></div></div>
 </div>
 </section>"""
 
@@ -551,8 +551,8 @@ HTML = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>San Fierro News — ежедневный выпуск от 04.10.2026</title>
-<meta name="description" content="Ежедневный выпуск San Fierro News от 04.10.2026: двенадцать событий дня — трассы Лас-Вентураса, тоннель между городами, происшествия Сан-Фиерро и Лос-Сантоса, пляж Санта-Мария и рекордный деловой лот.">
+<title>San Fierro News — ежедневный выпуск от 09.10.2026</title>
+<meta name="description" content="Ежедневный выпуск San Fierro News от 09.10.2026: двенадцать событий дня — трассы Лас-Вентураса, тоннель между городами, происшествия Сан-Фиерро и Лос-Сантоса, пляж Санта-Мария и рекордный деловой лот.">
 <style>""" + CSS + """</style>
 </head>
 <body>
