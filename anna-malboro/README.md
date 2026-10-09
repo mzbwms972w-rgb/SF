@@ -10,8 +10,18 @@
 браузере, в том числе без скачивания:
 
 ```
-https://htmlpreview.github.io/?https://github.com/Wereskkk/San-Fierro-News-Evolve-RP/blob/main/anna-malboro/<имя-файла>.html
+https://mzbwms972w-rgb.github.io/SF/anna-malboro/<имя-файла>.html
 ```
+
+Запасной путь (если Pages недоступен) — превью исходника из этого репозитория:
+
+```
+https://htmlpreview.github.io/?https://github.com/mzbwms972w-rgb/SF/blob/main/anna-malboro/<имя-файла>.html
+```
+
+> Ссылки выше ведут в **действующий** репозиторий редакции (`mzbwms972w-rgb/SF`).
+> Прежний архивный репозиторий `Wereskkk/San-Fierro-News-Evolve-RP` жив и сохранён как история,
+> но газет из этой очереди в нём нет — ссылки на него для новых выпусков не работают.
 
 Папка — **очередь, а не архив**. Архив — корень репозитория и хаб. Всё, что было
 опубликовано до 03.10.2026, уже лежит в корне; через эту папку идут только новые поставки.

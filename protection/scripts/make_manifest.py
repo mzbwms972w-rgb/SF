@@ -24,7 +24,7 @@ for f in sorted(glob.glob('*.html')):
 
 out = {
     'generated': date.today().isoformat(),
-    'repo': 'Wereskkk/San-Fierro-News-Evolve-RP',
+    'repo': 'mzbwms972w-rgb/SF',
     'branch': 'main',
     'issues': len(entries),
     'files': entries,

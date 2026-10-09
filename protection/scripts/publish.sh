@@ -34,4 +34,5 @@ for flag in "$@"; do
   esac
 done
 echo "ОПУБЛИКОВАНО. Ссылки проверки:"
-echo "  https://htmlpreview.github.io/?https://github.com/Wereskkk/San-Fierro-News-Evolve-RP/blob/main/newsroom.html"
+echo "  https://mzbwms972w-rgb.github.io/SF/newsroom.html"
+echo "  https://htmlpreview.github.io/?https://github.com/mzbwms972w-rgb/SF/blob/main/newsroom.html"
