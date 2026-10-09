@@ -35,6 +35,10 @@ for nm, rx in [('Evolve Role Play', r'Evolve\s+Role\s+Play'), ('Evolve RP', r'Ev
                ('Saint-Louis', r'Saint[- ]Louis'), ('слово «чат»', r'\bчат[а-я]*\b'),
                ('underscore в имени', r'[A-Z][a-z]+_[A-Z][a-z]+')]:
     chk('RP-чистота: нет «%s»' % nm, not re.search(rx, vis, re.I))
+# оговорки о незнании (бриф главреда от 10.10.2026: не напоминать читателю о нехватке сведений)
+HEDGE = r'неизвестно|не уточняется|не раскрываются|не поступало|не сообщаются|не приводит|устанавливаются|редакция не сообщает|подробностей нет|данных нет'
+chk('нет оговорок о незнании в видимом тексте', not re.search(HEDGE, vis, re.I),
+    re.search(HEDGE, vis, re.I).group(0) if re.search(HEDGE, vis, re.I) else '')
 
 # ---------- 3. кадры: байт-в-байт, по одному разу, без кропа и растяжения ----------
 blobs = re.findall(r'data:image/(jpeg|png);base64,([A-Za-z0-9+/=]+)', S)
