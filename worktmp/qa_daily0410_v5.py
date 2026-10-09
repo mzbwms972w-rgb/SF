@@ -39,6 +39,17 @@ for nm, rx in [('Evolve Role Play', r'Evolve\s+Role\s+Play'), ('Evolve RP', r'Ev
 HEDGE = r'неизвестно|не уточняется|не раскрываются|не поступало|не сообщаются|не приводит|устанавливаются|редакция не сообщает|подробностей нет|данных нет'
 chk('нет оговорок о незнании в видимом тексте', not re.search(HEDGE, vis, re.I),
     re.search(HEDGE, vis, re.I).group(0) if re.search(HEDGE, vis, re.I) else '')
+# репортаж «Самолёт рухнул в Сан-Фиерро» (бриф главреда от 10.10.2026: 2-3 абзаца, без повторов заголовка)
+m12 = re.search(r'<h3 class="rlx-h3">Самолёт рухнул в Сан-Фиерро</h3>(.*?)</div>', S, re.S)
+if m12:
+    paras = re.findall(r'<p class="rlx-tx">(.*?)</p>', m12.group(1), re.S)
+    txt = ' '.join(re.sub(r'<[^>]+>', '', p) for p in paras)
+    chk('репортаж m12: 2-3 абзаца текста', 2 <= len(paras) <= 3, str(len(paras)))
+    chk('репортаж m12: объём >= 300 знаков', len(txt) >= 300, str(len(txt)))
+    chk('репортаж m12: не повторяет заголовок и подзаголовок',
+        'Самолёт рухнул в Сан-Фиерро' not in txt and 'На месте работают экстренные службы' not in txt)
+else:
+    chk('репортаж m12: материал найден', False)
 
 # ---------- 3. кадры: байт-в-байт, по одному разу, без кропа и растяжения ----------
 blobs = re.findall(r'data:image/(jpeg|png);base64,([A-Za-z0-9+/=]+)', S)
